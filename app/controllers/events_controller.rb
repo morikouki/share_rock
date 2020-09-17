@@ -1,12 +1,17 @@
 class EventsController < ApplicationController
 
 	def index
+		@event = Event.new
+		@events = Event.all
 	end
 
 	def show
 	end
 
 	def create
+		@event = Event.new(event_params)
+		@event.save
+		redirect_to events_path
 	end
 
 	def edit

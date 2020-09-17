@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_031154) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "image"
+    t.string "image_id"
     t.string "title"
     t.text "explanation"
     t.string "prefectures"

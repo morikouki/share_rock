@@ -3,9 +3,52 @@
 <div class="row">
 	<div class="">
 		<h2>イベント登録</h2>
+		<%= form_with model: @event, url: events_path, method: :post do |f| %>
+		<div class="form-group">
+			<%= f.label :image, '写真' %>
+			<%= f.attachment_field :image %>
+		</div>
+		<div class="form-group">
+			<%= f.label :title, 'タイトル' %>
+			<%= f.text_field :title %>
+		</div>
+		<div class="form-group">
+			<%= f.label :explanation, '説明' %>
+			<%= f.text_area :explanation %>
+		</div>
+		<div class="form-group">
+			<%= f.label :prefecture, '開催都道府県' %>
+			<%= f.text_field :prefecture %>
+		</div>
+		<div class="form-group">
+			<%= f.label :address_city, '開催市' %>
+			<%= f.text_field :address_city %>
+		</div>
+		<div class="form-group">
+			<%= f.submit '登録' %>
+		</div>
+		<% end %>
 	</div>
 
 	<div class="">
 		<h2>イベント一覧</h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>画像</th>
+					<th>タイトル</th>
+					<th>説明</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @events.each do |event| %>
+				<tr>
+					<td><%= attachment_image_tag(event, :image, :fill, 60, 60) %></td>
+					<td><%= event.title %></td>
+					<td><%= event.explanation %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
 	</div>
 </div>

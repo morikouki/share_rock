@@ -2,7 +2,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
   def change
     create_table :events do |t|
 
-      t.string :image
+      t.string :image_id
       t.string :title
       t.text :explanation
       t.string :prefectures
