@@ -1,0 +1,29 @@
+<nav>
+  <div class="container nav-box">
+    <div class="navbar-logo">
+      <span>Share_Rock</span>
+    </div>
+    <ul class="nav-list">
+      <li class="nav-item">
+        <%= link_to about_path do %>
+          Share_Rockとは
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to new_user_registration_path do %>
+            新規登録
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to new_user_session_path do %>
+             Sign_in
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to about_path do %>
+             Sign_out
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>

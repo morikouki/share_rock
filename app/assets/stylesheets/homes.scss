@@ -1,0 +1,31 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.flex {
+	display: flex;
+}
+
+.sidebar-left {
+	width: 200px;
+	height: 800px;
+	background-color: #754975;
+	margin-right: 400px;
+}
+
+.sidebar-right {
+	width: 200px;
+	height: 800px;
+	background-color: #3b67bf;
+	margin-left: 400px;
+}
+
+.text-box {
+	margin-top: 200px;
+	margin-left: -400px;
+}
+
+.top-text {
+	font-size: 60px;
+	margin-bottom: 40px;
+}
