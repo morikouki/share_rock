@@ -14,5 +14,29 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery
+//= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
+$(function() {
+  $(document).on('turbolinks:load', () => {
+	  $(function(){
+	    // inputのidから情報の取得
+	    $('#image').on('change', function (e) {
+		// ここから既存の画像のurlの取得
+	    var reader = new FileReader();
+	    reader.onload = function (e) {
+	        $(".img-prev").attr('src', e.target.result);
+	    };
+		// ここまで
+	        reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+		});
+	  });
+
+	  $(function(){
+  		$('.text').on('click', function(){
+  			$('.event-text').slideToggle();
+  		});
+  	   });
+   });
+})
+

@@ -1,0 +1,24 @@
+<%= render 'layouts/nav' %>
+<div class="row">
+	<h2>フェス一覧</h2>
+	<div class="event-contents">
+			<% @events.each do |event| %>
+				<div class="event-box">
+					<%= link_to user_event_path(event) do %>
+						<div class="event-title">
+							<p><%= event.title %></p>
+						</div>
+						<div class="event-image">
+							<%= attachment_image_tag(event, :image, :fill, 330, 250) %>
+						</div>
+					<% end %>
+						<p class="text">説明</p>
+						<%= link_to '削除', event_path(event), method: :delete %>
+					<div class="event-text">
+						開催場所：<%= event.prefectures %>　<%= event.address_city %><br>
+						説明：<%= event.explanation %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+</div>
