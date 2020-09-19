@@ -1,0 +1,25 @@
+<%= render 'layouts/nav' %>
+<div class="row">
+	<div class="post-contants">
+		<h2>コメント</h2>
+		<%= current_user.nickname %><br>
+		<%= attachment_image_tag(@post, :post_image, :fill, 200, 200) %><br>
+		<%= @post.post_text %>
+	</div>
+	
+	<div class="comment-box">
+		<% @post.post_comment.each do |comment| %>
+			<%= comment.comment %>
+		<% end %>
+	</div>
+
+	<div class="comment-form">
+		<%= form_with model:[@event, @post, @comment], url:user_event_post_post_comments_path(@event,@post), local: true do |f| %>
+			<%= f.label :comment, 'コメント' %>
+			<%= f.text_area :comment %>
+			<%= f.submit '送信' %>
+		<% end %>
+	</div>
+
+	
+</div>

@@ -6,7 +6,7 @@ class User::EventsController < ApplicationController
 
 	def show
 		@event = Event.find(params[:id])
-		@post_new = Post.new
+		@post = Post.new
 	end
 
 end

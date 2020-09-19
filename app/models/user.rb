@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, dependent: :destroy
+  has_many :post_comment, dependent: :destroy
+
+  enum sex: {男: 0, 女: 1}
 end

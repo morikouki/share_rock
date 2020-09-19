@@ -9,19 +9,34 @@
 			タイトル：<%= @event.title %><br>
 			説明：<%= @event.explanation %><br>
 			開催都市：<%= @event.prefectures %><%= @event.address_city %>
+				<%= current_user.sex %>
+				<%= current_user.birthday %>
 		</div>
 
 		<p class="post">投稿する</p>
 		<div class="post-form">
-			<%= form_with model:[@event, @post_new], url:user_event_posts_path(@event), local: true do |f| %>
+			<%= form_with model:[@event, @post], url:user_event_posts_path(@event) do |f| %>
 				<%= attachment_image_tag @post, :post_image, fallback: "noimage.jpg", class: "img-prev", size: "300x300" %>
 				<%= f.attachment_field :post_image, id: 'image' %>
+				<%= f.label :post_title, 'タイトル' %>
+				<%= f.text_field :post_title %><br>
 				<%= f.label :post_text, 'コメント' %>
 				<%= f.text_area :post_text %>
 				<%= f.submit '投稿する' %>
 			<% end %>
 		</div>
 
-		
+		<% @event.posts.each do |post| %>
+		<div class='post-box'>
+			<%= post.post_title %>
+			<div class="post-image-box">
+				<%= attachment_image_tag(post, :post_image, :fill, 280, 280) %>
+			</div>
+			<div class="post-text-box">
+				<%= post.post_text %>
+				<%= link_to 'コメントを見る', user_event_post_path(post) %>
+			</div>
+		</div>
+		<% end %>
 	</div>
 </div>

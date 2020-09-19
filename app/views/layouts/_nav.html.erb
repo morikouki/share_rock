@@ -4,26 +4,44 @@
       <span>Share_Rock</span>
     </div>
     <ul class="nav-list">
-      <li class="nav-item">
-        <%= link_to about_path do %>
-          Share_Rockとは
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to new_user_registration_path do %>
-            新規登録
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to new_user_session_path do %>
-             Sign_in
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to about_path do %>
-             Sign_out
-        <% end %>
-      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to my_page_user_users_path do %>
+            マイページへ
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to new_user_registration_path do %>
+              フェス一覧
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to new_user_session_path do %>
+               検索
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, method: :delete do %>
+               Sign_out
+          <% end %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to about_path do %>
+            Share_Rockとは
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to new_user_registration_path do %>
+              新規登録
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to new_user_session_path do %>
+               Sign_in
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>
