@@ -1,4 +1,11 @@
 <div class="row">
 	<h2>マイページ</h2>
-	<%= current_user.nickname %>
+	<div class="my_page_image">
+		<%= attachment_image_tag(current_user, :profile_image, :fill, 100, 100, fallback: 'sweet3.jpg') %><br>
+		<%= current_user.nickname %>
+	</div>
+	<div class="profile_contents">
+		<%= current_user.posts.count %>
+	</div>
+	
 </div>

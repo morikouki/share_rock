@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :post_comment, dependent: :destroy
 
   enum sex: {男: 0, 女: 1}
+
+  attachment :profile_image
 end
