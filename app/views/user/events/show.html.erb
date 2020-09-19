@@ -10,5 +10,18 @@
 			説明：<%= @event.explanation %><br>
 			開催都市：<%= @event.prefectures %><%= @event.address_city %>
 		</div>
+
+		<p class="post">投稿する</p>
+		<div class="post-form">
+			<%= form_with model:[@event, @post_new], url:user_event_posts_path(@event), local: true do |f| %>
+				<%= attachment_image_tag @post, :post_image, fallback: "noimage.jpg", class: "img-prev", size: "300x300" %>
+				<%= f.attachment_field :post_image, id: 'image' %>
+				<%= f.label :post_text, 'コメント' %>
+				<%= f.text_area :post_text %>
+				<%= f.submit '投稿する' %>
+			<% end %>
+		</div>
+
+		
 	</div>
 </div>

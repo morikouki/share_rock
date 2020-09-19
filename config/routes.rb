@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get 'about' => 'homes#about'
 
   namespace :user do
-  	resources :events, only: [:index, :show]
+  	resources :events, only: [:index, :show] do
+  		resources :posts, only: [:show, :create, :edit, :update, :destroy]
+  	end
   end
 
   resources :events, only: [:index, :show, :create, :update, :destroy]

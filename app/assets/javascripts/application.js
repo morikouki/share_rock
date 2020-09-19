@@ -36,7 +36,13 @@ $(function() {
   		$('.text').on('click', function(){
   			$('.event-text').slideToggle();
   		});
-  	   });
+  	  });
+
+  	  $(function(){
+  	  	$('.post').on('click', function(){
+  	  		$('.post-form').slideToggle();
+  	  	});
+  	  });
    });
 })
 
