@@ -68,19 +68,16 @@ footer {
 }
 
 .profile-active {
-	position:fixed;
-    width:600px;
-	height:400px;
-	top:50%;
-	left:50%;
-	margin-left:-300px;
-	margin-top:-200px;
-	margin-bottom: -200px;
-
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 800px;
+	height: 400px;
 	background: #b5c9af;
 	color: #fff;
-	min-height: 100%;
-
 	z-index: 9;
 }
 
