@@ -11,18 +11,10 @@
 		<%= attachment_image_tag @post, :post_image, class: 'post-contants-image' %>
 	</div>
 
-	<div class="favorite-box">
-		<% if @post.favorited_by?(current_user) %>
-			<%= link_to user_event_post_favorites_path(@event, @post), method: :delete do %>
-				<i class="fas fa-heartbeat", style='color:red; font-size:20px;'></i>
-				<%= @post.favorites.count%>
-			<% end %>
-		<% else %>
-			<%= link_to user_event_post_favorites_path(@event, @post), method: :post do %>
-				<i class="fas fa-heartbeat", style='font-size:20px;'></i>
-				<%= @post.favorites.count%>
-			<% end %>
-		<% end %>
+	<div class="favorite"><i class="fas fa-heart", style='font-size:400px;'></i></div>
+
+	<div class="favorite-box favorite-<%= @post.id %>">
+		<%= render 'user/favorites/favorite', post: @post, event: @event %>
 	    <p>お気に入り</p>
 	</div>
 
@@ -38,12 +30,12 @@
 			<p><%= comment.comment %></p>
 			<% if comment.comment_favorited_by?(current_user) %>
 				<%= link_to user_event_post_post_comment_comment_favorites_path(@event, @post, comment), method: :delete do %>
-					<i class="fas fa-heartbeat", style='color:red; font-size:20px;'></i>
+					<i class="fas fa-heart", style='color:red; font-size:20px;'></i>
 					<%= comment.comment_favorites.count%>
 				<% end %>
 			<% else %>
 				<%= link_to user_event_post_post_comment_comment_favorites_path(@event, @post, comment), method: :post do %>
-					<i class="fas fa-heartbeat", style='font-size:20px;'></i>
+					<i class="far fa-heart", style='font-size:20px;'></i>
 					<%= comment.comment_favorites.count%>
 				<% end %>
 			<% end %>
