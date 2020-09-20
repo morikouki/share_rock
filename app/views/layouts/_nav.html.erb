@@ -6,7 +6,7 @@
     <ul class="nav-list">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to my_page_user_users_path do %>
+          <%= link_to  user_user_path(current_user) do %>
             マイページへ
           <% end %>
         </li>

@@ -17,11 +17,8 @@ Rails.application.routes.draw do
         resources :post_comments, only: [:create, :edit, :update, :destroy]
       end
     end
-    resource :users, only: [:edit, :update] do
-      collection do
-        get 'my_page' => 'users#my_page'
-      end
-    end
+    resources :users, only: [:show, :edit, :update]
+    resource :favorites, only: [:create, :destroy]
   end
 
   resources :events, only: [:index, :show, :create, :update, :destroy]

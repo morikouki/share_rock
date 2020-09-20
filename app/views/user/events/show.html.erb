@@ -4,14 +4,12 @@
 	<h2>フェス詳細</h2>
 	<div class="show-container">
 		<div class="event-show-image-box">
-			<%= attachment_image_tag(@event, :image, :fill, 500, 500) %>
+			<%= attachment_image_tag @event, :image, :fill, 500, 500 %>
 		</div>
 		<div class="event-show-text-box">
 			タイトル：<%= @event.title %><br>
 			説明：<%= @event.explanation %><br>
 			開催都市：<%= @event.prefectures %><%= @event.address_city %>
-				<%= current_user.sex %>
-				<%= current_user.birthday %>
 		</div>
 
 		<p class="post">投稿する</p>
@@ -27,17 +25,23 @@
 			<% end %>
 		</div>
 
+		<div class="post-contants">
 		<% @event.posts.each do |post| %>
-		<div class='post-box'>
-			<%= post.post_title %>
-			<div class="post-image-box">
-				<%= attachment_image_tag(post, :post_image, :fill, 280, 280) %>
+			<div class='post-box'>
+				<div class="post-user">
+					<%= link_to user_user_path(post.user) do %>
+						<%= attachment_image_tag post.user, :profile_image, fallback: 'sweet3.jpg', class: 'image-size' %><%= post.user.nickname %>
+					<% end %>
+				</div>
+				<div class="post-image-box">
+					<%= attachment_image_tag(post, :post_image, :fill, 280, 280) %>
+				</div>
+				<div class="post-text-box">
+					<%= post.post_text %>
+					<%= link_to 'コメントを見る', user_event_post_path(post) %>
+				</div>
 			</div>
-			<div class="post-text-box">
-				<%= post.post_text %>
-				<%= link_to 'コメントを見る', user_event_post_path(post) %>
-			</div>
-		</div>
 		<% end %>
+		</div>
 	</div>
 </div>

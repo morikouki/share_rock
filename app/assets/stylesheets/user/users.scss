@@ -2,15 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.my-page-background-box {
+.show-background-box {
 	width: 100%;
 	height: 300px;
 	position: relative;
 	opacity: 0.7;
-
 }
 
-.my-page-image-box {
+.show-image-box {
 	width: 100%;
 	height: 300px;
 	display: flex;
@@ -21,9 +20,9 @@
 	left: 200px;
 }
 
-.my-page-image {
-	width: 200px;
-	height: 200px;
+.show-image {
+	width: 150px;
+	height: 150px;
 	border-radius: 50%;
 }
 
@@ -34,4 +33,25 @@
 .back-image {
 	width: 100%;
 	height: 300px;
+}
+
+.show-post-box {
+	width: 1070px;
+	display: flex;
+}
+
+.image-size {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
+.post-user {
+	height: 40px;
+	display: flex;
+	align-items: center;
+}
+
+.post-box {
+	padding: 10px;
 }

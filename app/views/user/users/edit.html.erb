@@ -1,9 +1,9 @@
 <div class="row">
 	<h2>プロフィール編集</h2>
-	<%= form_with model:current_user, url:user_users_path do |f| %>
+	<%= form_with model:@user, url:user_user_path(@user) do |f| %>
 		<div class="col-xs-12">
 			<div class="form-group">
-				<%= attachment_image_tag current_user, :background, fallback: "noimage.jpg", class: "back-image" %>
+				<%= attachment_image_tag @user, :background, fallback: "noimage.jpg", class: "back-image" %>
 			</div>
 			<div class="form-group">
 				<%= f.attachment_field :background, id: 'back' %>
@@ -12,7 +12,7 @@
 
 		<div class="col-xs-6">
 			<div class="form-group">
-				<%= attachment_image_tag current_user, :profile_image, fallback: "noimage.jpg", class: "img-prev", size: "300x300" %>
+				<%= attachment_image_tag @user, :profile_image, fallback: "noimage.jpg", class: "img-prev", size: "300x300" %>
 			</div>
 			<div class="form-group">
 				<%= f.attachment_field :profile_image, id: 'image' %>

@@ -1,15 +1,18 @@
 class User::UsersController < ApplicationController
 
-	def my_page
+	def show
+		@user = User.find(params[:id])
 	end
 
 	def edit
+		@user = User.find(params[:id])
 
 	end
 
 	def update
-		current_user.update(user_params)
-		redirect_to my_page_user_users_path
+		@user = User.find(params[:id])
+		@user.update(user_params)
+		redirect_to user_user_path(@user)
 
 	end
 
