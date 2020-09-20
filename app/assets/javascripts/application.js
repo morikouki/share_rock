@@ -54,6 +54,31 @@ $(function() {
   		});
 	  });
 
+	  $(function(){
+	  	$('.profile-edit').on('click', function(){
+	  		$('.profile-active').slideToggle();
+	  	});
+	  });
+
+	  $(function(){
+	  	$('#comment').on('click', function(){
+	  		$('.comment-form').slideToggle();
+	  	});
+	  });
+
+	  $(function(){
+	    // inputのidから情報の取得
+	    $('#back').on('change', function (e) {
+		// ここから既存の画像のurlの取得
+	    var reader = new FileReader();
+	    reader.onload = function (e) {
+	        $(".back-image").attr('src', e.target.result);
+	    };
+		// ここまで
+	        reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+		});
+	  });
+
 
    });
 })

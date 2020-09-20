@@ -10,4 +10,5 @@ class User < ApplicationRecord
   enum sex: {男: 0, 女: 1}
 
   attachment :profile_image
+  attachment :background
 end

@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :nickname
       t.string :post_code
-      t.integer :prefecture_code
+      t.string :prefecture_code
       t.string :address_city
       t.integer :sex
       t.date :birthday

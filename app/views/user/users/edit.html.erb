@@ -1,0 +1,56 @@
+<div class="row">
+	<h2>プロフィール編集</h2>
+	<%= form_with model:current_user, url:user_users_path do |f| %>
+		<div class="col-xs-12">
+			<div class="form-group">
+				<%= attachment_image_tag current_user, :background, fallback: "noimage.jpg", class: "back-image" %>
+			</div>
+			<div class="form-group">
+				<%= f.attachment_field :background, id: 'back' %>
+			</div>
+		</div>
+
+		<div class="col-xs-6">
+			<div class="form-group">
+				<%= attachment_image_tag current_user, :profile_image, fallback: "noimage.jpg", class: "img-prev", size: "300x300" %>
+			</div>
+			<div class="form-group">
+				<%= f.attachment_field :profile_image, id: 'image' %>
+			</div>
+		</div>
+		<div class="col-xs-6">
+			<div class="form-group row">
+				<%= f.label 'ニックネーム', class: 'col-xs-3' %>
+				<%= f.text_field :nickname %>
+			</div>
+			<div class="form-group row">
+				<%= f.label '自己紹介', class: 'col-xs-3' %>
+				<%= f.text_area :introduction %>
+			</div>
+			<div class="form-group row">
+				<%= f.label '郵便番号', class: 'col-xs-3' %>
+				<%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", id: "user_postcode" %>
+			</div>
+			<div class="form-group row">
+				<%= f.label '都道府県', class: 'col-xs-3' %>
+				<%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, id: "user_prefecture_code" %>
+			</div>
+			<div class="form-group row">
+				<%= f.label '市町区村', class: 'col-xs-3' %>
+				<%= f.text_field :address_city, autocomplete: 'address_city', id: "user_address_city" %>
+			</div>
+			<div class="form-group row">
+			    <%= f.label '性別', class: 'col-xs-3' %>
+			    <%= f.radio_button :sex, :男, checked: true %>
+			    <%= f.label :sex, '男' %>
+			    <%= f.radio_button :sex, :女 %>
+			    <%= f.label :sex, '女' %>
+			</div>
+			<div class="form-group row">
+			    <%= f.label '生年月日', class: 'col-xs-3' %>
+			    <%= f.date_select :birthday, use_month_numbers: true,start_year: 1960, end_year: (Time.now.year), default: Date.new(2000, 1, 1) %>
+			</div>
+		</div>
+		<%= f.submit '更新' %>
+	<% end %>
+</div>
