@@ -14,11 +14,13 @@ Rails.application.routes.draw do
   namespace :user do
   	resources :events, only: [:index, :show] do
   	  resources :posts, only: [:show, :create, :edit, :update, :destroy] do
-        resources :post_comments, only: [:create, :edit, :update, :destroy]
+        resource :favorites, only: [:create, :destroy]
+        resources :post_comments, only: [:create, :edit, :update, :destroy] do
+          resource :comment_favorites, only: [:create, :destroy]
+        end
       end
     end
     resources :users, only: [:show, :edit, :update]
-    resource :favorites, only: [:create, :destroy]
   end
 
   resources :events, only: [:index, :show, :create, :update, :destroy]

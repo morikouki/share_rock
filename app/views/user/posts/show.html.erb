@@ -3,8 +3,8 @@
 <div class="row">
 	<h2>コメント</h2>
 	<div class="post-contants-name">
-		<%= attachment_image_tag current_user, :profile_image, :fill, 30, 30, fallback: 'sweet3.jpg', class: "profile-image" %>
-		<p class="col-xs-3"><%= current_user.nickname %></p>
+		<%= attachment_image_tag @post.user, :profile_image, :fill, 30, 30, fallback: 'sweet3.jpg', class: "profile-image" %>
+		<p class="col-xs-3"><%= @post.user.nickname %></p>
 	</div>
 
 	<div class="post-contants-image-box">
@@ -12,7 +12,18 @@
 	</div>
 
 	<div class="favorite-box">
-		<p>いいね　お気に入り</p>
+		<% if @post.favorited_by?(current_user) %>
+			<%= link_to user_event_post_favorites_path(@event, @post), method: :delete do %>
+				<i class="fas fa-heartbeat", style='color:red; font-size:20px;'></i>
+				<%= @post.favorites.count%>
+			<% end %>
+		<% else %>
+			<%= link_to user_event_post_favorites_path(@event, @post), method: :post do %>
+				<i class="fas fa-heartbeat", style='font-size:20px;'></i>
+				<%= @post.favorites.count%>
+			<% end %>
+		<% end %>
+	    <p>お気に入り</p>
 	</div>
 
 	<div class="post-text-box">
@@ -20,11 +31,22 @@
 		<%= @post.post_text %>
 	</div>
 
-	<% @post.post_comment.each do |comment| %>
+	<% @post.post_comments.each do |comment| %>
 		<div class="comment-box">
-			<%= attachment_image_tag @post.user, :profile_image, :fill, 30, 30, fallback: 'sweet3.jpg', class: "profile-image" %>
-			<%= @post.user.nickname %>
+			<%= attachment_image_tag comment.user, :profile_image, :fill, 30, 30, fallback: 'sweet3.jpg', class: "profile-image" %>
+			<%= comment.user.nickname %>
 			<p><%= comment.comment %></p>
+			<% if comment.comment_favorited_by?(current_user) %>
+				<%= link_to user_event_post_post_comment_comment_favorites_path(@event, @post, comment), method: :delete do %>
+					<i class="fas fa-heartbeat", style='color:red; font-size:20px;'></i>
+					<%= comment.comment_favorites.count%>
+				<% end %>
+			<% else %>
+				<%= link_to user_event_post_post_comment_comment_favorites_path(@event, @post, comment), method: :post do %>
+					<i class="fas fa-heartbeat", style='font-size:20px;'></i>
+					<%= comment.comment_favorites.count%>
+				<% end %>
+			<% end %>
 		</div>
 	<% end %>
 
