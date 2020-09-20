@@ -1,7 +1,10 @@
 <%= render 'layouts/nav' %>
 <div class="row">
 	<h2>マイページ</h2>
-	<div class="my-page-image-box" style='background-image: url(#{<%= current_user.background %>});'>
+	<div class="my-page-background-box">
+		<%= attachment_image_tag current_user, :background, class: 'back-image' %>
+	</div>
+	<div class="my-page-image-box">
 		<%= attachment_image_tag current_user, :profile_image, fallback: 'sweet3.jpg', class: 'my-page-image' %><br>
 		<p class="col-xs-4"><%= current_user.nickname %></p>
 		<%= link_to 'プロフィール編集', edit_user_users_path %>
