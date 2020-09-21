@@ -6,10 +6,10 @@
 		<h2><%= @user.nickname %>さんのプロフィール</h2>
 	<% end %>
 	<div class="show-background-box">
-		<%= attachment_image_tag @user, :background,fallback: 'sweet3.jpg', class: 'back-image' %>
+		<%= attachment_image_tag @user, :background, fallback: 'Share.png', class: 'back-image' %>
 	</div>
 	<div class="show-image-box">
-		<%= attachment_image_tag @user, :profile_image, fallback: 'sweet3.jpg', class: 'show-image' %><br>
+		<%= attachment_image_tag @user, :profile_image, fallback: 'Share.png', class: 'show-image' %><br>
 		<p class="col-xs-4"><%= @user.nickname %></p>
 		<%= link_to 'プロフィール編集', edit_user_user_path(@user) %>
 
@@ -54,11 +54,19 @@
 				</tr>
 				<tr>
 					<th>フォロワー数</th>
-					<td><%= @user.follower.count %></td>
+					<td>
+						<%= link_to user_user_follower_path(@user) do %>
+							<%= @user.follower.count %>
+						<% end %>
+					</td>
 				</tr>
 				<tr>
 					<th>フォロー数</th>
-					<td><%= @user.following.count %></td>
+					<td>
+						<%= link_to user_user_followings_path(@user) do %>
+							<%= @user.following.count %>
+						<% end %>
+					</td>
 				</tr>
 			</tbody>
 		</table>

@@ -5,7 +5,7 @@
 		<h2>イベント登録</h2>
 		<%= form_with model: @event, url: events_path, method: :post do |f| %>
 			<div class="form-group">
-				<%= attachment_image_tag @event, :image, fallback: "noimage.jpg", class: "img-prev", size: "300x300" %>
+				<%= attachment_image_tag @event, :image, fallback: "Share.png", class: "img-prev", size: "300x300" %>
 			</div>
 			<div class="form-group">
 			 	<%= f.attachment_field :image, id: 'image' %>

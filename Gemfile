@@ -69,3 +69,4 @@ gem "refile-mini_magick"
 gem 'pry-byebug'
 gem 'jp_prefecture'
 gem 'enum_help'
+gem 'ransack'

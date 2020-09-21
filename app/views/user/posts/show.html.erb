@@ -3,7 +3,7 @@
 <div class="row">
 	<h2>コメント</h2>
 	<div class="post-contants-name">
-		<%= attachment_image_tag @post.user, :profile_image, :fill, 30, 30, fallback: 'sweet3.jpg', class: "profile-image" %>
+		<%= attachment_image_tag @post.user, :profile_image, :fill, 30, 30, fallback: 'Share.png', class: "profile-image" %>
 		<p class="col-xs-3"><%= @post.user.nickname %></p>
 	</div>
 
@@ -25,7 +25,7 @@
 
 	<% @post.post_comments.each do |comment| %>
 		<div class="comment-box">
-			<%= attachment_image_tag comment.user, :profile_image, :fill, 30, 30, fallback: 'sweet3.jpg', class: "profile-image" %>
+			<%= attachment_image_tag comment.user, :profile_image, :fill, 30, 30, fallback: 'Share.png', class: "profile-image" %>
 			<%= comment.user.nickname %>
 			<p><%= comment.comment %></p>
 			<div class="comment-favorite-box comment-favorite-<%= comment.id %>">

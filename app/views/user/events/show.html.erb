@@ -15,7 +15,7 @@
 		<p class="post">投稿する</p>
 		<div class="post-form">
 			<%= form_with model:[@event, @post], url:user_event_posts_path(@event) do |f| %>
-				<%= attachment_image_tag @post, :post_image, fallback: "noimage.jpg", class: "img-prev", size: "300x300" %>
+				<%= attachment_image_tag @post, :post_image, fallback: "Share.png", class: "img-prev", size: "300x300" %>
 				<%= f.attachment_field :post_image, id: 'image' %>
 				<%= f.label :post_title, 'タイトル' %>
 				<%= f.text_field :post_title %><br>
@@ -30,7 +30,7 @@
 			<div class='user-post-box'>
 				<div class="post-user">
 					<%= link_to user_user_path(post.user) do %>
-						<%= attachment_image_tag post.user, :profile_image, fallback: 'sweet3.jpg', class: 'image-size' %><%= post.user.nickname %>
+						<%= attachment_image_tag post.user, :profile_image, fallback: 'Share.png', class: 'image-size' %><%= post.user.nickname %>
 					<% end %>
 				</div>
 				<div class="user-post-image-box">
