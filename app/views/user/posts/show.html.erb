@@ -28,17 +28,9 @@
 			<%= attachment_image_tag comment.user, :profile_image, :fill, 30, 30, fallback: 'sweet3.jpg', class: "profile-image" %>
 			<%= comment.user.nickname %>
 			<p><%= comment.comment %></p>
-			<% if comment.comment_favorited_by?(current_user) %>
-				<%= link_to user_event_post_post_comment_comment_favorites_path(@event, @post, comment), method: :delete do %>
-					<i class="fas fa-heart", style='color:red; font-size:20px;'></i>
-					<%= comment.comment_favorites.count%>
-				<% end %>
-			<% else %>
-				<%= link_to user_event_post_post_comment_comment_favorites_path(@event, @post, comment), method: :post do %>
-					<i class="far fa-heart", style='font-size:20px;'></i>
-					<%= comment.comment_favorites.count%>
-				<% end %>
-			<% end %>
+			<div class="comment-favorite-box comment-favorite-<%= comment.id %>">
+				<%= render 'user/comment_favorites/favorite', comment: comment, post: @post, event: @event %>
+			</div>
 		</div>
 	<% end %>
 

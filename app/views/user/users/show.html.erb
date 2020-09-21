@@ -43,14 +43,17 @@
 		</table>
 	</div>
 	<h4>投稿一覧</h4>
-	<div class="show-post-box">
+	<div class="show-post-contants">
 		<% @user.posts.each do |post| %>
-			<div class='post-box'>
+			<div class='show-post-box'>
 				<%= post.post_title %>
-				<div class="post-image-box">
+				<div class="show-post-image-box">
 					<%= attachment_image_tag(post, :post_image, :fill, 280, 280) %>
 				</div>
-				<div class="post-text-box">
+				<div class="show-post-favorite-box">
+					<i class="fas fa-heart", style='color:red; font-size:20px;'></i><%= post.favorites.count %>
+				</div>
+				<div class="show-post-text-box">
 					<%= post.post_text %>
 					<%= link_to 'コメントを見る', user_event_post_path(post.event, post) %>
 				</div>

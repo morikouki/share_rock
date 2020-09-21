@@ -3,7 +3,32 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.post-contants {
+.user-post-contants, .user-event-contents {
 	width: 1070px;
+	margin: 0 auto;
 	display: flex;
+	flex-flow: row wrap;
+}
+
+.user-post-box, .user-event-box {
+	width: 300px;
+	height: 500px;
+	padding: 10px;
+	margin: 15px;
+	background-color: #a1c5d4;
+}
+
+.user-post-favorite-box, .user-event-post-box {
+	padding-top: 5px;
+}
+
+.user-event-image-box, .user-post-image-box {
+	width: 280px;
+	height: 280px;
+	margin: 0 auto;
+}
+
+.user-event-image, .user-post-image {
+	width: 280px;
+	height: 280px;
 }
