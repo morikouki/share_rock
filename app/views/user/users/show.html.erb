@@ -1,6 +1,10 @@
 <%= render 'layouts/nav' %>
 <div class="row">
-	<h2>マイページ</h2>
+	<% if @user == current_user %>
+		<h2>マイページ</h2>
+	<% else %>
+		<h2><%= @user.nickname %>さんのプロフィール</h2>
+	<% end %>
 	<div class="show-background-box">
 		<%= attachment_image_tag @user, :background, class: 'back-image' %>
 	</div>
