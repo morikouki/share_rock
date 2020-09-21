@@ -11,16 +11,16 @@ class User < ApplicationRecord
 
   has_many :follower, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
   has_many :following, class_name: 'Relationship', foreign_key: 'following_id', dependent: :destroy
-  has_many :follower_user, througth: :following, source: :follower
-  has_many :following_user, througth: :follower, source: :following
+  has_many :follower_user, through: :follower, source: :following
+  has_many :following_user, through: :following, source: :follower
 
   def follow(user_id)
-    follower.create(following_id: user_id)
+    following.create(follower_id: user_id)
   end
   
   # ユーザーのフォローを外す
   def unfollow(user_id)
-    follower.find_by(following_id: user_id).destroy
+    following.find_by(follower_id: user_id).destroy
   end
   
   # フォローしていればtrueを返す
