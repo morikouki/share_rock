@@ -1,0 +1,4 @@
+<% @events.each do |event| %>
+	<%= attachment_image_tag event, :image, :fill, 100, 100 %>
+	<%= event.title %>
+  <% end %>

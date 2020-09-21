@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       get 'folowing' => 'relationships#following', as: 'followings'
     end
     get 'search' => 'search#search'
+    get 'index' => 'search#index'
   end
 
   resources :events, only: [:index, :show, :create, :update, :destroy]
