@@ -28,6 +28,13 @@ Rails.application.routes.draw do
     end
     get 'search' => 'search#search'
     get 'index' => 'search#index'
+    get 'kanto' => 'search#kanto'
+    get 'hokkaido' => 'search#hokkaido'
+    get 'tohoku' => 'search#tohoku'
+    get 'chubu' => 'search#chubu'
+    get 'kinki' => 'search#kinki'
+    get 'chugoku_shikoku' => 'search#chugoku_shikoku'
+    get 'kyusyu_okinawa' => 'search#kyusyu_okinawa'
   end
 
   resources :events, only: [:index, :show, :create, :update, :destroy]
