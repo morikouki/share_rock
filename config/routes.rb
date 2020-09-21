@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: "users/sessions",
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
       get 'follower' => 'relationships#follower', as: 'follower'
       get 'folowing' => 'relationships#following', as: 'followings'
     end
+    get 'search' => 'search#search'
   end
 
   resources :events, only: [:index, :show, :create, :update, :destroy]
