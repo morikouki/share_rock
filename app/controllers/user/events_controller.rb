@@ -7,7 +7,7 @@ class User::EventsController < ApplicationController
 	def show
 		@event = Event.find(params[:id])
 		@post = Post.new
-		@post.images.build
+		@post.post_images.build
 	end
 
 end
