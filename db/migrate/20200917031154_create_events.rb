@@ -7,7 +7,8 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.text :explanation
       t.string :prefectures
       t.string :address_city
-      t.date :event_date
+      t.date :start_date
+      t.date :end_date
       t.timestamps
     end
   end

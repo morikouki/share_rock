@@ -16,7 +16,10 @@
 		<div class="post-form">
 			<%= form_with model:[@event, @post], url:user_event_posts_path(@event) do |f| %>
 				<%= attachment_image_tag @post, :post_image, fallback: "Share.png", class: "img-prev", size: "300x300" %>
-				<%= f.attachment_field :post_image, id: 'image' %>
+				<%= f.fields_for :images do |i| %>
+				<%= i.attachment_field :image, multiple: true, name: "images[image][]", id: 'image' %>
+				<%= i.attachment_field :image, multiple: true, name: "images[image][]", id: 'image' %>
+				<% end %>
 				<%= f.label :post_title, 'タイトル' %>
 				<%= f.text_field :post_title %><br>
 				<%= f.label :post_text, 'コメント' %>
@@ -33,15 +36,19 @@
 						<%= attachment_image_tag post.user, :profile_image, fallback: 'Share.png', class: 'image-size' %><%= post.user.nickname %>
 					<% end %>
 				</div>
-				<div class="user-post-image-box">
-					<%= attachment_image_tag post, :post_image, class: 'user-post-image' %>
+				<div class="user-post-image-box bxslider ">
+					<% post.images.each do |image| %>
+						<%= attachment_image_tag image, :image, class: 'user-post-image' %>
+					<% end %>
 				</div>
+
+			</div>
 				<div class="user-post-favorite-boxn favorite-<%= post.id %>">
 					<%= render 'user/favorites/favorite', post: post, event: @event %>
 				</div>
 				<div class="user-post-text-box">
 					<%= post.post_text %>
-					<%= link_to 'コメントを見る', user_event_post_path(post) %>
+					<%= link_to 'コメントを見る', user_event_post_path(@event, post) %>
 				</div>
 			</div>
 		<% end %>

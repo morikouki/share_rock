@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .event-contents {
-	width: 1070px;
+	width: 100%;
 	margin: 0 auto;
 	display: flex;
 	flex-flow: row wrap;
@@ -11,8 +11,7 @@
 
 .event-box {
 	width: 350px;
-	height: 500px;
-	margin: 0 10px;
+	margin: 10px 10px;
 	background-color: #a1c5d4;
 }
 
@@ -59,7 +58,6 @@
 
 .post-box {
 	width: 300px;
-	height: 500px;
 	margin: 0 10px;
 	background-color: #a1c5d4;
 }
