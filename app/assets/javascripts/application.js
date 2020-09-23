@@ -23,7 +23,7 @@
 //= require bxslider
 //= require_tree .
 $(function() {
-  $(document).on('turbolinks:load', () => {
+  $(document).on('turbolinks:load', function() {
 	  $(function(){
 	    // inputのidから情報の取得
 	    $('#image').on('change', function (e) {
