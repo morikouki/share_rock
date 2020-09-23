@@ -74,3 +74,7 @@ gem 'jcanvas-rails', '~> 0.1.0'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'bxslider-rails'
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
