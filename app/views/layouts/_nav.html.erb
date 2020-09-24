@@ -1,43 +1,44 @@
 <nav>
   <div class="container nav-box">
     <div class="navbar-logo">
+      <img src="/assets/Share.png", width="70px", height="70px">
       <span>Share_Rock</span>
     </div>
     <ul class="nav-list">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to  user_user_path(current_user) do %>
+          <%= link_to  user_user_path(current_user), class: 'link-color' do %>
             マイページへ
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to new_user_registration_path do %>
+          <%= link_to new_user_registration_path, class: 'link-color' do %>
               フェス一覧
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to user_search_path do %>
+          <%= link_to user_search_path, class: 'link-color' do %>
                検索
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to destroy_user_session_path, method: :delete do %>
+          <%= link_to destroy_user_session_path, method: :delete, class: 'link-color' do %>
                Sign_out
           <% end %>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to about_path do %>
+          <%= link_to about_path, class: 'link-color' do %>
             Share_Rockとは
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to new_user_registration_path do %>
+          <%= link_to new_user_registration_path, class: 'link-color' do %>
               新規登録
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to new_user_session_path do %>
+          <%= link_to new_user_session_path, class: 'link-color' do %>
                Sign_in
           <% end %>
         </li>

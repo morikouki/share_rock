@@ -1,10 +1,13 @@
-<div class="row">
-	<div class="profile-box">
-		<%= attachment_image_tag current_user, :profile_image, :fill, 30, 30, fallback: 'Share.png', class: "profile-image" %>
-		<p class="col-xs-3"><%= current_user.nickname %></p>
-		<p class="profile-edit col-xs-offset-6">編集</p>
-	</div>
-	<div class="profile-active">
-		
-	</div>
+<div class="profile-box">
+	<%= attachment_image_tag current_user, :profile_image, fallback: 'Share.png', class: "profile-image" %>
+	<p class="col-xs-3"><%= current_user.nickname %></p>
+	<%= link_to user_user_follower_path(current_user), class: 'link-color col-xs-3' do %>
+		フォロワー：<%= current_user.follower.count %>
+	<% end %>
+	<%= link_to user_user_followings_path(current_user), class: 'link-color col-xs-3' do %>
+		フォロー中：<%= current_user.following.count %>
+	<% end %>
+	<button class="profile-edit col-xs-offset-4 col-xs-4">プロフィール編集</button>
+</div>
+<div class="profile-active">
 </div>

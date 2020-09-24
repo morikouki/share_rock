@@ -1,7 +1,6 @@
-<%= render 'layouts/nav' %>
 <%= render 'user/users/profile' %>
 <div class="row">
-	<h2>フェス詳細</h2>
+	<h2><%= @event.title %>詳細</h2>
 	<div class="show-container">
 		<div class="event-show-image-box">
 			<%= attachment_image_tag @event, :image, :fill, 500, 500 %>
@@ -19,8 +18,9 @@
 					<%= attachment_image_tag image, :image, fallback: "Share.png", class: "img-prev", size: "300x300" %>
 				<% end %>
 				<%= f.fields_for :post_images do |i| %>
-				<%= i.attachment_field :image, multiple: true, name: "post_images[image][]", id: 'image' %>
-				<%= i.attachment_field :image, multiple: true, name: "post_images[image][]", id: 'image' %>
+					<%= i.attachment_field :image, multiple: true, name: "post_images[image][]", id: 'image' %>
+					<%= i.attachment_field :image, multiple: true, name: "post_images[image][]", id: 'image' %>
+					<%= i.attachment_field :image, multiple: true, name: "post_images[image][]", id: 'image' %>
 				<% end %>
 				<%= f.label :post_title, 'タイトル' %>
 				<%= f.text_field :post_title %><br>
