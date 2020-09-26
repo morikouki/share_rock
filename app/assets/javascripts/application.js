@@ -87,6 +87,7 @@ $(function() {
 	 $(function(){
 	 	$('#calendar').fullCalendar({
                 events: '/user/events.json',
+
                 //カレンダー上部を年月で表示させる
                 titleFormat: 'YYYY年 M月',
                 //曜日を日本語表示
@@ -95,7 +96,7 @@ $(function() {
                 header: {
                    left: 'prev,next today',
 			       center: 'title',
-			       　right: 'month,agendaWeek,agendaDay'
+			       right: 'month,agendaWeek,agendaDay'
                 },
                 //終了時刻がないイベントの表示間隔
                 defaultTimedEventDuration: '03:00:00',
@@ -123,6 +124,7 @@ $(function() {
                 }
             });
 	 	});
+
 	 $(function(){
 		 $('.bxslider').bxSlider({
 		    auto: false,            // 自動スライド

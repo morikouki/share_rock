@@ -1,6 +1,7 @@
 <%= render 'user/users/profile' %>
 <div class="row">
-	<h2>フェス一覧</h2>
+
+	<h2><%= params[:year] %>フェス一覧</h2>
 
 	<div class="user-event-contents col-xs-8">
 		<% @events.each do |event| %>
@@ -27,10 +28,11 @@
 	</div>
 	<div id="calendar" class="col-xs-6"></div>
 
-	<div class="year-search-box col-xs-offset-2 col-xs-3">
-		<p class="year-text"><%= link_to '2020年', user_events_path(year: 0), class: 'link-color' %></p>
-		<p class="year-text"><%= link_to '2019年', user_events_path(year: 1), class: 'link-color' %></p>
-		<p class="year-text"><%= link_to '2018年', user_events_path(year: 2), class: 'link-color' %></p>
-		<p class="year-text"><%= link_to '2017年', user_events_path(year: 3), class: 'link-color' %></p>
+	<div class="year-search-box col-xs-offset-2 col-xs-3 text-center">
+		<h4>-- 開催年で見る --</h4>
+		<p class="year-text"><%= link_to '<< 2020年開催 >>', user_events_path(year: '2020年'), class: 'link-color' %></p>
+		<p class="year-text"><%= link_to '<< 2019年開催 >>', user_events_path(year: '2019年'), class: 'link-color' %></p>
+		<p class="year-text"><%= link_to '<< 2018年開催 >>', user_events_path(year: '2018年'), class: 'link-color' %></p>
+		<p class="year-text"><%= link_to '<< 2017年開催 >>', user_events_path(year: '2017年'), class: 'link-color' %></p>
 	</div>
 </div>

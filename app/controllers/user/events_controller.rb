@@ -3,13 +3,13 @@ class User::EventsController < ApplicationController
 	def index
 		
 		case params[:year]
-		when '0'
+		when '2020年'
 			@events = Event.where("start_date LIKE?", "%2020%")
-		when '1'
+		when '2019年'
 			@events = Event.where("start_date LIKE?", "%2019%")
-		when '2'
+		when '2018年'
 			@events = Event.where("start_date LIKE?", "%2018%")
-		when '3'
+		when '2017年'
 			@events = Event.where("start_date LIKE?", "%2017%")
 		else
 		    @events = Event.all
