@@ -1,7 +1,6 @@
 class User::EventsController < ApplicationController
 
 	def index
-		
 		case params[:year]
 		when '2020年'
 			@events = Event.where("start_date LIKE?", "%2020%")
@@ -14,6 +13,8 @@ class User::EventsController < ApplicationController
 		else
 		    @events = Event.all
 		end
+
+		 @events = @events.page(params[:page]).reverse_order
 	end
 
 	def show
