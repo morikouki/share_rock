@@ -31,7 +31,7 @@
 		</div>
 
 		<div class="user-post-contants">
-		<% @event.posts.each do |post| %>
+		<% @posts.each do |post| %>
 			<div class='user-post-box'>
 				<div class="post-user">
 					<%= link_to user_user_path(post.user) do %>
@@ -53,5 +53,6 @@
 			</div>
 		<% end %>
 		</div>
+		<%= paginate @posts %>
 	</div>
 </div>

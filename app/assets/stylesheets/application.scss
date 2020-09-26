@@ -18,7 +18,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-nav {
+.share-rock-nav {
 	height: 120px;
 	background: #76549e;
 	display: flex;
@@ -98,6 +98,20 @@ footer {
 
 #user_prefecture_code {
 	width: 155px;
+}
+
+// kaminari_paginate
+.pagination{
+  margin: auto;
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.pagination span{
+  text-align: center;
+  width: 50px;
+  color: rgb(197, 20, 159);
 }
 
 

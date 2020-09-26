@@ -21,6 +21,8 @@ class User::EventsController < ApplicationController
 		@event = Event.find(params[:id])
 		@post = Post.new
 		@post.post_images.build
+		@posts = @event.posts
+		@posts = @posts.page(params[:page]).per(4)
 	end
 
 end
