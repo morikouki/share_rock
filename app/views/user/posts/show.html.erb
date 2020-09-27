@@ -1,12 +1,11 @@
 <%= render 'user/users/profile' %>
 <div class="row">
 	<h2>コメント</h2>
-	<div class="post-contants-name">
-		<%= attachment_image_tag @post.user, :profile_image, :fill, 30, 30, fallback: 'Share.png', class: "profile-image" %>
-		<p class="col-xs-3"><%= @post.user.nickname %></p>
+	<div class="post-contants-name-box" id="comment-count-<%= @post.id %>">
+		<%= render 'user/posts/comment-count', post: @post %>
 	</div>
 
-	<div class="post-contants-image-box">
+	<div class="post-contants-image-box post-bxslider">
 		<% @post.post_images.each do |image| %>
 			<%= attachment_image_tag image, :image, class: 'post-contants-image' %>
 		<% end %>
@@ -16,7 +15,7 @@
 
 	<div class="favorite-box favorite-<%= @post.id %>">
 		<%= render 'user/favorites/favorite', post: @post, event: @event %>
-	    <p>お気に入り</p>
+		<span class="col-xs-offset-4" id="comment">コメントする</span>
 	</div>
 
 	<div class="post-text-box">
@@ -24,26 +23,22 @@
 		<%= @post.post_text %>
 	</div>
 
-	<% @post.post_comments.each do |comment| %>
-		<div class="comment-box">
-			<%= attachment_image_tag comment.user, :profile_image, :fill, 30, 30, fallback: 'Share.png', class: "profile-image" %>
-			<%= comment.user.nickname %>
-			<p><%= comment.comment %></p>
-			<div class="comment-favorite-box comment-favorite-<%= comment.id %>">
-				<%= render 'user/comment_favorites/favorite', comment: comment, post: @post, event: @event %>
-			</div>
-		</div>
-	<% end %>
-
-	<p id='comment'>コメントする</p>
-
-	<div class="comment-form">
-		<%= form_with model:[@event, @post, @comment], url:user_event_post_post_comments_path(@event,@post), local: true do |f| %>
-			<%= f.label :comment, 'コメント' %>
-			<%= f.text_area :comment %>
-			<%= f.submit '送信' %>
-		<% end %>
+	<div id="comment<%= @post.id %>">
+		<%= render 'user/post_comments/comment', comments: @post.post_comments, post: @post, event: @event %>
 	</div>
+
+	<div id="comment-form-box" class="balloon3-right-btm">
+		<i class="fas fa-times-circle" id="comment-form-close-btn" style="font-size: 25px;"></i>
+		<div class="comment-form text-center">
+			<%= form_with model:[@event, @post, @comment], url:user_event_post_post_comments_path(@event, @post), remote: true, class:'form-comment' do |f| %>
+				<%= f.label :comment, 'コメント' %>
+				<%= f.submit '送信' %><br>
+				<%= f.text_area :comment, size:'70x6' %>
+			<% end %>
+		</div>
+	</div>
+
+	
 
 
 </div>

@@ -2,6 +2,8 @@ class User::UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@artist = Artist.new
+		@artists = @user.artists
 	end
 
 	def edit

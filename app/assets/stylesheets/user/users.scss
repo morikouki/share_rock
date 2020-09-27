@@ -107,3 +107,45 @@
 	margin-left: -30px;
 	font-size: 15px;
 }
+
+#artist-box {
+	padding: 30px 30px;
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 800px;
+	height: 400px;
+	background: #b5c9af;
+	z-index: 9;
+	display: none;
+}
+
+.artist-form {
+	width: 100%;
+	margin: 0 auto;
+	padding: 25px 0;
+	display: flex;
+	justify-content: center;
+}
+
+.like-artist-text {
+	margin: 15px 0;
+}
+
+#artist-box-close-btn {
+	font-size: 25px;
+}
+
+.profile-contents-artist-box {
+	padding: 45px 0 ;
+}
+
+.profile-contents-artist-text-box {
+	display: flex;
+	align-items: center;
+	justify-content: space-arround;
+	flex-wrap: wrap;
+}

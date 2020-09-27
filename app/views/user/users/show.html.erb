@@ -9,19 +9,44 @@
 	</div>
 	<div class="show-image-box col-xs-offset-1">
 		<%= attachment_image_tag @user, :profile_image, fallback: 'Share.png', class: 'show-image' %>
-		<% if current_user.following?(@user) %>
-			<%= link_to user_user_relationships_path(@user), method: :delete, class: 'link-color link-group col-xs-offset-2' do %>
-				<p>フォローを外す</p>
-			<% end %>
+		<% if @user == current_user %>
+			<p id="artist-btn" class="col-xs-offset-2">好きなアーティストを登録する</p>
 		<% else %>
-			<%= link_to user_user_relationships_path(@user), method: :post, class: 'link-color link-group col-xs-offset-2' do %>
-				<p>フォローする</p>
+			<% if current_user.following?(@user) %>
+				<%= link_to user_user_relationships_path(@user), method: :delete, class: 'link-color link-group col-xs-offset-2' do %>
+					<p>フォローを外す</p>
+				<% end %>
+			<% else %>
+				<%= link_to user_user_relationships_path(@user), method: :post, class: 'link-color link-group col-xs-offset-2' do %>
+					<p>フォローする</p>
+				<% end %>
 			<% end %>
 		<% end %>
 		<%= link_to edit_user_user_path(@user), class: 'link-color link-group col-xs-offset-3' do %>
 			<p>プロフィール編集</p>
 		<% end %>
 	</div>
+
+	<div id="artist-box">
+		<i class="fas fa-times-circle" id="artist-box-close-btn"></i>
+		<div class="artist-form row">
+			<%= form_with model: [current_user, @artist], url: user_user_artists_path(current_user) do |f| %>
+				<%= f.label :like_artist, '好きなアーティストを登録' %>
+				<%= f.text_field :like_artist %>
+				<%= f.submit '登録' %>
+			<% end %>
+		</div>
+		<div class="like-artist-box row">
+			<% @artists.each do |artist| %>
+			<div class="like-artist-text col-xs-3 text-center">
+				<i class="fas fa-microphone-alt"></i>
+				<%= artist.like_artist %>
+				<%= link_to '削除', user_user_artist_path(current_user, artist), method: :delete %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+
 	<div class="profile-contents col-xs-offset-1">
 		<p class="profile-name profile-contents-text"><%= @user.nickname %></p>
 		<p class="profile-contents-text">自己紹介 : <%= @user.introduction %></p>
@@ -47,6 +72,17 @@
 				<% end %>
 			</span>
 		</p>
+		<div class="profile-contents-artist-box">
+			<p class="profile-contents-text">好きなアーティスト</p>
+			<div class="profile-contents-artist-text-box">
+				<% @artists.each do |artist| %>
+					<span class="profile-contents-text profile-contents-artist-text">
+						<i class="fas fa-microphone-alt"></i>
+						<%= artist.like_artist %>
+					</span>
+				<% end %>
+			</div>
+		</div>
 	</div>
 	<h2>投稿一覧</h2>
 	<div class="show-post-contants">

@@ -1,6 +1,21 @@
 <%= render 'user/users/profile' %>
 <div class="row">
 	<h2><%= @event.title %>詳細</h2>
+	<div id='map'></div>
+	<style>
+#map{
+  height: 400px;
+}
+</style>
+	<script>
+function initMap(){
+  let map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: -34.397, lng: 150.644},
+  zoom: 8
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP'] %>&callback=initMap" async defer></script>
 	<div class="show-container">
 		<div class="event-show-image-box">
 			<%= attachment_image_tag @event, :image, :fill, 500, 500 %>

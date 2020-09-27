@@ -67,8 +67,26 @@ $(function() {
 
 	  $(function(){
 	  	$('#comment').on('click', function(){
-	  		$('.comment-form').slideToggle();
+	  		$('#comment-form-box').slideToggle();
 	  	});
+	  	$('.form-comment').submit(function(){
+	  		$('#comment-form-box').fadeOut();
+	  	});
+	 	$('#comment-form-close-btn').on('click', function(){
+	 		$('#comment-form-box').fadeOut();
+	 	});
+	  });
+
+	  $(function(){
+	  	$('#comment-edit-btn').on('click', function(){
+	  		$('#edit-comment-form-box').slideToggle();
+	  	});
+	  	$('.edit-form-comment').submit(function(){
+	  		$('#edit-comment-form-box').fadeOut();
+	  	});
+	 	$('#edit-comment-form-close-btn').on('click', function(){
+	 		$('#edit-comment-form-box').fadeOut();
+	 	});
 	  });
 
 	  $(function(){
@@ -132,7 +150,7 @@ $(function() {
 		    infiniteLoop: false,    // スライドをループさせるかどうか
 		    moveSlides: 2,          // 移動するスライド数
 		    pause: 3000,            // 自動スライドの待ち時間
-		    maxSlides: 2,           // 一度に表示させる最大数
+		    maxSlides: 1,           // 一度に表示させる最大数
 		    slideWidth: 280,        // 各スライドの幅
 			randomStart: false,     // 最初に表示するスライドをランダムに設定
 		    autoHover: true,        // ホバー時に自動スライドを停止
@@ -143,6 +161,36 @@ $(function() {
 		    touchEnabled: true,      //タッチデバイスに対応
 		  });
 	 });
+
+	 $(function(){
+	 	$('#artist-btn').on('click', function(){
+	 		$('#artist-box').slideToggle();
+	 	});
+	 	$('#artist-box-close-btn').on('click', function(){
+	 		$('#artist-box').slideUp();
+	 	});
+	 });
+
+	 $(function(){
+		 $('.post-bxslider').bxSlider({
+		    auto: false,            // 自動スライド
+		    speed: 1000,            // スライドするスピード
+		    infiniteLoop: false,    // スライドをループさせるかどうか
+		    moveSlides: 2,          // 移動するスライド数
+		    pause: 3000,            // 自動スライドの待ち時間
+		    maxSlides: 1,           // 一度に表示させる最大数
+		    slideWidth: 500,        // 各スライドの幅
+			randomStart: false,     // 最初に表示するスライドをランダムに設定
+		    autoHover: true,        // ホバー時に自動スライドを停止
+		    responsive: true,       // レスポンシブ対応
+		    hideControlOnEnd: true, //「前へ」と「次へ」のコントロール表示
+		    pager: true,			//ページャーの表示・非表示
+		    controls: true,        //コントロールの表示・非表示
+		    touchEnabled: true,      //タッチデバイスに対応
+		  });
+	 });
+
+
 
    });
 })
