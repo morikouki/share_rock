@@ -190,6 +190,12 @@ $(function() {
 		  });
 	 });
 
+	 $(function(){
+	 	$('#map-btn').on('click', function(){
+	 		$('#map-box').slideToggle();
+	 	});
+	 });
+
 
 
    });

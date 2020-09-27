@@ -48,5 +48,22 @@
 	color: blue;
 } /* 土曜日 */
 
+#map {
+	height: 540px;
+	margin: 0 auto;
+}
 
+#map-box {
+	padding: 30px 30px;
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 1000px;
+	height: 600px;
+	background: #a58eff;
+	z-index: 10000;
+}
 
