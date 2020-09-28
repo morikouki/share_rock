@@ -1,5 +1,3 @@
-<%= render 'layouts/nav' %>
-
 <div class="row">
 	<div class="">
 		<h2>イベント登録</h2>
@@ -19,20 +17,20 @@
 				<%= f.text_area :explanation %>
 			</div>
 			<div class="form-group">
-				<%= f.label :prefectures, '開催都道府県' %>
-				<%= f.collection_select :prefectures, JpPrefecture::Prefecture.all, :name, :name %>
+				<%= f.label :prefecture_code, '開催都道府県' %>
+				<%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
 			</div>
 			<div class="form-group">
-				<%= f.label :address_city, '開催市' %>
-				<%= f.text_field :address_city %>
+				<%= f.label :city, '開催市' %>
+				<%= f.text_field :city %>
 			</div>
 			<div class="form-group">
 				<%= f.label :start_date, '開催開始日' %>
-				<%= f.date_select :start_date, use_month_numbers: true,start_year: 2000, end_year: (Time.now.year), default: Date.new(2010, 1, 1) %>
+				<%= f.date_select :start_date, use_month_numbers: true, start_year: 2000, end_year: (Time.now.year), default: Date.new(2010, 1, 1) %>
 			</div>
 			<div class="form-group">
 				<%= f.label :end_date, '開催終了日' %>
-				<%= f.date_select :end_date, use_month_numbers: true,start_year: 2000, end_year: (Time.now.year), default: Date.new(2010, 1, 1) %>
+				<%= f.date_select :end_date, use_month_numbers: true, start_year: 2000, end_year: (Time.now.year), default: Date.new(2010, 1, 1) %>
 			</div>
 			<div class="form-group">
 				<%= f.submit '登録' %>
@@ -54,7 +52,7 @@
 						<p class="text">説明</p>
 						<%= link_to '削除', event_path(event), method: :delete %>
 					<div class="event-text">
-						開催場所：<%= event.prefectures %>　<%= event.address_city %><br>
+						開催場所：<%= event.prefecture_code %>　<%= event.city %><br>
 						説明：<%= event.explanation %>
 					</div>
 				</div>

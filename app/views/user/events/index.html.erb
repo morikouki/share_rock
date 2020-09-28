@@ -20,7 +20,7 @@
 					<p class="event-text">説明</p>
 					<%= link_to '削除', event_path(event), method: :delete %>
 				<div class="user-event-text">
-					開催場所：<%= event.prefectures %>　<%= event.address_city %><br>
+					開催場所：<%= event.prefecture_code %>　<%= event.city %><br>
 					説明：<%= event.explanation %>
 				</div>
 			</div>

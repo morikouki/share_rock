@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 2020_09_27_020021) do
     t.string "image_id"
     t.string "title"
     t.text "explanation"
-    t.string "prefectures"
-    t.string "address_city"
+    t.string "prefecture_code"
+    t.string "city"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false

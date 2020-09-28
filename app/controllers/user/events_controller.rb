@@ -23,6 +23,6 @@ class User::EventsController < ApplicationController
 		@post.post_images.build
 		@posts = @event.posts
 		@posts = @posts.page(params[:page]).per(4)
-	end
+  	end
 
 end

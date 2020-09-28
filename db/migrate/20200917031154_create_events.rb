@@ -5,10 +5,11 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :image_id
       t.string :title
       t.text :explanation
-      t.string :prefectures
-      t.string :address_city
+      t.string :prefecture_code
+      t.string :city
       t.date :start_date
       t.date :end_date
+
       t.timestamps
     end
   end

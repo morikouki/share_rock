@@ -194,9 +194,10 @@ $(function() {
 	 	$('#map-btn').on('click', function(){
 	 		$('#map-box').slideToggle();
 	 	});
+	 	$('#map-close-btn').on('click', function(){
+	 		$('#map-box').fadeOut();
+	 	});
 	 });
-
-
 
    });
 })
