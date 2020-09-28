@@ -1,0 +1,3 @@
+$('.artist-<%= @user.id %>').html("<%= j(render 'user/artists/index', artists: @user.artists, user: @user) %>");
+$('.artist-form-<%= @user.id %>').html("<%= j(render 'user/artists/form', artist: @artist_new, user: @user) %>");
+$("textfield").val("");

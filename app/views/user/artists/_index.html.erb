@@ -1,0 +1,8 @@
+<% artists.each do |artist| %>
+	<span class="profile-contents-text profile-contents-artist-text">
+		・<%= artist.like_artist %>
+		<%= link_to user_user_artist_path(user, artist), method: :delete, remote: true do %>
+			<i class="fas fa-times-circle"></i>
+		<% end %>
+	</span>
+<% end %>

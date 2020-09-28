@@ -1,8 +1,8 @@
 <%= render 'user/users/profile' %>
 <div class="row">
 	<h2>コメント</h2>
-	<div class="post-contants-name-box" id="comment-count-<%= @post.id %>">
-		<%= render 'user/posts/comment-count', post: @post %>
+	<div class="post-contants-name-box" id="count-<%= @post.id %>">
+		<%= render 'user/posts/count', post: @post %>
 	</div>
 
 	<div class="post-contants-image-box post-bxslider">

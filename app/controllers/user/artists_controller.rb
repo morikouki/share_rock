@@ -1,9 +1,10 @@
 class User::ArtistsController < ApplicationController
 
 	def create
-		artist = current_user.artists.new(artist_params)
+		@user = User.find(params[:user_id])
+		artist = @user.artists.new(artist_params)
+		@artist_new = Artist.new
 		artist.save
-		redirect_to user_user_path(current_user)
 	end
 
 	def edit
@@ -13,9 +14,9 @@ class User::ArtistsController < ApplicationController
 	end
 
 	def destroy
-		artist = current_user.artists.find_by(params[:user_id])
+		@user = User.find(params[:user_id])
+		artist = Artist.find(params[:id])
 		artist.destroy
-		redirect_to user_user_path(current_user)
 	end
 
 	private

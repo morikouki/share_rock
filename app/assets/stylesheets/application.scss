@@ -19,8 +19,10 @@
 @import "bootstrap";
 
 .share-rock-nav {
-	height: 120px;
-	background: #76549e;
+	height: 150px;
+	background-image: url(sky.jpg);
+	background-position: center;
+	background-size: cover;
 	display: flex;
 	align-items: center;
 }
@@ -36,6 +38,7 @@
 
 .navbar-logo {
 	font-size: 40px;
+	color: #000000;
 }
 
 .nav-list {
@@ -55,8 +58,10 @@ main {
 
 
 footer {
-	height: 50px;
-	background-color: #800080;
+	height: 200px;
+	background-image: url(shibahu.jpg);
+	background-position: center;
+
 }
 
 .profile-box {
@@ -113,6 +118,62 @@ footer {
   width: 50px;
   color: rgb(197, 20, 159);
 }
+
+.btn-vertical-border {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 5px 11px 5px 15px;
+  text-decoration: none;
+  color: #67c5ff;
+  transition: .4s;
+}
+
+.btn-vertical-border:before {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  width: 4px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 3px;
+  background:#67c5ff;
+}
+
+.btn-vertical-border:after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  width: 4px;
+  height: 100%;
+  top:0;
+  left: 100%;
+  border-radius: 3px;
+  background:#67c5ff;
+}
+
+.btn-vertical-border:hover:before, .btn-vertical-border:hover:after {
+  -webkit-transform: rotate(10deg);
+  transform: rotate(10deg);
+}
+
+.show-post-box {
+  width: 300px;
+  padding: 10px 10px 30px 10px;
+  margin: 15px;
+  background-color: rgba(195, 219, 201, 0.3);
+  border: solid 1px  rgba(56, 189, 87, 0.3);
+  position: relative;
+}
+
+.post-next-icon {
+  font-size: 30px;
+  position: absolute;
+  left: 260px;
+  bottom: 10px;
+}
+
 
 
 

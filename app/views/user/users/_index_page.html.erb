@@ -1,0 +1,28 @@
+<meta name="turbolinks-cache-control" content="no-cache">
+<% if posts.count == 0 %>
+  <p>投稿がありません</p>
+<% else %>
+	<% posts.each do |post| %>
+		<div class='show-post-box'>
+			<div class="post-user-box">
+				<%= attachment_image_tag post.user, :profile_image, fallback: 'Share.png', class: 'image-size' %>
+				<%= post.user.nickname %>
+				<i class="fas fa-heart col-xs-offset-1"></i> <%= post.favorites.count %>
+				<i class="far fa-comment col-xs-offset-1"></i> <%= post.post_comments.count %>
+			</div>
+			<div class="show-post-image-box bxslider">
+				<% post.post_images.each do |image| %>
+					<%= attachment_image_tag image, :image, :fill, 280, 280 %>
+				<% end %>
+			</div>
+			<div class="show-post-text-box">
+				<p class="show-post-title"><%= post.post_title %></p>
+				<p>　<%= post.post_text %></p>
+				<p class="show-post-date"><%= post.created_at.strftime("%Y/%m/%d") %></p>
+				<%= link_to user_event_post_path(post.event, post) do %>
+					<i class="fas fa-arrow-circle-right post-next-icon"></i>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+<% end %>

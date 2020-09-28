@@ -2,8 +2,14 @@ class User::UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@artist = Artist.new
-		@artists = @user.artists
+		@artist_new = Artist.new
+		@posts = @user.posts
+		@posts = @posts.page(params[:page]).per(3)
+		respond_to do |format|
+	      format.html
+	      format.js
+	    end
+
 	end
 
 	def edit
@@ -15,7 +21,6 @@ class User::UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@user.update(user_params)
 		redirect_to user_user_path(@user)
-
 	end
 
 

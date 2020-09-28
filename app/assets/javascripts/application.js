@@ -23,7 +23,7 @@
 //= require bxslider
 //= require_tree .
 $(function() {
-  $(document).on('turbolinks:load', function() {
+  $(document).on('turbolinks:load ajax:complete', function() {
 	  $(function(){
 	    // inputのidから情報の取得
 	    $('#image1').on('change', function (e) {
@@ -189,6 +189,9 @@ $(function() {
 	 	$('#artist-box-close-btn').on('click', function(){
 	 		$('#artist-box').slideUp();
 	 	});
+	 	$('.form-artist').submit(function(){
+	 		$('#artist-box').slideUp()
+;	 	});
 	 });
 
 	 $(function(){
