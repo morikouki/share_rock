@@ -1,3 +1,4 @@
+<meta name="turbolinks-cache-control" content="no-cache">
 <div class="row">
 	<% if @user == current_user %>
 		<h2>マイページ</h2>
@@ -73,10 +74,9 @@
 			</div>
 		</div>
 	</div>
-	<h2>投稿一覧</h2>
-	<div class="show-post-contants" id="paginate">
-		<%= render 'user/users/index_page', posts: @posts %>
+	<h2 id="index_link">投稿一覧</h2>
+	<div class="show-post-contants">
+		<%= render 'user/users/post_index', posts: @posts %>
+		<%= paginate @posts, params: { anchor: 'index_link' } %>
 	</div>
-	<%= paginate @posts, remote: true %>
-
 </div>

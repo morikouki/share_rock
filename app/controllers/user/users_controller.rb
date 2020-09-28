@@ -5,11 +5,6 @@ class User::UsersController < ApplicationController
 		@artist_new = Artist.new
 		@posts = @user.posts
 		@posts = @posts.page(params[:page]).per(3)
-		respond_to do |format|
-	      format.html
-	      format.js
-	    end
-
 	end
 
 	def edit
