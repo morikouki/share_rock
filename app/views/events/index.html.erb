@@ -17,11 +17,11 @@
 				<%= f.text_area :explanation %>
 			</div>
 			<div class="form-group">
-				<%= f.label :prefecture_code, '開催都道府県' %>
+				<%= f.label :prefecture_code, '開催住所（都道府県）' %>
 				<%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
 			</div>
 			<div class="form-group">
-				<%= f.label :city, '開催市' %>
+				<%= f.label :city, '開催住所' %>
 				<%= f.text_field :city %>
 			</div>
 			<div class="form-group">

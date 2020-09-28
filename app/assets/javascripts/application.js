@@ -26,11 +26,31 @@ $(function() {
   $(document).on('turbolinks:load', function() {
 	  $(function(){
 	    // inputのidから情報の取得
-	    $('#image').on('change', function (e) {
+	    $('#image1').on('change', function (e) {
 		// ここから既存の画像のurlの取得
 	    var reader = new FileReader();
 	    reader.onload = function (e) {
-	        $(".img-prev").attr('src', e.target.result);
+	        $(".img-prev1").attr('src', e.target.result);
+	    };
+		// ここまで
+	        reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+		});
+
+		$('#image2').on('change', function (e) {
+		// ここから既存の画像のurlの取得
+	    var reader = new FileReader();
+	    reader.onload = function (e) {
+	        $(".img-prev2").attr('src', e.target.result);
+	    };
+		// ここまで
+	        reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+		});
+
+		$('#image3').on('change', function (e) {
+		// ここから既存の画像のurlの取得
+	    var reader = new FileReader();
+	    reader.onload = function (e) {
+	        $(".img-prev3").attr('src', e.target.result);
 	    };
 		// ここまで
 	        reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入

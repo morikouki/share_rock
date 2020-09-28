@@ -3,7 +3,7 @@
 
 	<h2><%= params[:year] %>フェス一覧</h2>
 
-	<div class="user-event-contents col-xs-8">
+	<div class="user-event-contents col-xs-12">
 		<% @events.each do |event| %>
 			<div class="user-event-box">
 				<%= link_to user_event_path(event) do %>
