@@ -11,7 +11,7 @@
 	<div class="show-image-box col-xs-offset-1">
 		<%= attachment_image_tag @user, :profile_image, fallback: 'Share.png', class: 'show-image' %>
 		<% if @user == current_user %>
-			<p id="artist-btn" class="col-xs-offset-2 btn-vertical-border">好きなアーティストを登録する</p>
+			<p id="artist-btn" class="col-xs-offset-2 btn-vertical-border cursor"><i class="fas fa-microphone-alt icon"></i>好きなアーティストを登録する</p>
 		<% else %>
 			<% if current_user.following?(@user) %>
 				<%= link_to user_user_relationships_path(@user), method: :delete, class: 'link-color link-group col-xs-offset-2' do %>
@@ -55,13 +55,13 @@
 				</span>
 				<span class="col-xs-3">
 					<%= @user.follower.count %><br>
-					<%= link_to user_user_follower_path(@user), class: 'link-color follow-text' do %>
+					<%= link_to user_user_follower_path(@user), class: 'link-color follow-text link-style' do %>
 						フォロワー
 					<% end %>
 				</span>
 				<span class="col-xs-3">
 					<%= @user.following.count %><br>
-					<%= link_to user_user_followings_path(@user), class: 'link-color follow-text' do %>
+					<%= link_to user_user_followings_path(@user), class: 'link-color follow-text link-style' do %>
 						フォロー中
 					<% end %>
 				</span>
@@ -77,6 +77,6 @@
 	<h2 id="index_link">投稿一覧</h2>
 	<div class="show-post-contants">
 		<%= render 'user/users/post_index', posts: @posts %>
-		<%= paginate @posts, params: { anchor: 'index_link' } %>
 	</div>
+	<span class="text-center "><%= paginate @posts, params: { anchor: 'index_link' } %></span>
 </div>

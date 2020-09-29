@@ -174,6 +174,51 @@ footer {
   bottom: 10px;
 }
 
+.btn-flat-double-border {
+  color: #000000;
+  border: double 4px #000000;
+  border-radius: 3px;
+  background-color: #fff;
+}
 
+.cursor {
+  cursor: pointer;
+}
 
+.link-style {
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.link-style:hover {
+  text-decoration: none;
+}
+
+.image-btn{
+    display: none;
+}
+
+.img-field {
+  width: 50%;
+  font-size: 25px;
+  margin: 0 auto;
+  color: white;
+  background-color: #5bc0de;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.image-btn-1 {
+    display: none;
+}
+
+.img-field-1  {
+  font-size: 25px;
+  margin: 0 auto;
+  color: white;
+  background-color: #5bc0de;
+  border-radius: 5px;
+  line-height: 40px;
+}
 

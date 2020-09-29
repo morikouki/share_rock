@@ -7,7 +7,7 @@
     <ul class="nav-list">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to  user_user_path(current_user), class: 'link-color' do %>
+          <%= link_to  user_user_path(current_user), class: 'link-color',data: {"turbolinks"=>false} do %>
             マイページへ
           <% end %>
         </li>
