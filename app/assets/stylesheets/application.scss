@@ -194,31 +194,57 @@ footer {
   text-decoration: none;
 }
 
-.image-btn{
+.image-field {
     display: none;
 }
 
-.img-field {
-  width: 50%;
-  font-size: 25px;
-  margin: 0 auto;
-  color: white;
-  background-color: #5bc0de;
-  border-radius: 5px;
+.image-field-1 {
+    display: none;
+}
+
+.img-btn {
+  font-size: 20px;
+  display: inline-block;
+  text-decoration: none;
+  background: #5bc0de;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
   text-align: center;
-  line-height: 40px;
+  font-weight: bold;
+  overflow: hidden;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #2c4952;
+  transition: .4s;
 }
 
-.image-btn-1 {
-    display: none;
+.update-btn {
+  font-size: 20px;
+  display: inline-block;
+  text-decoration: none;
+  background: #5bc0de;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #2c4952;
+  transition: .4s;
 }
 
-.img-field-1  {
-  font-size: 25px;
-  margin: 0 auto;
-  color: white;
-  background-color: #5bc0de;
-  border-radius: 5px;
-  line-height: 40px;
+.img-btn:active, .update-btn:active {
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  border-bottom: none;
 }
+
 
