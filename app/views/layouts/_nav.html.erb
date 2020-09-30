@@ -7,38 +7,38 @@
     <ul class="nav-list">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to  user_user_path(current_user), class: 'link-color',data: {"turbolinks"=>false} do %>
+          <%= link_to  user_user_path(current_user), class: 'link-color link-style' do %>
             マイページへ
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to new_user_registration_path, class: 'link-color' do %>
+          <%= link_to new_user_registration_path, class: 'link-color link-style' do %>
               フェス一覧
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to user_search_path, class: 'link-color' do %>
+          <%= link_to user_search_path, class: 'link-color link-style' do %>
                検索
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to destroy_user_session_path, method: :delete, class: 'link-color' do %>
+          <%= link_to destroy_user_session_path, method: :delete, class: 'link-color link-style' do %>
                Sign_out
           <% end %>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to about_path, class: 'link-color' do %>
+          <%= link_to about_path, class: 'link-color link-style' do %>
             Share_Rockとは
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to new_user_registration_path, class: 'link-color' do %>
+          <%= link_to new_user_registration_path, class: 'link-color link-style' do %>
               新規登録
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to new_user_session_path, class: 'link-color' do %>
+          <%= link_to new_user_session_path, class: 'link-color link-style' do %>
                ログイン
           <% end %>
         </li>

@@ -1,35 +1,29 @@
 <%= render 'user/users/profile' %>
 <div class="row">
-
 	<h2><%= params[:year] %>フェス一覧</h2>
-
-	<div class="user-event-contents col-xs-12">
+	<div class="contents-box col-xs-12">
 		<% @events.each do |event| %>
-			<div class="user-event-box">
+			<div class="contents-event-box">
+				<div class="event-top-box">
+					<p><%= event.title %></p>
+				</div>
+				<div class="image-box">
+					<%= attachment_image_tag event, :image, size:'280x280' %>
+				</div>
+				<div class="event-text-box">
+					<p class="show-post-title"><i class="fas fa-map-marker-alt icon"></i><%= event.prefecture_code %>　<%= event.city %></p>
+				    <p>　<%= event.explanation %></p>
+				</div>
+				<p class="event-post-count">投稿数：<%= event.posts.count %></p>
 				<%= link_to user_event_path(event) do %>
-					<div class="user-event-title">
-						<p><%= event.title %></p>
-					</div>
-					<div class="user-event-image-box">
-						<%= attachment_image_tag event, :image, class: 'user-event-image' %>
-					</div>
+					<i class="fas fa-arrow-circle-right post-next-icon"></i>
 				<% end %>
-				<div class="user-event-post-box">
-					投稿数：<%= event.posts.count %>
-				</div>
-					<p class="event-text">説明</p>
-					<%= link_to '削除', event_path(event), method: :delete %>
-				<div class="user-event-text">
-					開催場所：<%= event.prefecture_code %>　<%= event.city %><br>
-					説明：<%= event.explanation %>
-				</div>
 			</div>
 		<% end %>
 		<%= paginate @events %>
 	</div>
-	<div id="calendar" class="col-xs-6"></div>
-
-	<div class="year-search-box col-xs-offset-2 col-xs-3 text-center">
+	<div id="calendar" class="col-xs-6 year-search-box"></div>
+	<div class="year-search-box col-xs-6 text-center">
 		<h4>-- 開催年で見る --</h4>
 		<p class="year-text"><%= link_to '<< 2020年開催 >>', user_events_path(year: '2020年'), class: 'link-color' %></p>
 		<p class="year-text"><%= link_to '<< 2019年開催 >>', user_events_path(year: '2019年'), class: 'link-color' %></p>

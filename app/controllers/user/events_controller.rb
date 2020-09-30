@@ -14,7 +14,7 @@ class User::EventsController < ApplicationController
 		    @events = Event.all
 		end
 
-		 @events = @events.page(params[:page]).per(6)
+		 @events = @events.page(params[:page]).per(6).order("id DESC")
 	end
 
 	def show
