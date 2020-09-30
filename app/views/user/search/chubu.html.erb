@@ -1,7 +1,7 @@
 <div class="row">
 	<h2>中部地方の検索結果</h2>
 	<% @search.each do |search| %>
-	<%= search.prefectures %>
+	<%= search.prefecture_code %>
 	<%= search.title %>
 	<%= attachment_image_tag search, :image, :fill, 100, 100 %>
 	<% end %>

@@ -1,22 +1,24 @@
 <%= render 'user/users/profile' %>
 <div class="row">
-	<h2><%= @event.title %>詳細</h2>
-	<div id="map-box">
-		<p id="map-close-btn" class="text-center">閉じる</p>
+	<h2 class="col-xs-offset-3"><%= @event.title %>
+		<span id="map-btn" class="cursor" style='font-size: 15px;'>
+			<i class="fas fa-map-marker-alt icon col-xs-offset-2"></i>
+			<%= @event.prefecture_code %><%= @event.city %><span style='font-size: 12px;'> <表示する> </span>
+		</span>
+	</h2>
+	<div id="map-box" class="text-center">
+		<i class="fas fa-times-circle cursor" id="map-close-btn"></i>
 		<div id='map' class="<%= @event.prefecture_code + @event.city %>"></div>
 	</div>
 
 	<div class="show-container">
 		<div class="event-show-image-box">
-			<%= attachment_image_tag @event, :image, :fill, 500, 500 %>
+			<%= attachment_image_tag @event, :image, class: "event-show-image" %>
 		</div>
 		<div class="event-show-text-box">
-			タイトル：<%= @event.title %><br>
-			説明：<%= @event.explanation %><br>
-			開催場所：<%= @event.prefecture_code %><%= @event.city %>
+			<div class="event-show-explanation col-xs-offset-2"><%= @event.explanation %><br></div>
 		</div>
-		<p id="map-btn">地図を表示する</p>
-		<p class="post">投稿する</p>
+		<p class="post cursor">投稿する</p>
 		<div class="post-form">
 			<%= form_with model:[@event, @post], url:user_event_posts_path(@event) do |f| %>
 				<% @post.post_images.each do |image| %>
@@ -38,27 +40,28 @@
 		</div>
 
 		<div class="user-post-contants">
-		<% @posts.each do |post| %>
-			<div class='user-post-box'>
-				<div class="post-user">
-					<%= link_to user_user_path(post.user) do %>
-						<%= attachment_image_tag post.user, :profile_image, fallback: 'Share.png', class: 'image-size' %><%= post.user.nickname %>
-					<% end %>
+			<% @posts.each do |post| %>
+				<div class='user-post-box'>
+					<div class="post-user">
+						<%= link_to user_user_path(post.user) do %>
+							<%= attachment_image_tag post.user, :profile_image, fallback: 'Share.png', class: 'image-size' %>
+							<%= post.user.nickname %>
+						<% end %>
+					</div>
+					<div class="user-post-image-box bxslider">
+						<% post.post_images.each do |image| %>
+							<%= attachment_image_tag image, :image, class: 'user-post-image' %>
+						<% end %>
+					</div>
+					<div class="user-post-favorite-boxn favorite-<%= post.id %>">
+						<%= render 'user/favorites/favorite', post: post, event: @event %>
+					</div>
+					<div class="user-post-text-box">
+						<%= post.post_text %>
+						<%= link_to 'コメントを見る', user_event_post_path(@event, post) %>
+					</div>
 				</div>
-				<div class="user-post-image-box bxslider">
-					<% post.post_images.each do |image| %>
-						<%= attachment_image_tag image, :image, class: 'user-post-image' %>
-					<% end %>
-				</div>
-				<div class="user-post-favorite-boxn favorite-<%= post.id %>">
-					<%= render 'user/favorites/favorite', post: post, event: @event %>
-				</div>
-				<div class="user-post-text-box">
-					<%= post.post_text %>
-					<%= link_to 'コメントを見る', user_event_post_path(@event, post) %>
-				</div>
-			</div>
-		<% end %>
+			<% end %>
 		</div>
 		<%= paginate @posts %>
 	</div>
@@ -69,7 +72,6 @@
 	mapを関数の外で定義(codeAddressでも使うため)
 	geocoderを用意
 	*/
-
 	let map
 	let geocoder
 
@@ -93,10 +95,9 @@
 
 	  map = new google.maps.Map(document.getElementById('map'), {
 	  center: {lat: -34.397, lng: 150.644},
-	  zoom: 10
+	  zoom: 8
 	  });
 	}
-
 	function codeAddress(){
 	  // 入力を取得
 	  let inputAddress = document.getElementById('address').value;

@@ -1,11 +1,11 @@
 <% if post.favorited_by?(current_user) %>
-			<%= link_to user_event_post_favorites_path(event, post), method: :delete, remote: true do %>
-				<i class="fas fa-heart", style='color:red; font-size:20px;'></i>
-				<%= post.favorites.count%>
-			<% end %>
-		<% else %>
-			<%= link_to user_event_post_favorites_path(event, post), method: :post, remote: true, class: 'favorite-btn' do %>
-				<i class="far fa-heart", style='font-size:20px;'></i>
-				<%= post.favorites.count%>
-			<% end %>
-		<% end %>
+	<%= link_to user_event_post_favorites_path(event, post), method: :delete, remote: true, class: 'link-style' do %>
+		<i class="fas fa-heart destroy", style='color:red; font-size:20px;'></i>
+		<%= post.favorites.count%>
+	<% end %>
+<% else %>
+	<%= link_to user_event_post_favorites_path(event, post), method: :post, remote: true, class: 'favorite-btn link-style' do %>
+		<i class="far fa-heart", style='font-size:20px;'></i>
+		<%= post.favorites.count%>
+	<% end %>
+<% end %>

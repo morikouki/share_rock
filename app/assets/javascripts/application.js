@@ -154,7 +154,6 @@ $(function() {
                     nextYear: '翌年',
                     today: '今日',
                     month: '月',
-                    week: '週',
                     day: '日'
                 },
                 // Drag & Drop & Resize
@@ -162,7 +161,7 @@ $(function() {
                 //イベントの時間表示を２４時間に
                 timeFormat: "HH:mm",
                 //イベントの色を変える
-                eventColor: '#87cefa',
+                eventColor: '#8db1c7',
                 //イベントの文字色を変える
                 eventTextColor: '#000000',
                 eventRender: function(event, element) {
@@ -208,7 +207,16 @@ $(function() {
 	 		$('#map-box').slideToggle();
 	 	});
 	 	$('#map-close-btn').on('click', function(){
-	 		$('#map-box').fadeOut();
+	 		$('#map-box').slideUp();
+	 	});
+	 });
+
+	 $(function(){
+	 	$('#calendar-btn').on('click', function(){
+	 		$('.calendar-box').slideToggle();
+	 	});
+	 	$('#calendar-box-close-btn').on('click', function(){
+	 		$('.calendar-box').slideUp();
 	 	});
 	 });
 
