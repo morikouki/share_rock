@@ -178,16 +178,14 @@ footer {
     display: none;
 }
 
-.image-field-1 {
-    display: none;
-}
-
-.img-btn, .update-btn {
-  font-size: 20px;
+.img-btn {
+  font-size: 25px;
   display: inline-block;
   text-decoration: none;
-  background: #5bc0de;
-  color: #FFF;
+  background-image: url('Share.png');
+  background-position: center;
+  background-size: cover;
+  color: #3a464a;
   width: 60px;
   height: 60px;
   line-height: 60px;
@@ -213,7 +211,7 @@ footer {
   border-bottom: none;
 }
 
-.contents-box {
+.contents-box, .user-post-contents {
   width: 1070px;
   padding-top: 50px;
   margin: 0 auto;
@@ -230,7 +228,7 @@ footer {
   position: relative;
 }
 
-.post-top-box, .event-top-box {
+.post-top-box, .event-top-box, .post-user {
   padding: 5px;
 }
 
@@ -273,7 +271,7 @@ footer {
   height: 500px;
 }
 
-.show-post-title, .event-address {
+.post-title, .event-address {
   display:inline-block;
   border-bottom: ridge 1px #405c47;
 }
@@ -347,7 +345,7 @@ $groundWidth: 68px; $groundHeight: 22px;
 $marioWidth: 30px; $marioHeight: 54px;
 
 
-#artist-box, .calendar-box, #map-box {
+#artist-box, .calendar-box {
   padding: 30px 30px;
   position: fixed;
   top: 0;
@@ -368,7 +366,7 @@ $marioWidth: 30px; $marioHeight: 54px;
   background: #fff;
 }
 
-#artist-box, .calendar-box, #map-box {
+#artist-box, .calendar-box {
   background-image:
     url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/mario.gif?raw=true'),
     url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/ground.png?raw=true'),
@@ -424,7 +422,7 @@ $marioWidth: 30px; $marioHeight: 54px;
   margin: 15px 0;
 }
 
-#artist-box-close-btn, #calendar-box-close-btn, #map-close-btn {
+#artist-box-close-btn, #calendar-box-close-btn, #map-close-btn, #post-form-close-btn {
   font-size: 25px;
 }
 
@@ -442,6 +440,8 @@ $marioWidth: 30px; $marioHeight: 54px;
 
 .img-prev {
   border-radius: 50%;
+  width: 400px;
+  height: 400px;
 }
 
 .user-edit-top-box {
@@ -467,16 +467,6 @@ $marioWidth: 30px; $marioHeight: 54px;
 
 .radio-button {
   margin: 20px;
-}
-
-.user-post-favorite-box {
-  padding-top: 5px;
-}
-
-.user-event-image-box, .user-post-image-box {
-  width: 280px;
-  height: 280px;
-  margin: 0 auto;
 }
 
 .user-post-image {
@@ -515,7 +505,7 @@ $marioWidth: 30px; $marioHeight: 54px;
   margin: 0 auto;
 }
 
-#map-box {
+#map-box, #post-form-box {
   padding: 30px 30px;
   position: fixed;
   top: 0;
@@ -574,12 +564,8 @@ $marioWidth: 30px; $marioHeight: 54px;
 }
 
 .show-container {
-  width: 800px;
+  width: 1070px;
   margin: 0 auto;
-}
-
-.post-form {
-  display: none;
 }
 
 .post-box {
@@ -698,8 +684,9 @@ $marioWidth: 30px; $marioHeight: 54px;
   margin: 10px;
 }
 
-.fa-comment {
+.fa-comment, .fa-heart {
   transform: scaleX(-1);
+  font-size: 20px;
 }
 
 .comment-icon {
@@ -760,6 +747,68 @@ $marioWidth: 30px; $marioHeight: 54px;
 }
 
 .event-show-explanation {
-  width: 540px;
+  width: 50%;
   line-height: 25px;
 }
+
+.img-prev2, .img-prev3, #image2, #image3 {
+  display: none;
+}
+
+.post-image-form, .post-comment-form {
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-image-box, .profile-image-box, .post-form-box-image1, .post-form-box-image2, .post-form-box-image3 {
+  position: relative;
+}
+
+.post-form-box-image1, .post-form-box-image2, .post-form-box-image3 {
+  margin: 5px;
+}
+
+.back-image-btn {
+  position: absolute;
+  top: 48%;
+  left: 48%;
+}
+
+.profile-image-btn, .post-form-image-btn1, .post-form-image-btn2, .post-form-image-btn3 {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+}
+
+.update-btn {
+  padding: 5px;
+  font-weight: bold;
+  color: #67c5ff;
+  background: #fff;
+  border: solid 1px #67c5ff;
+}
+
+select {
+  border: none;
+  padding-right: 10px;
+}
+
+input, textarea {
+  border: none;
+}
+
+.post-form-image-btn2, .post-form-image-btn3 {
+  display: none;
+}
+
+.delete-image {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: rbga(0,0,0,0.6)
+}
+
+

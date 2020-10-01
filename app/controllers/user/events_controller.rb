@@ -22,7 +22,7 @@ class User::EventsController < ApplicationController
 		@post = Post.new
 		@post.post_images.build
 		@posts = @event.posts
-		@posts = @posts.page(params[:page]).per(4)
+		@posts = @posts.page(params[:page]).per(3).order("id DESC")
   	end
 
 end

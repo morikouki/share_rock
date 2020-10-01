@@ -33,36 +33,66 @@ $(function() {
 	    };
 		// ここまで
 	        reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+
 		});
 	    // inputのidから情報の取得
 	    $('#image1').on('change', function (e) {
 		// ここから既存の画像のurlの取得
 	    var reader = new FileReader();
 	    reader.onload = function (e) {
-	        $(".img-prev1").attr('src', e.target.result);
+	        $('.img-prev1').attr('src', e.target.result);
 	    };
 		// ここまで
 	        reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+	        $('.post-form-image-btn1').hide();
+	        $('.post-form-image-btn2').show();
+	        $('#image2').slideDown();
+	        $('.img-prev2').slideDown();
+	        $('#delete-image-btn1').show();
+
+	        $('#delete-image-btn1').on('click', function(e){
+				$('.img-prev1').remove();
+				$('#delete-image-btn1').hide();
+			});
 		});
+
 
 		$('#image2').on('change', function (e) {
 		// ここから既存の画像のurlの取得
 	    var reader = new FileReader();
 	    reader.onload = function (e) {
-	        $(".img-prev2").attr('src', e.target.result);
+	        $('.img-prev2').attr('src', e.target.result);
 	    };
 		// ここまで
 	        reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+	        $('.post-form-image-btn2').hide();
+	        $('.post-form-image-btn3').show();
+	        $('#image3').slideDown();
+	        $('.img-prev3').slideDown();
+	        $('#delete-image-btn2').show();
+
+	        $('#delete-image-btn2').on('click', function(e){
+				$('.img-prev2').remove();
+				$('#delete-image-btn2').hide();
+			});
 		});
 
 		$('#image3').on('change', function (e) {
 		// ここから既存の画像のurlの取得
 	    var reader = new FileReader();
 	    reader.onload = function (e) {
-	        $(".img-prev3").attr('src', e.target.result);
+	        $('.img-prev3').attr('src', e.target.result);
 	    };
 		// ここまで
 	        reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+	        $('.post-form-image-btn3').hide();
+	        $('#delete-image-btn3').show();
+
+
+	        $('#delete-image-btn3').on('click', function(e){
+				$('.img-prev3').remove();
+				$('#delete-image-btn3').hide();
+			});
 		});
 	  });
 
@@ -73,8 +103,11 @@ $(function() {
   	  });
 
   	  $(function(){
-  	  	$('.post').on('click', function(){
-  	  		$('.post-form').slideToggle();
+  	  	$('#post-btn').on('click', function(){
+  	  		$('#post-form-box').slideToggle();
+  	  	});
+  	  	$('#post-form-close-btn').on('click', function(){
+  	  		$('#post-form-box').slideUp();
   	  	});
   	  });
 
@@ -219,6 +252,8 @@ $(function() {
 	 		$('.calendar-box').slideUp();
 	 	});
 	 });
+
+	 
 
    });
 })

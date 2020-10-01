@@ -16,7 +16,7 @@
 					<%= attachment_image_tag event, :image, size:'280x280' %>
 				</div>
 				<div class="event-text-box">
-					<p class="show-post-title"><i class="fas fa-map-marker-alt icon"></i><%= event.prefecture_code %>　<%= event.city %></p>
+					<p class="event-address"><i class="fas fa-map-marker-alt icon"></i><%= event.prefecture_code %>　<%= event.city %></p>
 				    <p>　<%= event.explanation %></p>
 				</div>
 				<p class="event-post-count">投稿数：<%= event.posts.count %></p>
