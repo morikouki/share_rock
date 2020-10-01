@@ -49,10 +49,13 @@ $(function() {
 	        $('#image2').slideDown();
 	        $('.img-prev2').slideDown();
 	        $('#delete-image-btn1').show();
+	        $('.edit-image-btn1').show();
 
-	        $('#delete-image-btn1').on('click', function(e){
-				$('.img-prev1').remove();
+	        $('#delete-image-btn1').on('click', function(){
+	        	$('.img-prev1').remove();
+	        	$('#image1').val("");
 				$('#delete-image-btn1').hide();
+				$('.edit-image-btn1').hide();
 			});
 		});
 
@@ -70,10 +73,13 @@ $(function() {
 	        $('#image3').slideDown();
 	        $('.img-prev3').slideDown();
 	        $('#delete-image-btn2').show();
+	        $('.edit-image-btn2').show();
 
-	        $('#delete-image-btn2').on('click', function(e){
+	        $('#delete-image-btn2').on('click', function(){
 				$('.img-prev2').remove();
+				$('#image2').val("");
 				$('#delete-image-btn2').hide();
+				$('.edit-image-btn2').hide();
 			});
 		});
 
@@ -87,11 +93,14 @@ $(function() {
 	        reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
 	        $('.post-form-image-btn3').hide();
 	        $('#delete-image-btn3').show();
+	        $('.edit-image-btn3').show();
 
 
-	        $('#delete-image-btn3').on('click', function(e){
+	        $('#delete-image-btn3').on('click', function(){
 				$('.img-prev3').remove();
+				$('#image3').val("");
 				$('#delete-image-btn3').hide();
+				$('.edit-image-btn3').hide();
 			});
 		});
 	  });

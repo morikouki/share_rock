@@ -803,12 +803,32 @@ input, textarea {
   display: none;
 }
 
-.delete-image {
+.delete-image, .edit-image-btn {
   display: none;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #00BCD4;
+  background: #ECECEC;
+  transition: .4s;
+}
+
+.delete-image {
+  border-radius: 0 15px 15px 0;
   position: absolute;
   top: 0;
   left: 0;
-  background-image: rbga(0,0,0,0.6)
+}
+
+.delete-image:hover, #edit-image-btn:hover {
+  background: #636363;
+}
+
+.edit-image-btn {
+  border-radius: 15px 0 0 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 
