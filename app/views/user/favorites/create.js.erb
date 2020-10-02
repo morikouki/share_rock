@@ -1,1 +1,3 @@
 $('.favorite-<%= @post.id %>').html("<%= j(render 'user/favorites/favorite', post: @post, event: @event) %>");
+$('.favorite-count-<%= @post.id %>').html("<%= j(render 'user/favorites/count', post: @post) %>");
+

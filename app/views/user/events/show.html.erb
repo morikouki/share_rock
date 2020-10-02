@@ -26,7 +26,7 @@
 		</div>
 
 		<div class="user-post-contents">
-			<%= render 'user/users/post_index', posts: @posts, event: @event %>
+			<%= render 'user/posts/index', posts: @posts, event: @event %>
 		</div>
 		<%= paginate @posts, params: { anchor: 'index-link' } %>
 	</div>

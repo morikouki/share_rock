@@ -1,2 +1,2 @@
 $('#comment<%= @post.id %>').html("<%= j(render 'user/post_comments/comment', comments: @post.post_comments, post: @post, event: @event) %>");
-$('#count-<%= @post.id %>').html("<%= j(render 'user/posts/count', post: @post) %>")
+$('#count-<%= @post.id %>').html("<%= j(render 'user/post_comments/count', post: @post) %>")

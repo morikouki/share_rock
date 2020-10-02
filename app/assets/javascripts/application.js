@@ -233,9 +233,26 @@ $(function() {
 		    moveSlides: 2,          // 移動するスライド数
 		    pause: 3000,            // 自動スライドの待ち時間
 		    maxSlides: 1,           // 一度に表示させる最大数
-		    slideWidth: 280,        // 各スライドの幅
 			randomStart: false,     // 最初に表示するスライドをランダムに設定
 		    autoHover: true,        // ホバー時に自動スライドを停止
+		    responsive: true,       // レスポンシブ対応
+		    slideWidth: 280,		//スライドの幅
+		    hideControlOnEnd: true, //「前へ」と「次へ」のコントロール表示
+		    pager: true,			//ページャーの表示・非表示
+		    controls: true,        //コントロールの表示・非表示
+		    touchEnabled: true,      //タッチデバイスに対応
+		  });
+
+		 $('.show-post-bxslider').bxSlider({
+		    auto: false,            // 自動スライド
+		    speed: 1000,            // スライドするスピード
+		    infiniteLoop: false,    // スライドをループさせるかどうか
+		    moveSlides: 2,          // 移動するスライド数
+		    pause: 3000,            // 自動スライドの待ち時間
+		    maxSlides: 1,           // 一度に表示させる最大数
+			randomStart: false,     // 最初に表示するスライドをランダムに設定
+		    autoHover: true,        // ホバー時に自動スライドを停止
+		    slideWidth: 500,		//スライドの幅
 		    responsive: true,       // レスポンシブ対応
 		    hideControlOnEnd: true, //「前へ」と「次へ」のコントロール表示
 		    pager: true,			//ページャーの表示・非表示
