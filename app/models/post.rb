@@ -5,8 +5,8 @@ class Post < ApplicationRecord
 	has_many :post_comments, dependent: :destroy
 	has_many :favorites, dependent: :destroy
 	has_many :comment_favorites, dependent: :destroy
-	has_many :post_images, dependent: :destroy
-    accepts_nested_attributes_for :post_images
+	has_many :post_images, dependent: :delete_all
+    accepts_nested_attributes_for :post_images, allow_destroy: true
 
 	attachment :post_image
 

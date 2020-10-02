@@ -21,56 +21,8 @@
         <h2 id="index-link">投稿一覧
         	<span id="post-btn" class="btn-vertical-border cursor col-xs-offset-4" style="font-size: 15px;">投稿する</span>
         </h2>
-        <div id="post-form-box">
-        	<i class="fas fa-times-circle cursor" id="post-form-close-btn"></i>
-			<%= form_with model:[@event, @post], url:user_event_posts_path(@event) do |f| %>
-				<div class="post-image-form">
-					<% @post.post_images.each do |image| %>
-						<div class="post-form-box-image1 cursor">
-							<%= attachment_image_tag image, :image, fallback: "Share.png", class: "img-prev1", size: "250x250" %>
-							<span class="post-form-image-btn1" onClick="$('#image1').click()" style='font-size: 30px;' >
-								<i class="fas fa-camera"></i>
-							</span>
-							<span class="edit-image-btn1 edit-image-btn" onClick="$('#image1').click()">編集</span>
-							<span id="delete-image-btn1" class="delete-image">削除</span>
-						</div>
-						<div class="post-form-box-image2 cursor">
-							<%= attachment_image_tag image, :image, fallback: "Share.png", class: "img-prev2", size: "250x250" %>
-							<span class="post-form-image-btn2" onClick="$('#image2').click()" style='font-size: 30px;' >
-								<i class="fas fa-camera"></i>
-							</span>
-							<span class="edit-image-btn2 edit-image-btn" onClick="$('#image2').click()">編集</span>
-							<span id="delete-image-btn2" class="delete-image">削除</span>
-						</div>
-						<div class="post-form-box-image3 cursor">
-							<%= attachment_image_tag image, :image, fallback: "Share.png", class: "img-prev3", size: "250x250" %>
-							<span class="post-form-image-btn3" onClick="$('#image3').click()" style='font-size: 30px;' >
-								<i class="fas fa-camera"></i>
-							</span>
-							<span class="edit-image-btn3 edit-image-btn" onClick="$('#image3').click()">編集</span>
-							<span id="delete-image-btn3" class="delete-image">削除</span>
-						</div>
-					<% end %>
-					<%= f.fields_for :post_images do |i| %>
-						<div class="image-field">
-							<%= i.attachment_field :image, multiple: true, name: "post_images[image][]", id: 'image1' %>
-						</div>
-						<div class="image-field">
-							<%= i.attachment_field :image, multiple: true, name: "post_images[image][]", id: 'image2' %>
-						</div>
-						<div class="image-field">
-							<%= i.attachment_field :image, multiple: true, name: "post_images[image][]", id: 'image3' %>
-						</div>
-					<% end %>
-				</div>
-				<div class="post-comment-form">
-					<%= f.label :post_title, 'タイトル' %>
-					<%= f.text_field :post_title %><br>
-					<%= f.label :post_text, 'コメント' %>
-					<%= f.text_area :post_text %>
-					<%= f.submit '投稿する' %>
-				</div>
-			<% end %>
+        <div id="post-form-box" >
+        	<%= render 'user/posts/form', post: @post, event: @event %>
 		</div>
 
 		<div class="user-post-contents">

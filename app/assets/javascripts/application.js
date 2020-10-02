@@ -103,6 +103,39 @@ $(function() {
 				$('.edit-image-btn3').hide();
 			});
 		});
+
+		$('#image4').on('change', function (e) {
+		// ここから既存の画像のurlの取得
+	    var reader = new FileReader();
+	    reader.onload = function (e) {
+	        $('.img-prev4').attr('src', e.target.result);
+	    };
+		// ここまで
+	        reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+	        
+		});
+
+		$('#image5').on('change', function (e) {
+		// ここから既存の画像のurlの取得
+	    var reader = new FileReader();
+	    reader.onload = function (e) {
+	        $('.img-prev5').attr('src', e.target.result);
+	    };
+		// ここまで
+	        reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+	        
+		});
+
+		$('#image6').on('change', function (e) {
+		// ここから既存の画像のurlの取得
+	    var reader = new FileReader();
+	    reader.onload = function (e) {
+	        $('.img-prev6').attr('src', e.target.result);
+	    };
+		// ここまで
+	        reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+	        
+		});
 	  });
 
 	  $(function(){
@@ -118,6 +151,12 @@ $(function() {
   	  	$('#post-form-close-btn').on('click', function(){
   	  		$('#post-form-box').slideUp();
   	  	});
+  	  	$('.edit-post-btn').on('click', function(){
+  	  		$('.post-edit-box').slideToggle();
+  	  	})
+  	  	$('.post-edit-box-close-btn').on('click', function(){
+  	  		$('.post-edit-box').slideUp();
+  	  	})
   	  });
 
   	  $(function() {

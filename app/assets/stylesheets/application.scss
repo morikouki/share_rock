@@ -198,13 +198,7 @@ footer {
   transition: .4s;
 }
 
-.update-btn {
-  border-top: none;
-  border-right: none;
-  border-left: none;
-}
-
-.img-btn:active, .update-btn:active {
+.img-btn:active {
   -webkit-transform: translateY(2px);
   transform: translateY(2px);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
@@ -422,7 +416,7 @@ $marioWidth: 30px; $marioHeight: 54px;
   margin: 15px 0;
 }
 
-#artist-box-close-btn, #calendar-box-close-btn, #map-close-btn, #post-form-close-btn {
+#artist-box-close-btn, #calendar-box-close-btn, #map-close-btn, #post-form-close-btn, #post-edit-form-close-btn, .edit-post-btn, .post-edit-box-close-btn {
   font-size: 25px;
 }
 
@@ -505,7 +499,7 @@ $marioWidth: 30px; $marioHeight: 54px;
   margin: 0 auto;
 }
 
-#map-box, #post-form-box {
+#map-box, #post-form-box, .post-edit-box {
   padding: 30px 30px;
   position: fixed;
   top: 0;
@@ -755,7 +749,7 @@ $marioWidth: 30px; $marioHeight: 54px;
   display: none;
 }
 
-.post-image-form, .post-comment-form {
+.post-image-form {
   width: 900px;
   display: flex;
   justify-content: center;
@@ -788,6 +782,14 @@ $marioWidth: 30px; $marioHeight: 54px;
   color: #67c5ff;
   background: #fff;
   border: solid 1px #67c5ff;
+}
+
+.post-btn {
+  padding: 5px;
+  font-weight: bold;
+  color: #fff;
+  border: solid 2px #fff;
+  background-color: rgba(0,0,0,0)
 }
 
 select {
@@ -829,6 +831,12 @@ input, textarea {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.post-comment-form {
+  width: 900px;
+  margin: 0 auto;
+  padding: 30px;
 }
 
 

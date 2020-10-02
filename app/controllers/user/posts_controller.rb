@@ -7,7 +7,7 @@ class User::PostsController < ApplicationController
 		post.save
 		params[:post_images][:image].each do |image|
             post.post_images.create(image: image, post_id: post.id)
-          end
+        end
 		redirect_to user_event_path(event)
 	end
 
@@ -15,6 +15,19 @@ class User::PostsController < ApplicationController
 		@event = Event.find(params[:event_id])
 		@post = Post.find(params[:id])
 		@comment = PostComment.new
+		gon.post_id = @post.id
+	end
+
+	def update
+
+	end
+
+	def destroy
+		@event = Event.find(params[:event_id])
+		@post = Post.find(params[:id])
+		@post.event_id = @event.id
+		@post.destroy
+		redirect_to user_event_path(@event)
 	end
 
 	private

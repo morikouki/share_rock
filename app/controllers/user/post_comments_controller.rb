@@ -25,7 +25,7 @@ class User::PostCommentsController < ApplicationController
 		comment.user_id = current_user.id
 		comment.event_id = @event.id
 		comment.post_id = @post.id
-		comment.delete
+		comment.destroy
 	end
 
 	private
