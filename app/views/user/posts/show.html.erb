@@ -5,9 +5,9 @@
 		<%= render 'user/posts/count', post: @post %>
 	</div>
 
-	<div class="post-contants-image-box post-bxslider">
+	<div class="post-contants-image-box bxslider">
 		<% @post.post_images.each do |image| %>
-			<%= attachment_image_tag image, :image, class: 'post-contants-image' %>
+			<%= attachment_image_tag image, :image, size: "500x500" %>
 		<% end %>
 	</div>
 

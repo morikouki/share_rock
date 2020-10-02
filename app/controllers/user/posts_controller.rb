@@ -15,7 +15,11 @@ class User::PostsController < ApplicationController
 		@event = Event.find(params[:event_id])
 		@post = Post.find(params[:id])
 		@comment = PostComment.new
-		gon.post_id = @post.id
+	end
+
+	def edit
+		@event = Event.find(params[:event_id])
+		@post = Post.find(params[:id])
 	end
 
 	def update
@@ -33,6 +37,6 @@ class User::PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:post_title, :post_text, post_images_attributes: [:image])
+		params.require(:post).permit(:post_title, :post_text, post_images_attributes: [:id, :image])
 	end
 end

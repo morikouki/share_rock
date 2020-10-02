@@ -4,7 +4,7 @@ class User::UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@artist_new = Artist.new
 		@posts = @user.posts
-		@posts = @posts.page(params[:page]).per(3)
+		@posts = @posts.page(params[:page]).per(3).order("id DESC")
 	end
 
 	def edit

@@ -416,7 +416,7 @@ $marioWidth: 30px; $marioHeight: 54px;
   margin: 15px 0;
 }
 
-#artist-box-close-btn, #calendar-box-close-btn, #map-close-btn, #post-form-close-btn, #post-edit-form-close-btn, .edit-post-btn, .post-edit-box-close-btn {
+#artist-box-close-btn, #calendar-box-close-btn, #map-close-btn, #post-form-close-btn, #post-edit-form-close-btn {
   font-size: 25px;
 }
 
@@ -499,7 +499,7 @@ $marioWidth: 30px; $marioHeight: 54px;
   margin: 0 auto;
 }
 
-#map-box, #post-form-box, .post-edit-box {
+#map-box, #post-form-box {
   padding: 30px 30px;
   position: fixed;
   top: 0;
@@ -603,11 +603,6 @@ $marioWidth: 30px; $marioHeight: 54px;
 .post-contants-image-box {
   width: 500px;
   margin: 30px auto;
-}
-
-.post-contants-image {
-  width: 500px;
-  height: 500px;
 }
 
 .favorite-box {
