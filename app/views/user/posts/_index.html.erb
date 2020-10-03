@@ -4,8 +4,10 @@
 	<% posts.each do |post| %>
 		<div class='contents-post-box'>
 			<div class="post-top-box">
-				<%= attachment_image_tag post.user, :profile_image, fallback: 'Share.png', class: 'image-size' %>
-				<%= post.user.nickname %>
+				<%= link_to user_user_path (post.user), class: 'link-style link-color' do %>
+					<%= attachment_image_tag post.user, :profile_image, fallback: 'Share.png', class: 'image-size' %>
+					<%= post.user.nickname %>
+				<% end %>
 				<% if controller.controller_name != 'events' %>
 					<i class="fas fa-heart col-xs-offset-1" style='color:#d95f5d;'></i> <%= post.comment_favorites.count %>
 				<% else %>

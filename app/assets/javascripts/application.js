@@ -291,7 +291,47 @@ $(function() {
 	 	});
 	 });
 
-	 
+	 $(function(){
+	 	$('#favorite-user-btn').on('click', function(){
+	 		$('#favorite-user-box').slideToggle();
+	 	});
+	 	$('#favorite-user-close-btn').on('click', function(){
+	 		$('#favorite-user-box').slideUp();
+	 	});
+	 });
+
+	 $(function(){
+	 	$('#comment-user-btn').on('click', function(){
+	 		$('#comment-user-box').slideToggle();
+	 	});
+	 	$('#comment-user-close-btn').on('click', function(){
+	 		$('#comment-user-box').slideUp();
+	 	});
+	 });
+
+	 $(function(){
+	 	$('#comment-favorite-user-btn').on('click', function(){
+	 		$('#comment-favorite-user-box').slideToggle();
+	 	});
+	 	$('#comment-favorite-user-close-btn').on('click', function(){
+	 		$('#comment-favorite-user-box').slideUp();
+	 	});
+	 });
+
+	 $(function(){
+	 	$('.follower-user-btn').on('click', function(){
+	 		$('#follower-user-box').slideToggle();
+	 	});
+	 	$('#follower-user-close-btn').on('click', function(){
+	 		$('#follower-user-box').slideUp();
+	 	});
+	 	$('.following-user-btn').on('click', function(){
+	 		$('#following-user-box').slideToggle();
+	 	});
+	 	$('#following-user-close-btn').on('click', function(){
+	 		$('#following-user-box').slideUp();
+	 	});
+	 });
 
    });
 })

@@ -51,11 +51,15 @@
 	margin: 0 50px;
 }
 
+.about-box {
+  width: 1000px;
+  padding: 200px;
+}
+
 main {
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
-
 
 footer {
 	height: 200px;
@@ -79,7 +83,7 @@ footer {
 	height: 50px;
   background-color: rgba(255,255,255,0.9);
   border: solid 1px #bfd5e3;
-	color: #fff;
+	color: #000000;
 	z-index: 9;
   display: flex;
   justify-content: space-around;
@@ -213,12 +217,21 @@ footer {
   flex-flow: row wrap;
 }
 
-.contents-post-box, .contents-event-box, .user-post-box {
+.contents-post-box, .user-post-box {
   width: 300px;
   padding: 10px 10px 30px 10px;
   margin: 15px;
   background-color: rgba(195, 219, 201, 0.3);
   border: solid 1px  rgba(56, 189, 87, 0.3);
+  position: relative;
+}
+
+.contents-event-box {
+  width: 300px;
+  padding: 10px 10px 30px 10px;
+  margin: 15px;
+  background-color: rgba(232, 143, 88, 0.3);
+  border: solid 1px  rgba(217, 108, 41, 0.3);
   position: relative;
 }
 
@@ -288,7 +301,7 @@ footer {
   color: black;
 }
 
-.link-group, .show-name {
+.show-name {
   margin: 0 20px;
   text-shadow:
     1px 0 0 #fff,
@@ -681,14 +694,14 @@ $marioWidth: 30px; $marioHeight: 54px;
 .sidebar-left {
   width: 200px;
   height: 800px;
-  background-color: #754975;
+  background-color: #93ccaa;
   margin-right: 400px;
 }
 
 .sidebar-right {
   width: 200px;
   height: 800px;
-  background-color: #3b67bf;
+  background-color: #7591c9;
   margin-left: 400px;
 }
 
@@ -843,4 +856,30 @@ input, textarea {
 
 .comment-box {
   padding: 25px 20px 50px 20px;
+}
+
+#favorite-user-box, #comment-user-box, #comment-favorite-user-box, #follower-user-box, #following-user-box {
+  color: #fff;
+  padding: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 1000px;
+  background: rgba(141, 177, 199, 0.9);
+  z-index: 10000;
+  display: none;
+}
+
+.favorite-user, .comment-user, .comment-favorite-user, .follower-user, .following-user {
+  width: 700px;
+  padding: 20px;
+  margin: 20px auto;
+  border-bottom: solid 1px #fff;
+}
+
+.favorite-link-color, .comment-link-color, .follow-link-color {
+  color: #fff;
 }

@@ -1,1 +1,2 @@
 $('.comment-favorite-<%= @post_comment.id %>').html("<%= j(render 'user/comment_favorites/favorite', comment: @post_comment, post: @post, event: @event) %>");
+$('.comment-favorite-count-<%= @post_comment.id %>').html("<%= j(render 'user/comment_favorites/count', comment: @post_comment) %>")

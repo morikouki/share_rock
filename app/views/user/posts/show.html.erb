@@ -2,8 +2,10 @@
 <div class="row">
 	<h2>コメント</h2>
 	<div class="show-post-name-box row">
-		<%= attachment_image_tag @post.user, :profile_image, size:'30x30', fallback: 'Share.png', class: "profile-image" %>
-		<p class="col-xs-3"><%= @post.user.nickname %></p>
+		<%= link_to user_user_path(@post.user), class: 'link-style link-color col-xs-3' do %>
+			<%= attachment_image_tag @post.user, :profile_image, size:'30x30', fallback: 'Share.png', class: "profile-image" %>
+			<%= @post.user.nickname %>
+		<% end %>
 		<span id="count-<%= @post.id %>" class="col-xs-offset-1"><%= render 'user/post_comments/count', post: @post %></span>
 		<span class="col-xs-offset-1 favorite-count-<%= @post.id %>">
 			<%= render 'user/favorites/count', post: @post %>
@@ -17,12 +19,16 @@
 	</div>
 
 	<div class="favorite-box">
-		<span class="col-xs-offset-1 favorite-<%= @post.id %>"><%= render 'user/favorites/favorite', post: @post, event: @event %></span>
+		<span class="col-xs-offset-1 favorite-<%= @post.id %>">
+			<%= render 'user/favorites/favorite', post: @post, event: @event %>
+		</span>
 		<i class="far fa-comment col-xs-offset-1 cursor" id="comment"></i> <!-- コメントボタン -->
 	</div>
 
 	<div class="show-post-text-box">
-		<strong><%= @post.user.nickname %></strong>
+		<%= link_to user_user_path(@post.user), class: 'link-style link-color' do %>
+			<strong><%= @post.user.nickname %></strong>
+		<% end %>
 		<span class="col-xs-offset-1"><%= @post.post_text %></span>
 	</div>
 
@@ -40,4 +46,7 @@
 			<% end %>
 		</div>
 	</div>
+	<%= render 'user/favorites/index', post: @post %>
+	<%= render 'user/post_comments/index', post: @post %>
+	<%= render 'user/comment_favorites/index', post: @post %>
 </div>

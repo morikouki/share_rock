@@ -54,15 +54,11 @@
 				</span>
 				<span class="col-xs-3">
 					<%= @user.follower.count %><br>
-					<%= link_to user_user_follower_path(@user), class: 'link-color follow-text link-style' do %>
-						フォロワー
-					<% end %>
+					<span class="cursor follower-user-btn">フォロワー</span>
 				</span>
 				<span class="col-xs-3">
 					<%= @user.following.count %><br>
-					<%= link_to user_user_followings_path(@user), class: 'link-color follow-text link-style' do %>
-						フォロー中
-					<% end %>
+					<span class="cursor following-user-btn">フォロー中</span>
 				</span>
 			</p>
 		</div>

@@ -1,24 +1,29 @@
-<% comments.each do |comment| %>
+<% comments.each do |post_comment| %>
 	<div class="comment-contents">
-		<%= attachment_image_tag comment.user, :profile_image, :fill, 30, 30, fallback: 'Share.png', class: "profile-image" %>
-		<%= comment.user.nickname %>
+		<%= link_to user_user_path(post_comment.user), class: 'link-style link-color' do %>
+			<%= attachment_image_tag post_comment.user, :profile_image, :fill, 30, 30, fallback: 'Share.png', class: "profile-image" %>
+			<%= post_comment.user.nickname %>
+		<% end %>
 		<div class="comment-contents-text">
-			<p class="col-xs-5"><i class="far fa-comment comment-icon"></i>  <%= comment.comment %></p>
+			<p class="col-xs-5"><i class="far fa-comment comment-icon"></i>  <%= post_comment.comment %></p>
 		</div>
-		<span class="comment-favorite-<%= comment.id %> col-xs-offset-1">
-			<%= render 'user/comment_favorites/favorite', comment: comment, post: post, event: event %>
+		<span class="comment-favorite-<%= post_comment.id %> col-xs-offset-1">
+			<%= render 'user/comment_favorites/favorite', comment: post_comment, post: post, event: event %>
+		</span>
+		<span id="comment-favorite-btn" class="cursor col-xs-offset-1 comment-favorite-count-<%= post_comment.id %>">
+			<%= render 'user/comment_favorites/count', comment: post_comment %>
 		</span>
 		<i class="fas fa-edit col-xs-offset-1 cursor" id="comment-edit-btn"></i>
 	</div>
 	<div id="edit-comment-form-box" class="edit-balloon3-right-btm">
 		<i class="fas fa-times-circle cursor" id="edit-comment-form-close-btn" style="font-size: 25px;"></i>
 		<div class="edit-comment-form text-center">
-			<%= form_with model:[event, post, comment], url:user_event_post_post_comment_path(event, post, comment), remote: true, class:'edit-form-comment' do |f| %>
+			<%= form_with model:[event, post, post_comment], url:user_event_post_post_comment_path(event, post, post_comment), remote: true, class:'edit-form-comment' do |f| %>
 				<%= f.label :comment, 'コメント' %>
 				<%= f.submit '編集する' %><br>
 				<%= f.text_area :comment, size:'70x6' %>
 			<% end %>
 		</div>
-		<%= link_to '削除', user_event_post_post_comment_path(event, post, comment), method: :delete, remote: true, class: 'link-color link-style' %>
+		<%= link_to '削除', user_event_post_post_comment_path(event, post, post_comment), method: :delete, remote: true, class: 'link-color link-style' %>
 	</div>
 <% end %>

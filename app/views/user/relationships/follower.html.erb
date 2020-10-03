@@ -1,8 +1,0 @@
-<div class="row">
-	<h2>フォローワー</h2>
-	<% @follower.each do |follower| %>
-		<%= attachment_image_tag follower, :profile_image, fallback: 'Share.png', class: 'follower-image' %>
-		<%= follower.nickname %>
-	<% end %>
-</div
-

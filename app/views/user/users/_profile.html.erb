@@ -3,10 +3,6 @@
 		<%= attachment_image_tag current_user, :profile_image, fallback: 'Share.png', class: "profile-image" %>
 		<%= current_user.nickname %>
 	 <% end %>
-	<%= link_to user_user_follower_path(current_user), class: 'link-color link-style' do %>
-		フォロワー：<%= current_user.follower.count %>
-	<% end %>
-	<%= link_to user_user_followings_path(current_user), class: 'link-color link-style' do %>
-		フォロー中：<%= current_user.following.count %>
-	<% end %>
+		<span class="cursor follower-user-btn">フォロワー：<%= current_user.follower.count %></span>
+		<span class="cursor following-user-btn">フォロー中：<%= current_user.following.count %></span>
 </div>

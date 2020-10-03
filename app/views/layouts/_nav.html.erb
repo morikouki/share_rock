@@ -1,8 +1,15 @@
 <nav class="share-rock-nav">
   <div class="container nav-box">
     <div class="navbar-logo">
-      <img src="/assets/Share.png", width="70px", height="70px" style="border-radius: 50%;">
-      <span>Share_Rock</span>
+      <% if user_signed_in? %>
+        <img src="/assets/Share.png", width="70px", height="70px" style="border-radius: 50%;">
+        <span>Share_Rock</span>
+      <% else %>
+        <%= link_to root_path do %>
+          <img src="/assets/Share.png", width="70px", height="70px" style="border-radius: 50%;">
+        <% end %>
+          <span>Share_Rock</span>
+      <% end %>
     </div>
     <ul class="nav-list">
       <% if user_signed_in? %>
