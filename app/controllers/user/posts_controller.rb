@@ -30,8 +30,9 @@ class User::PostsController < ApplicationController
 		@event = Event.find(params[:event_id])
 		@post = Post.find(params[:id])
 		@post.event_id = @event.id
+		@post.post_images.destroy_all
 		@post.destroy
-		redirect_to user_event_path(@event)
+		redirect_to user_user_path(current_user)
 	end
 
 	private
