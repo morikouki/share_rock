@@ -1,5 +1,5 @@
 <% comments.each do |post_comment| %>
-	<div class="comment-contents">
+	<div class="comment-contents-box">
 		<%= link_to user_user_path(post_comment.user), class: 'link-style link-color' do %>
 			<%= attachment_image_tag post_comment.user, :profile_image, :fill, 30, 30, fallback: 'Share.png', class: "profile-image" %>
 			<%= post_comment.user.nickname %>
@@ -15,9 +15,9 @@
 		</span>
 		<i class="fas fa-edit col-xs-offset-1 cursor" id="comment-edit-btn"></i>
 	</div>
-	<div id="edit-comment-form-box" class="edit-balloon3-right-btm">
+	<div id="edit-comment-form-box" class="form-comment-box">
 		<i class="fas fa-times-circle cursor" id="edit-comment-form-close-btn" style="font-size: 25px;"></i>
-		<div class="edit-comment-form text-center">
+		<div class="comment-form text-center">
 			<%= form_with model:[event, post, post_comment], url:user_event_post_post_comment_path(event, post, post_comment), remote: true, class:'edit-form-comment' do |f| %>
 				<%= f.label :comment, 'コメント' %>
 				<%= f.submit '編集する' %><br>

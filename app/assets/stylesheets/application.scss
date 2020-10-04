@@ -18,6 +18,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// navテンプレート
+
 .share-rock-nav {
 	height: 150px;
 	background-image: url(sky.jpg);
@@ -51,47 +53,17 @@
 	margin: 0 50px;
 }
 
-.about-box {
-  width: 1000px;
-  padding: 200px;
-}
+// mainページ
 
 main {
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
 
-footer {
-	height: 200px;
-	background-image: url(shibahu.jpg);
-	background-position: center;
-
-}
-
 .profile-image {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-}
-
-.profile-box {
-	position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-	height: 50px;
-  background-color: rgba(255,255,255,0.9);
-  border: solid 1px #bfd5e3;
-	color: #000000;
-	z-index: 9;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-#calendar {
-	width: 500px;
 }
 
 #user_prefecture_code {
@@ -149,13 +121,6 @@ footer {
 .btn-vertical-border:hover:before, .btn-vertical-border:hover:after {
   -webkit-transform: rotate(10deg);
   transform: rotate(10deg);
-}
-
-.post-next-icon {
-  font-size: 30px;
-  position: absolute;
-  left: 260px;
-  bottom: 10px;
 }
 
 .btn-flat-double-border {
@@ -226,15 +191,6 @@ footer {
   position: relative;
 }
 
-.contents-event-box {
-  width: 300px;
-  padding: 10px 10px 30px 10px;
-  margin: 15px;
-  background-color: rgba(232, 143, 88, 0.3);
-  border: solid 1px  rgba(217, 108, 41, 0.3);
-  position: relative;
-}
-
 .post-top-box, .event-top-box, .post-user {
   padding: 5px;
 }
@@ -245,56 +201,15 @@ footer {
   border-radius: 50%;
 }
 
-.show-image-box {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  color: black;
-  position: relative;
-  top: -30px;
-  left: 0;
-}
-
-.show-background-box {
-  width: 100%;
-  height: 500px;
-  opacity: 0.7;
-  font-size: 17px;
-}
-
-.show-image {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border :solid 1px #fff;
-}
-
-.profile-contents {
-  padding-bottom: 80px;
-}
-
-.back-image {
-  width: 100%;
-  height: 500px;
-}
-
-.post-title, .event-address {
+.post-title {
   display:inline-block;
   border-bottom: ridge 1px #405c47;
-}
-
-.event-address {
-  margin: 10px 0;
 }
 
 .post-user {
   height: 40px;
   display: flex;
   align-items: center;
-}
-
-.post-box {
-  padding: 10px;
 }
 
 .link-color {
@@ -310,27 +225,6 @@ footer {
     0 -1px 0 #fff
 }
 
-.profile-date-box {
-  border-bottom: solid 1px rgba(53, 74, 92, 0.5);
-  padding: 25px;
-}
-
-.profile-name {
-  font-size: 25px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-
-.profile-contents-text {
-  padding: 25px;
-}
-
-.profile-follow-box {
-  height: 120px;
-  text-align: center;
-  border-bottom: solid 1px rgba(53, 74, 92, 0.5);
-}
-
 .icon {
   margin-right: 20px;
 }
@@ -339,7 +233,7 @@ footer {
   font-size: 15px;
 }
 
-.show-post-date, .event-post-count {
+.post-date, .event-post-count {
   color: rgba(56, 189, 87, 0.8);
   position: absolute;
   bottom: 1px;
@@ -417,14 +311,6 @@ $marioWidth: 30px; $marioHeight: 54px;
   }
 }
 
-.artist-form {
-  width: 100%;
-  margin: 0 auto;
-  padding: 25px 0;
-  display: flex;
-  justify-content: center;
-}
-
 .like-artist-text {
   margin: 15px 0;
 }
@@ -433,43 +319,8 @@ $marioWidth: 30px; $marioHeight: 54px;
   font-size: 25px;
 }
 
-.profile-contents-artist-box {
-  padding: 45px 0;
-  border-bottom: solid 1px rgba(53, 74, 92, 0.5);
-}
-
-.profile-contents-artist-text-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-arround;
-  flex-wrap: wrap;
-}
-
-.img-prev {
-  border-radius: 50%;
-  width: 400px;
-  height: 400px;
-}
-
-.user-edit-top-box {
-  padding: 30px 0 50px 0;
-}
-
-.user-edit-bottom-left-box, .user-edit-bottom-right-box {
-  padding: 50px 0;
-}
-
 .edit-field {
   border: none;
-}
-
-.edit-collection-select {
-  border: none;
-  padding-left: 10px;
-}
-
-.edit-form-group {
-  padding: 10px;
 }
 
 .radio-button {
@@ -479,37 +330,6 @@ $marioWidth: 30px; $marioHeight: 54px;
 .user-post-image {
   width: 280px;
   height: 280px;
-}
-
-.year-text {
-  padding: 25px;
-}
-
-/* カレンダー */
-
-.fc-view, #calendar td, #calendar th {
-  border: solid 1px rgba(77, 97, 71,0.5);
-}
-
-#calendar th {
-  background-color: rgba(98, 125, 90, 0.4);
-}
-
-.fc-button-group button {
-  background-color: rgba(98, 125, 90, 0.4);
-}
-
-.fc-sun {
-  color: red;
-}  /* 日曜日 */
-
-.fc-sat {
-  color: blue;
-} /* 土曜日 */
-
-#map {
-  height: 540px;
-  margin: 0 auto;
 }
 
 #map-box, #post-form-box {
@@ -527,57 +347,10 @@ $marioWidth: 30px; $marioHeight: 54px;
   display: none;
 }
 
-.event-contents {
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.event-box {
-  width: 350px;
-  margin: 10px 10px;
-  background-color: #a1c5d4;
-}
-
-.event-image {
-  width: 330px;
-  height: 250px;
-  padding: 10px 0;
-  margin: 0 auto;
-}
-
-.event-title {
-  font-size: 20px;
-  padding-top: 20px;
-  margin-left: 20px;
-}
-
-.event-text {
-  font-size: 15px;
-  padding-top: 20px;
-  margin: 0 20px;
-  display: none;
-}
-
-.event-text-box {
-  padding: 10px;
-}
-
-.text {
-  font-size: 20px;
-  padding-top: 20px;
-  margin-left: 20px;
-}
-
-.show-container {
-  width: 1070px;
-  margin: 0 auto;
-}
-
 .post-box {
   width: 300px;
   margin: 0 10px;
+  padding: 10px;
   background-color: #a1c5d4;
 }
 
@@ -604,31 +377,12 @@ $marioWidth: 30px; $marioHeight: 54px;
   margin: 0 auto;
 }
 
-.show-post-name-box {
-  width: 100%;
-  height: 70px;
-  margin-bottom: 30px;
-  border-bottom: solid 1px rgba(53, 74, 92, 0.5);
-  display: flex;
-  align-items: center;
-}
-
-.show-post-image-box {
-  width: 500px;
-  margin: 30px auto;
-}
-
 .favorite-box {
   width: 100%;
   height: 50px;
   border-bottom: solid 1px rgba(53, 74, 92, 0.5);
   display: flex;
   align-items: center;
-}
-
-.comment-contents {
-  width: 100%px;
-  margin: 30px 10px;
 }
 
 #comment-form-box, #edit-comment-form-box {
@@ -646,96 +400,13 @@ $marioWidth: 30px; $marioHeight: 54px;
   display: none;
 }
 
-.balloon3-right-btm, .edit-balloon3-right-btm {
-  position: relative;
-  display: inline-block;
-  margin: 1.5em 15px 1.5em 0;
-  width: 700px;
-  height: 300px;
-  text-align: center;
-  border-radius: 50%;
-  box-sizing: border-box;
-}
-
-.balloon3-right-btm:before, .edit-balloon3-right-btm:before {
-  content: "";
-  position: absolute;
-  bottom: -25px;
-  right: -40px;
-  margin-top: 15px;
-  border: 50px solid transparent;
-  border-left: 120px solid rgba(141, 177, 199, 1);;
-  z-index: 0;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-.comment-form, .edit-comment-form {
-  padding: 70px 0;
-}
-
-.comment-contents-text {
-  margin: 10px;
-}
-
 .fa-comment, .fa-heart {
   transform: scaleX(-1);
   font-size: 20px;
 }
 
-.comment-icon {
-  font-size: 20px;
-}
-
-.text-box {
-  margin-top: 200px;
-  margin-left: -400px;
-}
-
-.top-text {
-  font-size: 60px;
-  margin-bottom: 40px;
-}
-
-.year-search-box {
-  padding: 50px 0;
-}
-
-#calendar-btn {
-  font-size: 20px;
-}
-
-.event-show-text-box {
-  padding: 50px 0;
-}
-
-.event-show-image {
-  width: 500px;
-  height: 500px;
-  margin: 10px;
-}
-
-.event-show-image-box {
-  width: 520px;
-  height: 520px;
-  margin: 0 auto;
-  background-color: rgba(56, 189, 87, 0.3);
-}
-
-.event-show-explanation {
-  width: 50%;
-  line-height: 25px;
-}
-
 .img-prev2, .img-prev3, #image2, #image3 {
   display: none;
-}
-
-.post-image-form {
-  width: 900px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .back-image-box, .profile-image-box, .post-form-box-image1, .post-form-box-image2, .post-form-box-image3 {
@@ -744,12 +415,6 @@ $marioWidth: 30px; $marioHeight: 54px;
 
 .post-form-box-image1, .post-form-box-image2, .post-form-box-image3 {
   margin: 5px;
-}
-
-.back-image-btn {
-  position: absolute;
-  top: 48%;
-  left: 48%;
 }
 
 .profile-image-btn, .post-form-image-btn1, .post-form-image-btn2, .post-form-image-btn3 {
@@ -764,14 +429,6 @@ $marioWidth: 30px; $marioHeight: 54px;
   color: #67c5ff;
   background: #fff;
   border: solid 1px #67c5ff;
-}
-
-.post-btn {
-  padding: 5px;
-  font-weight: bold;
-  color: #fff;
-  border: solid 2px #fff;
-  background-color: rgba(0,0,0,0)
 }
 
 select {
@@ -815,25 +472,8 @@ input, textarea {
   right: 0;
 }
 
-.post-comment-form {
-  width: 900px;
-  margin: 0 auto;
-  padding: 30px;
-}
-
-.show-post-text-box {
-  padding: 30px 0 60px 30px;
-  border-bottom: solid 1px rgba(53, 74, 92, 0.5);
-}
-
 .bx-viewport {
   position: relative;
-}
-
-.show-post-image {
-  position: absolute;
-  top: -30px;
-  left: 10px;
 }
 
 .comment-box {
@@ -864,4 +504,19 @@ input, textarea {
 
 .favorite-link-color, .comment-link-color, .follow-link-color {
   color: #fff;
+}
+
+.post-next-icon, .event-post-next-icon {
+  font-size: 30px;
+  position: absolute;
+  left: 260px;
+  bottom: 10px;
+}
+
+// footerページ
+
+footer {
+  height: 200px;
+  background-image: url(shibahu.jpg);
+  background-position: center;
 }

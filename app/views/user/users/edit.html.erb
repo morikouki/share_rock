@@ -12,7 +12,7 @@
 				<%= f.attachment_field :background, id: 'back' %>
 			</div>
 		</div>
-		<div class="col-xs-6 user-edit-bottom-left-box text-center">
+		<div class="col-xs-6 edit-btn-box text-center">
 			<div class="form-group profile-image-box">
 				<%= attachment_image_tag @user, :profile_image, fallback: "Share.png", class: "img-prev"%>
 				<div class="img-btn cursor profile-image-btn" onClick="$('#image').click()" >
@@ -23,7 +23,7 @@
 				<%= f.attachment_field :profile_image, id: 'image' %>
 			</div>
 		</div>
-		<div class="col-xs-6 user-edit-bottom-right-box">
+		<div class="col-xs-6">
 			<div class="form-group row edit-form-group">
 				<%= f.label 'ニックネーム', class: 'col-xs-3' %>
 				<%= f.text_field :nickname, class: 'col-xs-6' %>

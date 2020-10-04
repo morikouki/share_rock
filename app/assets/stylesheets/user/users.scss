@@ -2,3 +2,125 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.profile-box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(255,255,255,0.9);
+  border: solid 1px #bfd5e3;
+  color: #000000;
+  z-index: 9;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.follower-user-btn, .following-user-btn {
+  font-size: 17px;
+}
+
+.user-edit-top-box {
+  padding: 30px 0 50px 0;
+}
+
+.back-image-btn {
+  position: absolute;
+  top: 48%;
+  left: 48%;
+}
+
+.edit-btn-box {
+  padding: 50px 0;
+}
+
+.img-prev {
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+}
+
+.edit-form-group {
+  padding: 10px;
+}
+
+.edit-collection-select {
+  border: none;
+  padding-left: 10px;
+}
+
+.show-background-image-box {
+  width: 100%;
+  height: 500px;
+  opacity: 0.7;
+  font-size: 17px;
+}
+
+.show-image-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: black;
+  position: relative;
+  top: -30px;
+  left: 0;
+}
+
+.show-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border :solid 1px #fff;
+}
+
+.back-image {
+  width: 100%;
+  height: 500px;
+}
+
+.artist-form {
+  width: 100%;
+  margin: 0 auto;
+  padding: 25px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.like-artist-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-arround;
+  flex-wrap: wrap;
+}
+
+.profile-contents-box {
+  padding-bottom: 80px;
+}
+
+.profile-date-box {
+  border-bottom: solid 1px rgba(53, 74, 92, 0.5);
+  padding: 25px;
+}
+
+.profile-contents-text {
+  padding: 25px;
+}
+
+.profile-name {
+  font-size: 25px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.profile-follow-box {
+  height: 120px;
+  text-align: center;
+  border-bottom: solid 1px rgba(53, 74, 92, 0.5);
+}
+
+.profile-contents-artist-box {
+  padding: 45px 0;
+  border-bottom: solid 1px rgba(53, 74, 92, 0.5);
+}

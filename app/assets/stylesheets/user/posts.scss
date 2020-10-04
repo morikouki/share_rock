@@ -2,3 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.show-post-name-box {
+  width: 100%;
+  height: 70px;
+  margin-bottom: 30px;
+  border-bottom: solid 1px rgba(53, 74, 92, 0.5);
+  display: flex;
+  align-items: center;
+}
+
+.show-post-image-box {
+  width: 500px;
+  margin: 30px auto;
+}
+
+.show-post-text-box {
+  padding: 30px 0 60px 30px;
+  border-bottom: solid 1px rgba(53, 74, 92, 0.5);
+}
+
+.show-post-image {
+  position: absolute;
+  top: -30px;
+  left: 10px;
+}
+
+.post-comment-form {
+  width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.post-image-form {
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

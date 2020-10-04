@@ -4,7 +4,7 @@
 	<% else %>
 		<h2><%= @user.nickname %>さんのプロフィール</h2>
 	<% end %>
-	<div class="show-background-box col-xs-12">
+	<div class="show-background-image-box col-xs-12">
 		<%= attachment_image_tag @user, :background, fallback: 'Share.png', class: 'back-image' %>
 	</div>
 	<div class="show-image-box col-xs-offset-1">
@@ -32,12 +32,12 @@
 		<div class="artist-form row artist-form-<%= @user.id %>">
 			<%= render 'user/artists/form', user: @user, artist: @artist_new %>
 		</div>
-		<div class="like-artist-box profile-contents-artist-text-box row artist-<%= @user.id %>">
+		<div class="like-artist-box row artist-<%= @user.id %>">
 			<%= render 'user/artists/index', artists: @user.artists, user: @user %>
 		</div>
 	</div>
 
-	<div class="profile-contents col-xs-offset-1">
+	<div class="profile-contents-box col-xs-offset-1">
 		<div class="profile-date-box">
 			<p class="profile-contents-text">
 				<span class="profile-name"><%= @user.nickname %></span>
@@ -64,7 +64,7 @@
 		</div>
 		<div class="profile-contents-artist-box">
 			<h4 class="profile-contents-text"><i class="fas fa-microphone-alt icon"></i>好きなアーティスト</h4>
-			<div class="profile-contents-artist-text-box artist-<%= @user.id %>">
+			<div class="artist-<%= @user.id %>">
 				<%= render 'user/artists/index', artists: @user.artists, user: @user %>
 			</div>
 		</div>

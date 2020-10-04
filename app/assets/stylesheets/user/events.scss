@@ -3,3 +3,101 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.contents-event-box {
+  width: 300px;
+  padding: 10px 10px 30px 10px;
+  margin: 15px;
+  background-color: rgba(232, 143, 88, 0.3);
+  border: solid 1px  rgba(217, 108, 41, 0.3);
+  position: relative;
+}
+
+.event-text-box {
+  padding: 10px;
+}
+
+.event-address {
+  display:inline-block;
+  border-bottom: ridge 1px #405c47;
+  margin: 10px 0;
+}
+
+.year-search-box {
+  padding: 50px 0;
+}
+
+.year-text {
+  padding: 25px;
+}
+
+.event-show-contents-box {
+  width: 1070px;
+  margin: 0 auto;
+}
+
+.event-show-image-box {
+  width: 520px;
+  height: 520px;
+  margin: 0 auto;
+  background-color: rgba(56, 189, 87, 0.3);
+}
+
+.event-show-image {
+  width: 500px;
+  height: 500px;
+  margin: 10px;
+}
+
+.event-show-text-box {
+  padding: 50px 0;
+}
+
+.event-show-explanation {
+  width: 50%;
+  line-height: 25px;
+}
+
+.post-create-btn {
+  padding: 5px;
+  font-weight: bold;
+  color: #fff;
+  border: solid 2px #fff;
+  background-color: rgba(0,0,0,0)
+}
+
+// カレンダー
+
+#calendar {
+	width: 500px;
+}
+
+#calendar-btn {
+  font-size: 20px;
+}
+
+.fc-view, #calendar td, #calendar th {
+  border: solid 1px rgba(77, 97, 71,0.5);
+}
+
+#calendar th {
+  background-color: rgba(98, 125, 90, 0.4);
+}
+
+.fc-button-group button {
+  background-color: rgba(98, 125, 90, 0.4);
+}
+
+.fc-sun {
+  color: red;
+}                // 日曜日
+
+.fc-sat {
+  color: blue;
+}                // 土曜日
+
+// マップ
+
+#map {
+  height: 540px;
+  margin: 0 auto;
+}

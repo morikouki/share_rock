@@ -12,7 +12,7 @@
 				<div class="event-top-box">
 					<p><%= event.title %></p>
 				</div>
-				<div class="image-box">
+				<div class="event-image-box">
 					<%= attachment_image_tag event, :image, size:'280x280' %>
 				</div>
 				<div class="event-text-box">
@@ -21,7 +21,7 @@
 				</div>
 				<p class="event-post-count">投稿数：<%= event.posts.count %></p>
 				<%= link_to user_event_path(event) do %>
-					<i class="fas fa-arrow-circle-right post-next-icon"></i>
+					<i class="fas fa-arrow-circle-right event-post-next-icon"></i>
 				<% end %>
 			</div>
 		<% end %>

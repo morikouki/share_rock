@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="">
+	<div class="admin-event-box">
 		<h2>イベント登録</h2>
 		<%= form_with model: @event, url: events_path, method: :post do |f| %>
 			<div class="form-group">
@@ -40,18 +40,18 @@
 
 	<div class="">
 		<h2>イベント一覧</h2>
-		<div class="event-contents">
+		<div class="admin-event-contents">
 			<% @events.each do |event| %>
-				<div class="event-box">
-					<div class="event-title">
+				<div class="admin-event-box">
+					<div class="admin-event-title">
 						<p><%= event.title %></p>
 					</div>
-					<div class="event-image">
-						<%= attachment_image_tag(event, :image, :fill, 330, 250) %>
+					<div class="admin-event-image">
+						<%= attachment_image_tag event, :image, size: '330x250' %>
 					</div>
-						<p class="text">説明</p>
+						<p class="admin-event-text">説明</p>
 						<%= link_to '削除', event_path(event), method: :delete %>
-					<div class="event-text">
+					<div class="admin-event-text-box">
 						開催場所：<%= event.prefecture_code %>　<%= event.city %><br>
 						説明：<%= event.explanation %>
 					</div>
