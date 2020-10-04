@@ -23,7 +23,10 @@ class User::PostsController < ApplicationController
 	end
 
 	def update
-
+		@event = Event.find(params[:event_id])
+		@post = Post.find(params[:id])
+		@post.update(post_params)
+		redirect_to user_user_path(current_user)
 	end
 
 	def destroy
