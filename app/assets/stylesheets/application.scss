@@ -65,8 +65,6 @@ main {
 }
 
 .profile-image {
-	width: 40px;
-	height: 40px;
 	border-radius: 50%;
 }
 
@@ -270,7 +268,7 @@ main {
   align-items: center;
 }
 
-#comment-form-box, #edit-comment-form-box {
+#comment-form-box, #edit-comment-form-box, #replay-comment-form-box {
   padding: 30px 30px;
   position: fixed;
   top: 0;

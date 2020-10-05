@@ -15,6 +15,8 @@ class User::PostsController < ApplicationController
 		@event = Event.find(params[:event_id])
 		@post = Post.find(params[:id])
 		@comment = PostComment.new
+		@replay_comment = ReplayComment.new
+		@replay_comments = @post.replay_comments
 	end
 
 	def edit

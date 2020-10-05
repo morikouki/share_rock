@@ -331,6 +331,15 @@ $(function() {
 	 });
 
 	 $(function(){
+	 	$('#replay-comment-btn').on('click', function(){
+	 		$('#replay-comment-form-box').slideToggle();
+	 	});
+	 	$('#replay-comment-form-close-btn').on('click', function(){
+	 		$('#replay-comment-form-box').slideUp();
+	 	});
+	 });
+
+	 $(function(){
 	 	$('.follower-user-btn').on('click', function(){
 	 		$('#follower-user-box').slideToggle();
 	 	});
