@@ -172,17 +172,7 @@ $(function() {
 	 	});
 	  });
 
-	  $(function(){
-	  	$('#comment-edit-btn').on('click', function(){
-	  		$('#edit-comment-form-box').slideToggle();
-	  	});
-	  	$('.edit-form-comment').submit(function(){
-	  		$('#edit-comment-form-box').fadeOut();
-	  	});
-	 	$('#edit-comment-form-close-btn').on('click', function(){
-	 		$('#edit-comment-form-box').fadeOut();
-	 	});
-	  });
+	  
 
 	  $(function(){
 	    // inputのidから情報の取得
@@ -331,11 +321,14 @@ $(function() {
 	 });
 
 	 $(function(){
-	 	$('#replay-comment-btn').on('click', function(){
-	 		$('#replay-comment-form-box').slideToggle();
+	 	$('.replay-comment-btn').on('click', function(){
+	 		$('.replay-comment-form-box').slideToggle();
 	 	});
-	 	$('#replay-comment-form-close-btn').on('click', function(){
-	 		$('#replay-comment-form-box').slideUp();
+	 	$('.replay-comment-form-close-btn').on('click', function(){
+	 		$('.replay-comment-form-box').slideUp();
+	 	});
+	 	$('.replay-comment-box-btn').on('click', function(){
+	 		$('.replay-comment-box').slideToggle();
 	 	});
 	 });
 

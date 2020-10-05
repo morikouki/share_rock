@@ -16,7 +16,6 @@ class User::PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@comment = PostComment.new
 		@replay_comment = ReplayComment.new
-		@replay_comments = @post.replay_comments
 	end
 
 	def edit

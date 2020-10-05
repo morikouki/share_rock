@@ -268,21 +268,6 @@ main {
   align-items: center;
 }
 
-#comment-form-box, #edit-comment-form-box, #replay-comment-form-box {
-  padding: 30px 30px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  width: 800px;
-  height: 400px;
-  background: rgba(141, 177, 199, 1);
-  z-index: 10000;
-  display: none;
-}
-
 .fa-comment, .fa-heart {
   transform: scaleX(-1);
   font-size: 20px;
