@@ -1,0 +1,40 @@
+<div class="replay-comment-box-<%= post_comment.id %> col-xs-offset-3" style="display: none;">
+	<% post_comment.replay_comments.each do |replay_comment| %>
+		<div class="replay-comment">
+			<%= link_to user_user_path(replay_comment.user), class: 'link-style link-color' do %>
+				<span class="col-xs-2">
+					<%= attachment_image_tag replay_comment.user, :profile_image, size:'15x15', fallback: 'Share.png', class: "profile-image" %>
+					<%= replay_comment.user.nickname %>
+				</span>
+			<% end %>
+			：<%= replay_comment.comment %>
+			<%= link_to user_event_post_post_comment_replay_comment_path(event, post, post_comment, replay_comment), class: 'link-color link-style', method: :delete do %>
+				<i class="fas fa-trash-alt col-xs-offset-1"></i>
+			<% end %>
+		</div>
+	<% end %>
+</div>
+
+<div class="form-comment-box replay-comment-form-box-<%= post_comment.id %>">
+	<i class="fas fa-times-circle cursor replay-comment-form-close-btn-<%= post_comment.id %>" style="font-size: 25px;"></i>
+	<%= form_with model:[event, post, post_comment, replay_comment], url:user_event_post_post_comment_replay_comments_path(event, post, post_comment) do |f| %>
+		<%= f.label :comment, 'コメント' %>
+		<%= f.submit 'コメントする' %><br>
+		<%= f.text_area :comment, size:'70x6' %>
+	<% end %>
+</div>
+
+
+<script>
+	$(function(){
+		$('.replay-comment-btn-<%= post_comment.id %>').on('click', function(){
+			$('.replay-comment-form-box-<%= post_comment.id %>').slideToggle();
+		});
+		$('.replay-comment-form-close-btn-<%= post_comment.id %>').on('click', function(){
+			$('.replay-comment-form-box-<%= post_comment.id %>').slideUp();
+		});
+		$('.replay-comment-box-btn-<%= post_comment.id %>').on('click', function(){
+			$('.replay-comment-box-<%= post_comment.id %>').slideToggle();
+		});
+	});
+</script>

@@ -13,63 +13,16 @@
 		<span class="cursor col-xs-offset-1 comment-favorite-count-<%= post_comment.id %>">
 			<%= render 'user/comment_favorites/count', comment: post_comment %>
 		</span>
-		<span class="cursor replay_comment-btn replay-comment-btn">コメントする</span>
-		<span class="cursor replay_comment-btn replay-comment-box-btn">コメントを見る</span>
+		<span class="cursor replay_comment-btn replay-comment-btn-<%= post_comment.id %>">コメントする</span>
+		<span class="cursor replay_comment-btn replay-comment-box-btn-<%= post_comment.id %>">コメントを見る</span>
 		<i class="fas fa-edit col-xs-offset-1 cursor comment-edit-btn<%= post_comment.id %>"></i>
 	</div>
 
-	<div class="replay-comment-box col-xs-offset-3">
-		<% post_comment.replay_comments.each do |replay_comment| %>
-			<div class="replay-comment">
-				<%= link_to user_user_path(replay_comment.user), class: 'link-style link-color' do %>
-					<span class="col-xs-2">
-						<%= attachment_image_tag replay_comment.user, :profile_image, size:'15x15', fallback: 'Share.png', class: "profile-image" %>
-						<%= replay_comment.user.nickname %>
-					</span>
-				<% end %>
-				：<%= replay_comment.comment %>
-				<%= link_to user_event_post_post_comment_replay_comment_path(event, post, post_comment, replay_comment), class: 'link-color link-style', method: :delete do %>
-					<i class="fas fa-trash-alt col-xs-offset-1"></i>
-				<% end %>
-			</div>
-		<% end %>
-	</div>
-
-	<div class="form-comment-box replay-comment-form-box">
-		<i class="fas fa-times-circle cursor replay-comment-form-close-btn" style="font-size: 25px;"></i>
-		<%= form_with model:[event, post, post_comment, replay_comment], url:user_event_post_post_comment_replay_comments_path(event, post, post_comment) do |f| %>
-				<%= f.label :comment, 'コメント' %>
-				<%= f.submit 'コメントする' %><br>
-				<%= f.text_area :comment, size:'70x6' %>
-			<% end %>
-	</div>
+	<%= render 'user/replay_comments/form_index', event: event, post: post, post_comment: post_comment, replay_comment: replay_comment %>
 
 
 	<div class="form-comment-box edit-comment-form-box<%= post_comment.id %>">
-		<i class="fas fa-times-circle cursor edit-comment-form-close-btn<%= post_comment.id %>" style="font-size: 25px;"></i>
-		<div class="text-center">
-			<%= form_with model:[event, post, post_comment], url:user_event_post_post_comment_path(event, post, post_comment), remote: true do |f| %>
-				<%= f.label :comment, 'コメント' %>
-				<%= f.submit '編集する' %><br>
-				<%= f.text_area :comment, size:'70x6' %>
-			<% end %>
-		</div>
-		<%= link_to '削除', user_event_post_post_comment_path(event, post, post_comment), method: :delete, remote: true, class: 'link-color link-style' %>
+		<%= render 'user/post_comments/edit', event: event, post: post, post_comment: post_comment %>
 	</div>
-
-	<script>
-		$(function(){
-		  	$('.comment-edit-btn<%= post_comment.id %>').on('click', function(){
-		  		$('.edit-comment-form-box<%= post_comment.id %>').slideToggle();
-		  	});
-		  	$('.edit-form-comment').submit(function(){
-		  		$('.edit-comment-form-box<%= post_comment.id %>').fadeOut();
-		  	});
-		 	$('.edit-comment-form-close-btn<%= post_comment.id %>').on('click', function(){
-		 		$('.edit-comment-form-box<%= post_comment.id %>').fadeOut();
-		 	});
-		  });
-	</script>
-	
 <% end %>
 

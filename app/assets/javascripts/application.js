@@ -321,18 +321,6 @@ $(function() {
 	 });
 
 	 $(function(){
-	 	$('.replay-comment-btn').on('click', function(){
-	 		$('.replay-comment-form-box').slideToggle();
-	 	});
-	 	$('.replay-comment-form-close-btn').on('click', function(){
-	 		$('.replay-comment-form-box').slideUp();
-	 	});
-	 	$('.replay-comment-box-btn').on('click', function(){
-	 		$('.replay-comment-box').slideToggle();
-	 	});
-	 });
-
-	 $(function(){
 	 	$('.follower-user-btn').on('click', function(){
 	 		$('#follower-user-box').slideToggle();
 	 	});

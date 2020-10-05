@@ -1,0 +1,24 @@
+<i class="fas fa-times-circle cursor edit-comment-form-close-btn<%= post_comment.id %>" style="font-size: 25px;"></i>
+<div class="text-center">
+	<%= form_with model:[event, post, post_comment], url:user_event_post_post_comment_path(event, post, post_comment), remote: true do |f| %>
+		<%= f.label :comment, 'コメント' %>
+		<%= f.submit '編集する' %><br>
+		<%= f.text_area :comment, size:'70x6' %>
+	<% end %>
+</div>
+<%= link_to '削除', user_event_post_post_comment_path(event, post, post_comment), method: :delete, remote: true, class: 'link-color link-style' %>
+
+		
+<script>
+	$(function(){
+	  	$('.comment-edit-btn<%= post_comment.id %>').on('click', function(){
+	  		$('.edit-comment-form-box<%= post_comment.id %>').slideToggle();
+	  	});
+	  	$('.edit-form-comment').submit(function(){
+	  		$('.edit-comment-form-box<%= post_comment.id %>').fadeOut();
+	  	});
+	 	$('.edit-comment-form-close-btn<%= post_comment.id %>').on('click', function(){
+	 		$('.edit-comment-form-box<%= post_comment.id %>').fadeOut();
+	 	});
+	 });
+</script>
