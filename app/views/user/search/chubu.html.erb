@@ -1,8 +1,11 @@
+<%= render 'user/users/profile' %>
 <div class="row">
 	<h2>中部地方の検索結果</h2>
-	<% @search.each do |search| %>
-	<%= search.prefecture_code %>
-	<%= search.title %>
-	<%= attachment_image_tag search, :image, :fill, 100, 100 %>
+	<% if @events.count == 0 %>
+		<p>該当する結果がありませんでした。</p>
+	<% else %>
+		<div class="search-event-contents">
+			<%= render 'user/events/index', events: @events %>
+		</div>
 	<% end %>
 </div>

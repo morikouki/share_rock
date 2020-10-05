@@ -33,6 +33,10 @@
 				<%= f.date_select :end_date, use_month_numbers: true, start_year: 2000, end_year: (Time.now.year), default: Date.new(2010, 1, 1) %>
 			</div>
 			<div class="form-group">
+				<%= f.label :official_link, '公式サイト' %>
+				<%= f.text_field :official_link %>
+			</div>
+			<div class="form-group">
 				<%= f.submit '登録' %>
 			</div>
 		<% end %>

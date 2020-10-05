@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_27_020021) do
+ActiveRecord::Schema.define(version: 2020_10_05_062122) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_09_27_020021) do
     t.text "explanation"
     t.string "prefecture_code"
     t.string "city"
+    t.string "official_link"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
@@ -86,6 +87,17 @@ ActiveRecord::Schema.define(version: 2020_09_27_020021) do
   create_table "relationships", force: :cascade do |t|
     t.integer "following_id"
     t.integer "follower_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "replay_comments", force: :cascade do |t|
+    t.integer "post_comment_id"
+    t.integer "post_id"
+    t.integer "user_id"
+    t.integer "event_id"
+    t.string "comment"
+    t.string "string"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

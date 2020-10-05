@@ -1,3 +1,26 @@
 // Place all the styles related to the user::Artists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#artist-box {
+  padding: 30px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 800px;
+  height: 400px;
+  background-color: #fff;
+  border: solid 2px #bfd5e3;
+  z-index: 9;
+  display: none;
+}
+
+.btn-flat-double-border {
+  color: #7d8e99;
+  border: double 4px #7d8e99;
+  border-radius: 3px;
+  background-color: transparent;
+}

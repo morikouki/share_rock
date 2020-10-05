@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'jquery.japan-map.min.js' %>
     <script src="https://kit.fontawesome.com/18f4d5da3c.js" crossorigin="anonymous"></script>
     <meta name="turbolinks-cache-control" content="no-cache">
   </head>
@@ -18,6 +19,7 @@
         <% if user_signed_in? %>
           <%= render 'user/relationships/follower' %>
           <%= render 'user/relationships/following' %>
+          
         <% end %>
         <%= yield %>
       </div>

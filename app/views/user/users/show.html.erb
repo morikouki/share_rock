@@ -22,13 +22,13 @@
 				<% end %>
 			<% end %>
 		<% end %>
-		<%= link_to edit_user_user_path(@user), class: 'link-color link-group col-xs-offset-3' do %>
+		<%= link_to edit_user_user_path(@user), class: 'link-color link-group col-xs-offset-2' do %>
 			<p class="btn-vertical-border">プロフィール編集</p>
 		<% end %>
 	</div>
 
 	<div id="artist-box">
-		<i class="fas fa-times-circle cursor" id="artist-box-close-btn"></i>
+		<i class="fas fa-times-circle cursor" id="artist-box-close-btn" style="color: #7d8e99;"></i>
 		<div class="artist-form row artist-form-<%= @user.id %>">
 			<%= render 'user/artists/form', user: @user, artist: @artist_new %>
 		</div>
@@ -63,7 +63,9 @@
 			</p>
 		</div>
 		<div class="profile-contents-artist-box">
-			<h4 class="profile-contents-text"><i class="fas fa-microphone-alt icon"></i>好きなアーティスト</h4>
+			<h4 class="profile-contents-text">
+				<i class="fas fa-microphone-alt like-atrits-text">　好きなアーティスト</i>
+			</h4>
 			<div class="artist-<%= @user.id %>">
 				<%= render 'user/artists/index', artists: @user.artists, user: @user %>
 			</div>

@@ -1,6 +1,6 @@
 <%= render 'user/users/profile' %>
 <div class="row">
-	<h2 class="col-xs-offset-3"><%= @event.title %>
+	<h2 class="col-xs-offset-2"><%= @event.title %>
 		<span id="map-btn" class="cursor" style='font-size: 15px;'>
 			<i class="fas fa-map-marker-alt icon col-xs-offset-2"></i>
 			<%= @event.prefecture_code %><%= @event.city %><span style='font-size: 12px;'> <表示する> </span>
@@ -14,6 +14,7 @@
 	<div class="event-show-contents-box">
 		<div class="event-show-image-box">
 			<%= attachment_image_tag @event, :image, class: "event-show-image" %>
+			<%= link_to("公式サイト", "#{@event.official_link}", class: 'link-style') %>
 		</div>
 		<div class="event-show-text-box">
 			<div class="event-show-explanation col-xs-offset-3"><%= @event.explanation %><br></div>

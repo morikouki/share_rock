@@ -1,0 +1,19 @@
+<% events.each do |event| %>
+	<div class="contents-event-box">
+		<div class="event-top-box">
+			<p><%= event.title %></p>
+		</div>
+		<div class="event-image-box">
+			<%= attachment_image_tag event, :image, size:'280x280' %>
+		</div>
+		<div class="event-text-box">
+			<p class="event-address"><i class="fas fa-map-marker-alt icon"></i><%= event.prefecture_code %>　<%= event.city %></p>
+		    <p>　<%= event.explanation %></p>
+		</div>
+		<p class="event-post-count">投稿数：<%= event.posts.count %></p>
+		<%= link_to user_event_path(event) do %>
+			<i class="fas fa-arrow-circle-right event-post-next-icon"></i>
+		<% end %>
+	</div>
+<% end %>
+<%= paginate events %>

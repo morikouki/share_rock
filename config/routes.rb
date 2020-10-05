@@ -18,6 +18,7 @@ Rails.application.routes.draw do
         resource :favorites, only: [:create, :destroy]
         resources :post_comments, only: [:create, :update, :destroy] do
           resource :comment_favorites, only: [:create, :destroy]
+          resources :replay_comments, only: [:create, :destroy]
         end
       end
     end

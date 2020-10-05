@@ -9,6 +9,16 @@
   display: none;
 }
 
+.search-text {
+	color: #e3a674;
+}
+
 .search-field {
-	border: solid 1px #000000;
+	border: solid 1px #e3a674;
+}
+
+.search-button {
+  color: #fff;
+  border: solid 1px #e3a674;
+  background-color: #e3a674;
 }

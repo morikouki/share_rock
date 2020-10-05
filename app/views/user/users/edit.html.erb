@@ -14,13 +14,13 @@
 		</div>
 		<div class="col-xs-6 edit-btn-box text-center">
 			<div class="form-group profile-image-box">
-				<%= attachment_image_tag @user, :profile_image, fallback: "Share.png", class: "img-prev"%>
-				<div class="img-btn cursor profile-image-btn" onClick="$('#image').click()" >
+				<%= attachment_image_tag @user, :profile_image, fallback: "Share.png", class: "profile-img-prev"%>
+				<div class="img-btn cursor profile-image-btn" onClick="$('#profile-image').click()" >
 					<i class="fas fa-camera"></i>
 				</div>
 			</div>
 			<div class="form-group image-field">
-				<%= f.attachment_field :profile_image, id: 'image' %>
+				<%= f.attachment_field :profile_image, id: 'profile-image' %>
 			</div>
 		</div>
 		<div class="col-xs-6">
@@ -55,7 +55,7 @@
 			    <%= f.label '生年月日', class: 'col-xs-3' %>
 			    <%= f.date_select :birthday, use_month_numbers: true,start_year: 1960, end_year: (Time.now.year), default: Date.new(2000, 1, 1) %>
 			</div>
-			<%= f.submit '更新', class: 'update-btn col-xs-offset-3' %>
 		</div>
+		<%= f.submit '更新', class: 'update-btn col-xs-offset-6' %>
 	<% end %>
 </div>

@@ -7,35 +7,17 @@
 	</h2>
 
 	<div class="contents-box col-xs-12">
-		<% @events.each do |event| %>
-			<div class="contents-event-box">
-				<div class="event-top-box">
-					<p><%= event.title %></p>
-				</div>
-				<div class="event-image-box">
-					<%= attachment_image_tag event, :image, size:'280x280' %>
-				</div>
-				<div class="event-text-box">
-					<p class="event-address"><i class="fas fa-map-marker-alt icon"></i><%= event.prefecture_code %>　<%= event.city %></p>
-				    <p>　<%= event.explanation %></p>
-				</div>
-				<p class="event-post-count">投稿数：<%= event.posts.count %></p>
-				<%= link_to user_event_path(event) do %>
-					<i class="fas fa-arrow-circle-right event-post-next-icon"></i>
-				<% end %>
-			</div>
-		<% end %>
-		<%= paginate @events %>
+		<%= render 'user/events/index', events: @events %>
 	</div>
 	<div class="calendar-box">
 		<i class="fas fa-times-circle cursor" id="calendar-box-close-btn"></i>
 		<div id="calendar" class="col-xs-5 col-xs-offset-1 year-search-box"></div>
 		<div class="year-search-box col-xs-5 col-xs-offset-1 text-center">
 			<h4>ーー 開催年で見る ーー</h4>
-			<p class="year-text"><%= link_to '>> 2020年開催 <<', user_events_path(year: '2020年'), class: 'link-color link-style' %></p>
-			<p class="year-text"><%= link_to '>> 2019年開催 <<', user_events_path(year: '2019年'), class: 'link-color link-style' %></p>
-			<p class="year-text"><%= link_to '>> 2018年開催 <<', user_events_path(year: '2018年'), class: 'link-color link-style' %></p>
-			<p class="year-text"><%= link_to '>> 2017年開催 <<', user_events_path(year: '2017年'), class: 'link-color link-style' %></p>
+			<p class="year-text"><%= link_to '>> 2020年開催 <<', user_events_path(year: '2020年'), class: 'year-link link-style' %></p>
+			<p class="year-text"><%= link_to '>> 2019年開催 <<', user_events_path(year: '2019年'), class: 'year-link link-style' %></p>
+			<p class="year-text"><%= link_to '>> 2018年開催 <<', user_events_path(year: '2018年'), class: 'year-link link-style' %></p>
+			<p class="year-text"><%= link_to '>> 2017年開催 <<', user_events_path(year: '2017年'), class: 'year-link link-style' %></p>
 		</div>
 	</div>
 </div>

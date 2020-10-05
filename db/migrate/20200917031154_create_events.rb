@@ -7,6 +7,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.text :explanation
       t.string :prefecture_code
       t.string :city
+      t.string :official_link
       t.date :start_date
       t.date :end_date
 

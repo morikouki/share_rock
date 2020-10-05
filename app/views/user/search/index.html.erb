@@ -1,27 +1,11 @@
 <%= render 'user/users/profile' %>
 <div class="row">
 	<h2>『<%= (params[:q][:title_or_prefecture_code_cont]) %>』の検索結果</h2>
-	<div class="search-event-contents">
-		<% @events.each do |event| %>
-			<div class="search-event-box">
-				<%= link_to user_event_path(event) do %>
-					<div class="search-event-title">
-						<p><%= event.title %></p>
-					</div>
-					<div class="search-event-image-box">
-						<%= attachment_image_tag event, :image, class: 'user-event-image', size:'280x280' %>
-					</div>
-				<% end %>
-				<div class="search-event-post-box">
-					投稿数：<%= event.posts.count %>
-				</div>
-					<p class="search-event-text">説明</p>
-					<%= link_to '削除', event_path(event), method: :delete %>
-				<div class="search-event-text-box">
-					開催場所：<%= event.prefecture_code %>　<%= event.city %><br>
-					説明：<%= event.explanation %>
-				</div>
-			</div>
-		<% end %>
-	</div>
+	<% if @events.count == 0 %>
+		<p>該当する結果がありませんでした。</p>
+	<% else %>
+		<div class="search-event-contents">
+			<%= render 'user/events/index', events: @events %>
+		</div>
+	<% end %>
 </div>
