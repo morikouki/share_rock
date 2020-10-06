@@ -10,9 +10,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    RegistrationMailer.send_confirm_to_user(current_user).deliver_now
+  end
 
   # GET /resource/edit
   # def edit
@@ -75,7 +76,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :post_code, :prefecture_code, :address_city, :sex, :birthday])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :nickname, :post_code, :prefecture_code, :address_city, :sex, :birthday])
   end
 
 end
