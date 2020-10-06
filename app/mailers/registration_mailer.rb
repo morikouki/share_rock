@@ -4,6 +4,7 @@ class RegistrationMailer < ApplicationMailer
 	def send_confirm_to_user(user)
 	    @user = user
 	    mail to: user.email,
-	         subject: 'thank_you!'
+	         subject: 'Share_rockへようこそ！',
+	         from: '"管理人" <share_rock@example.com>'
     end
 end
