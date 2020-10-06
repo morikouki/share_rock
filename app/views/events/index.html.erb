@@ -45,22 +45,7 @@
 	<div class="">
 		<h2>イベント一覧</h2>
 		<div class="admin-event-contents">
-			<% @events.each do |event| %>
-				<div class="admin-event-box">
-					<div class="admin-event-title">
-						<p><%= event.title %></p>
-					</div>
-					<div class="admin-event-image">
-						<%= attachment_image_tag event, :image, size: '330x250' %>
-					</div>
-						<p class="admin-event-text">説明</p>
-						<%= link_to '削除', event_path(event), method: :delete %>
-					<div class="admin-event-text-box">
-						開催場所：<%= event.prefecture_code %>　<%= event.city %><br>
-						説明：<%= event.explanation %>
-					</div>
-				</div>
-			<% end %>
+			<%= render 'user/events/index', events: @events %>
 		</div>
 	</div>
 </div>

@@ -14,13 +14,10 @@
 			<%= render 'user/comment_favorites/count', comment: post_comment %>
 		</span>
 		<span class="cursor replay_comment-btn replay-comment-btn-<%= post_comment.id %>">コメントする</span>
-		<span class="cursor replay_comment-btn replay-comment-box-btn-<%= post_comment.id %>">コメントを見る</span>
+		<span class="cursor replay_comment-btn replay-comment-box-btn-<%= post_comment.id %>">コメントを見る<%= post_comment.replay_comments.count %>件</span>
 		<i class="fas fa-edit col-xs-offset-1 cursor comment-edit-btn<%= post_comment.id %>"></i>
 	</div>
-
 	<%= render 'user/replay_comments/form_index', event: event, post: post, post_comment: post_comment, replay_comment: replay_comment %>
-
-
 	<div class="form-comment-box edit-comment-form-box<%= post_comment.id %>">
 		<%= render 'user/post_comments/edit', event: event, post: post, post_comment: post_comment %>
 	</div>

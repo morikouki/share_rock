@@ -4,6 +4,7 @@ class User::PostCommentsController < ApplicationController
 		@event = Event.find(params[:event_id])
 		@post = Post.find(params[:post_id])
 		post_comment = PostComment.new(post_comment_params)
+		@replay_comment = ReplayComment.new
 		post_comment.user_id = current_user.id
 		post_comment.event_id = @event.id
 		post_comment.post_id = @post.id
@@ -23,6 +24,7 @@ class User::PostCommentsController < ApplicationController
 		@event = Event.find(params[:event_id])
 		@post = Post.find(params[:post_id])
 		post_comment = PostComment.find(params[:id])
+		@replay_comment = ReplayComment.new
 		post_comment.user_id = current_user.id
 		post_comment.event_id = @event.id
 		post_comment.post_id = @post.id

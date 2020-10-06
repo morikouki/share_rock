@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
 	def index
 		@event = Event.new
-		@events = Event.all
+		@events = Event.all.page(params[:page]).per(6).order("id DESC")
 	end
 
 	def show

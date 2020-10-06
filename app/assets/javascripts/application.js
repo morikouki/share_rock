@@ -171,9 +171,7 @@ $(function() {
 	 		$('#comment-form-box').fadeOut();
 	 	});
 	  });
-
 	  
-
 	  $(function(){
 	    // inputのidから情報の取得
 	    $('#back').on('change', function (e) {

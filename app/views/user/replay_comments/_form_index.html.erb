@@ -8,7 +8,7 @@
 				</span>
 			<% end %>
 			：<%= replay_comment.comment %>
-			<%= link_to user_event_post_post_comment_replay_comment_path(event, post, post_comment, replay_comment), class: 'link-color link-style', method: :delete do %>
+			<%= link_to user_event_post_post_comment_replay_comment_path(event, post, post_comment, replay_comment), class: 'link-color link-style', method: :delete, data: { confirm: '本当に削除しますか？' } do %>
 				<i class="fas fa-trash-alt col-xs-offset-1"></i>
 			<% end %>
 		</div>
@@ -17,11 +17,13 @@
 
 <div class="form-comment-box replay-comment-form-box-<%= post_comment.id %>">
 	<i class="fas fa-times-circle cursor replay-comment-form-close-btn-<%= post_comment.id %>" style="font-size: 25px;"></i>
-	<%= form_with model:[event, post, post_comment, replay_comment], url:user_event_post_post_comment_replay_comments_path(event, post, post_comment) do |f| %>
-		<%= f.label :comment, 'コメント' %>
-		<%= f.submit 'コメントする' %><br>
-		<%= f.text_area :comment, size:'70x6' %>
-	<% end %>
+	<div class="form-comment">
+		<%= form_with model:[event, post, post_comment, replay_comment], url:user_event_post_post_comment_replay_comments_path(event, post, post_comment) do |f| %>
+			<%= f.label :comment, 'コメント' %>
+			<%= f.submit '送信' %><br>
+			<%= f.text_area :comment, size:'70x6' %>
+		<% end %>
+	</div>
 </div>
 
 

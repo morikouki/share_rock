@@ -16,9 +16,8 @@
 					</span>
 				<% end %>
 				<i class="far fa-comment col-xs-offset-1"></i> <%= post.post_comments.count %>
-				<% if controller.controller_name != 'events' %>
-					<%= link_to '編集', edit_user_event_post_path(post.event, post) %>
-					<%= link_to '削除', user_event_post_path(post.event, post), method: :delete %>
+				<% if controller.controller_name == 'users' %>
+					<i class="col-xs-offset-1 fas fa-edit cursor post-edit-btn-<%= post.id %>"></i>
 				<% end %>
 			</div>
 			<div class="image-box bxslider">
@@ -35,5 +34,41 @@
 				<% end %>
 			</div>
 		</div>
+		<div class="edit-post-box-<%= post.id %> edit-post-box">
+			<i class="fas fa-times-circle cursor post-edit-form-close-btn-<%= post.id %>" style="font-size: 20px;"></i>
+			<%= link_to user_event_post_path(post.event, post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'link-color col-xs-offset-1' do %>
+						<i class="fas fa-trash-alt" style="color: red;">投稿を削除</i>
+					<% end %>
+			<%= form_with model:[post.event, post], url:user_event_post_path(post.event, post) do |f| %>
+				<div class="post-image-form">
+					<% post.post_images.each do |image| %>
+						<div class="post-form-box-image1 cursor">
+							<%= attachment_image_tag image, :image, class: "img-prev4", size: "250x250" %>
+						</div>
+					<% end %>
+				</div>
+				<div class="post-comment-form">
+					<div class="form-group row">
+						<%= f.label :post_title, 'タイトル', class: 'col-xs-2' %>
+						<%= f.text_field :post_title, class: 'col-xs-5' %>
+					</div>
+					<div class="form-group row">
+						<%= f.label :post_text, 'コメント', class: 'col-xs-2' %>
+						<%= f.text_area :post_text, class: 'col-xs-9', size: "20x10" %>
+					</div>
+					<%= f.submit '投稿する', class: 'col-xs-offset-6 update-btn' %>
+				</div>
+			<% end %>
+		</div>
+		<script>
+			$(function(){
+			  	$('.post-edit-btn-<%= post.id %>').on('click', function(){
+			  		$('.edit-post-box-<%= post.id %>').slideToggle();
+			  	});
+			 	$('.post-edit-form-close-btn-<%= post.id %>').on('click', function(){
+			 		$('.edit-post-box-<%= post.id %>').fadeOut();
+			 	});
+			  });
+		</script>
 	<% end %>
 <% end %>
