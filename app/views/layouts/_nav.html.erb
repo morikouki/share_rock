@@ -34,6 +34,13 @@
           <% end %>
         </li>
       <% else %>
+      <% if admin_signed_in? %>
+          <li class="nav-item">
+            <%= link_to destroy_admin_session_path, method: :delete, class: 'link-color link-style' do %>
+                 Sign_out
+            <% end %>
+          </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to about_path, class: 'link-color link-style' do %>
             Share_Rockとは

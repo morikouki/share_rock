@@ -5,9 +5,6 @@ class EventsController < ApplicationController
 		@events = Event.all.page(params[:page]).per(6).order("id DESC")
 	end
 
-	def show
-	end
-
 	def create
 		@event = Event.new(event_params)
 		@event.save
@@ -15,9 +12,13 @@ class EventsController < ApplicationController
 	end
 
 	def edit
+		@event = Event.find(params[:id])
 	end
 
 	def update
+		@event = Event.find(params[:id])
+		@event.update(event_params)
+		redirect_to events_path
 	end
 
 	def destroy

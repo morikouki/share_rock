@@ -277,7 +277,7 @@ main {
   display: none;
 }
 
-.back-image-box, .profile-image-box, .post-form-box-image1, .post-form-box-image2, .post-form-box-image3 {
+.back-image-box, .profile-image-box, .post-form-box-image1, .post-form-box-image2, .post-form-box-image3, .admin-event-image {
   position: relative;
 }
 
@@ -285,13 +285,13 @@ main {
   margin: 5px;
 }
 
-.profile-image-btn, .post-form-image-btn1, .post-form-image-btn2, .post-form-image-btn3 {
+.profile-image-btn, .post-form-image-btn1, .post-form-image-btn2, .post-form-image-btn3, .admin-event-image-btn {
   position: absolute;
   top: 45%;
   left: 45%;
 }
 
-.update-btn {
+.update-btn, .event-create-btn {
   padding: 5px;
   font-weight: bold;
   color: #67c5ff;
@@ -300,12 +300,16 @@ main {
 }
 
 select {
-  border: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
   padding-right: 10px;
 }
 
 input, textarea {
-  border: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 .post-form-image-btn2, .post-form-image-btn3 {

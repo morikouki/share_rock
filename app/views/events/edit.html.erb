@@ -1,15 +1,14 @@
 <div class="row">
-	<h2>イベント登録</h2>
 	<div class="admin-event-form-box">
-		<%= form_with model: @event, url: events_path, method: :post do |f| %>
+		<%= form_with model: @event, url: event_path(@event) do |f| %>
 			<div class="form-group admin-event-image">
-				<%= attachment_image_tag @event, :image, fallback: "Share.png", class: "event-img-prev", size: "500x500" %>
-				<span class="img-btn cursor admin-event-image-btn" onClick="$('#event-image').click()">
+				<%= attachment_image_tag @event, :image, fallback: "Share.png", class: "edit-event-img-prev", size: "500x500" %>
+				<span class="img-btn cursor admin-event-image-btn" onClick="$('#edit-event-image').click()">
 					<i class="fas fa-camera"></i>
 				</span>
 			</div>
 			<div class="event-form-group" style="display: none">
-			 	<%= f.attachment_field :image, id: 'event-image' %>
+			 	<%= f.attachment_field :image, id: 'edit-event-image' %>
 			</div>
 			<div class="event-form-group row">
 				<%= f.label :title, 'タイトル', class: 'col-xs-4' %>
@@ -40,15 +39,11 @@
 				<%= f.text_field :official_link, class: 'col-xs-7' %>
 			</div>
 			<div class="event-form-group">
-				<%= f.submit '登録', class: 'col-xs-offset-5 col-xs-3 event-create-btn' %>
+				<%= f.submit '変更', class: 'col-xs-offset-5 col-xs-3 event-create-btn' %>
 			</div>
 		<% end %>
 	</div>
-
-	<div class="admin-event-box">
-		<h2>イベント一覧</h2>
-		<div class="admin-event-contents">
-			<%= render 'user/events/index', events: @events %>
-		</div>
-	</div>
+	<%= link_to event_path(@event), class: 'link-color link-style', method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+		<i class="fas fa-trash-alt col-xs-offset-1" style="color: red;">イベントを削除</i>
+	<% end %>
 </div>

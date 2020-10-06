@@ -2,28 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.admin-event-form-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-event-box {
+  width: 100%;
+}
+
+.event-form-group {
+  margin: 30px 0;
+}
+
 .admin-event-contents {
   width: 100%;
   margin: 0 auto;
   display: flex;
   flex-flow: row wrap;
-}
-
-.admin-event-title {
-  font-size: 20px;
-  padding-top: 20px;
-  margin-left: 20px;
-}
-
-.admin-event-image {
-  width: 330px;
-  height: 250px;
-  padding: 10px 0;
-  margin: 0 auto;
-}
-
-.admin-event-text {
-  font-size: 20px;
-  padding-top: 20px;
-  margin-left: 20px;
 }

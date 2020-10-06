@@ -11,8 +11,14 @@
 		    <p>　<%= event.explanation %></p>
 		</div>
 		<p class="event-post-count">投稿数：<%= event.posts.count %></p>
-		<%= link_to user_event_path(event) do %>
-			<i class="fas fa-arrow-circle-right event-post-next-icon"></i>
+		<% if admin_signed_in? %>
+			<%= link_to edit_event_path(event) do %>
+				<i class="fas fa-edit event-post-next-icon"></i>
+			<% end %>
+		<% else %>
+			<%= link_to user_event_path(event) do %>
+				<i class="fas fa-arrow-circle-right event-post-next-icon"></i>
+			<% end %>
 		<% end %>
 	</div>
 <% end %>

@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
   }
   devise_for :admins, controllers: {
-    registrations: 'admins/registrations',
     sessions: "admins/sessions",
   }
 
@@ -37,6 +36,6 @@ Rails.application.routes.draw do
     get 'kyusyu_okinawa' => 'search#kyusyu_okinawa'
   end
 
-  resources :events, only: [:index, :show, :create, :update, :destroy]
+  resources :events, only: [:index, :edit, :create, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
