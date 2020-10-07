@@ -5,6 +5,6 @@ class RegistrationMailer < ApplicationMailer
 	    @user = user
 	    mail to: user.email,
 	         subject: 'Share_rockへようこそ！',
-	         from: '"管理人" <share_rock@example.com>'
+	         from: '"Share_Rock管理人" <share_rock@example.com>'
     end
 end

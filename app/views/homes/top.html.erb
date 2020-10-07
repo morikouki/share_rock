@@ -1,17 +1,24 @@
-<div class="flex">
-	<div class="sidebar-left">
-	</div>
+<div class="row top-box">
 
-	<div class="sidebar-right">
-		<div class="top-text-box">
-			<p class="top-text">みんなで感動を<br>共有しよう。</p>
-			<h4><strong>Share_Rock</strong>をはじめる</h4>
-			<%= link_to new_user_registration_path do %>
-				<p>会員登録</p>
-			<% end %>
-			<%= link_to new_user_session_path do %>
-				<p>ログイン</p>
-			<% end %>
+	<div class="contents-top-box row">
+		<div class="col-xs-4 top-left-box"><p class="top-text">感動を</p></div>
+		<div class="left-box col-xs-4"></div>
+		<div class="col-xs-4 top-right-box">
+			<div class="text-box">
+				<p><strong style="font-size: 30px;">Share_Rock</strong>をはじめる</p>
+				<%= link_to new_user_registration_path, class: 'link-color link-style' do %>
+					<p>会員登録はこちら</p>
+				<% end %>
+				<%= link_to new_user_session_path, class: 'link-color link-style' do %>
+					<p>ログインはこちら</p>
+				<% end %>
+			</div>
 		</div>
 	</div>
+	<div class="contents-bottom-box row">
+		<div class="center-box col-xs-4"></div>
+		<div class="col-xs-4 bottom-center-box"><p class="top-text">共有しよう</p></div>
+		<div class="right-box col-xs-4"></div>
+	</div>
+
 </div>

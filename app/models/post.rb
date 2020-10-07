@@ -8,6 +8,8 @@ class Post < ApplicationRecord
 	has_many :post_images, dependent: :destroy
 	has_many :replay_comments, dependent: :destroy
     accepts_nested_attributes_for :post_images, allow_destroy: true
+    has_many :tag_middles, dependent: :destroy
+  	has_many :tags, through: :tag_middlles
 
 	def favorited_by?(user)
     	favorites.where(user_id: user.id).exists?
