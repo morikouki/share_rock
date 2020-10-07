@@ -2,6 +2,7 @@
 <div class="row">
 	<% @tags.each do |tag| %>
 		<%= tag.name %>
+		<%= tag.posts.count %>
 	<% end %>
 
 

@@ -2,7 +2,7 @@ class User::PostsController < ApplicationController
 
 	def create
 		event = Event.find(params[:event_id])
-		tag_list = params[:post][:name].split(nil)
+		tag_list = params[:post][:name].split(",")
 		post = current_user.posts.new(post_params)
 		post.event_id = event.id
 		post.save
