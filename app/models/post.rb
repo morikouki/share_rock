@@ -14,4 +14,19 @@ class Post < ApplicationRecord
 	def favorited_by?(user)
     	favorites.where(user_id: user.id).exists?
   	end
+
+  	def save_tag(sent_tags)
+	    current_tags = self.tags.pluck(:name) unless self.tags.nil?
+	    old_tags = current_tags - sent_tags
+	    new_tags = sent_tags - current_tags
+	　
+	    old_tags.each do |old|
+	      self.post_tags.delete PostTag.find_by(name: old)
+	    end
+	　
+	    new_tags.each do |new|
+	      new_post_tag = PostTag.find_or_create_by(name: new)
+	      self.post_tags << new_post_tag
+	    end
+	  end
 end

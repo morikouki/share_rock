@@ -1,5 +1,10 @@
 <%= render 'user/users/profile' %>
 <div class="row">
+	<% @tags.each do |tag| %>
+		<%= tag.name %>
+	<% end %>
+
+
 	<h2>コメント</h2>
 	<div class="show-post-name-box row">
 		<%= link_to user_user_path(@post.user), class: 'link-style link-color col-xs-3' do %>

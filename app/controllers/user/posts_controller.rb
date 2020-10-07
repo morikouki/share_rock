@@ -2,9 +2,11 @@ class User::PostsController < ApplicationController
 
 	def create
 		event = Event.find(params[:event_id])
+		tag_list = params[:post][:name].split(nil)
 		post = current_user.posts.new(post_params)
 		post.event_id = event.id
 		post.save
+		post.save_tag(tag_list)
 		params[:post_images][:image].each do |image|
             post.post_images.create(image: image, post_id: post.id)
         end
@@ -16,6 +18,7 @@ class User::PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@comment = PostComment.new
 		@replay_comment = ReplayComment.new
+		@tags = @post.tags
 	end
 
 	def edit
