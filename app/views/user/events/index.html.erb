@@ -1,9 +1,12 @@
 <%= render 'user/users/profile' %>
 <div class="row">
 	<h2><%= params[:year] %>フェス一覧
-		<span class="cursor col-xs-offset-4 btn-vertical-border" id="calendar-btn">
+		<span class="cursor col-xs-offset-3 btn-vertical-border" id="calendar-btn">
 			<i class="fas fa-calendar-alt icon"></i>カレンダーで見る
 		</span>
+		<%= link_to user_event_posts_path(@events, :ranking => 1), class: 'link-style' do %>
+			<span class="cursor col-xs-offset-1 btn-vertical-border" style="font-size: 20px;">いいねの多い投稿を見る</span>
+		<% end %>
 	</h2>
 
 	<div class="contents-box col-xs-12">

@@ -59,6 +59,10 @@ h2 {
 
 // mainページ
 
+main {
+  margin: 50px auto;
+}
+
 
 .profile-image {
 	border-radius: 50%;
@@ -165,7 +169,7 @@ h2 {
   border-bottom: none;
 }
 
-.contents-box, .user-post-contents, .search-event-contents {
+.contents-box, .user-post-contents, .search-event-contents, .post-index-box {
   width: 1070px;
   padding-top: 50px;
   margin: 0 auto;

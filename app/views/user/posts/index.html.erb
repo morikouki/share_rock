@@ -1,0 +1,33 @@
+<div class="row">
+	<% if @tag == nil %>
+		<% if params[:ranking] == "1" %>
+			<h2>いいね数ランキング（上位10）</h2>
+		<% elsif params[:ranking] == "0" %>
+			<h2>コメント数ランキング（上位10）</h2>
+		<% elsif params[:date] == "0" %>
+			<h2>新しい順</h2>
+		<% elsif params[:date] == "1" %>
+			<h2>古い順</h2>
+		<% end %>
+		<%= link_to user_event_posts_path(@events, :ranking => 1), class: 'link-style link-color' do %>
+			<span class="cursor col-xs-offset-1 btn-vertical-border" style="font-size: 10px;">いいねの多い投稿を見る</span>
+		<% end %>
+		<%= link_to user_event_posts_path(@events, :ranking => 0), class: 'link-style link-color' do %>
+			<span class="cursor col-xs-offset-1 btn-vertical-border" style="font-size: 10px;">コメントの多い投稿を見る</span>
+		<% end %>
+		<%= link_to user_event_posts_path(@events, :date => 0), class: 'link-style link-color' do %>
+			<span class="cursor col-xs-offset-1 btn-vertical-border" style="font-size: 10px;">新しい投稿順</span>
+		<% end %>
+		<%= link_to user_event_posts_path(@events, :date => 1), class: 'link-style link-color' do %>
+			<span class="cursor col-xs-offset-1 btn-vertical-border" style="font-size: 10px;">古い投稿順</span>
+		<% end %>
+	<% else %>
+		<h2>「<%= @tag.name %>」のタグが付いた投稿</h2>
+	<% end %>
+	<div class="post-index-box">
+		<%= render 'user/posts/index', posts: @posts %>
+	</div>
+	<% if @tag != nil %>
+		<%= paginate @posts %>
+	<% end %>
+</div>
