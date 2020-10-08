@@ -353,6 +353,15 @@ $(function() {
   	  });
 
 	 $(function(){
+  	  	$('#contact-btn').on('click', function(){
+  	  		$('#contact-form-box').slideToggle();
+  	  	});
+  	  	$('#contact-form-close-btn').on('click', function(){
+  	  		$('#contact-form-box').slideUp();
+  	  	});
+  	  });
+
+	 $(function(){
 
 	    var areaLinks = {
 		 1:"/user/hokkaido",

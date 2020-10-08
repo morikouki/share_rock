@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     get 'kinki' => 'search#kinki'
     get 'chugoku_shikoku' => 'search#chugoku_shikoku'
     get 'kyusyu_okinawa' => 'search#kyusyu_okinawa'
+    resources :contacts, only: [:create]
   end
 
   resources :events, only: [:index, :edit, :create, :update, :destroy]

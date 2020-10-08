@@ -5,6 +5,8 @@ class User::UsersController < ApplicationController
 		@artist_new = Artist.new
 		@posts = @user.posts
 		@posts = @posts.page(params[:page]).per(3).order("id DESC")
+		@contact = Contact.new
+		@contacts = Contact.all
 	end
 
 	def edit
