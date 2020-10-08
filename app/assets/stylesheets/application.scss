@@ -348,8 +348,8 @@ input, textarea {
   padding: 25px 20px 50px 20px;
 }
 
-#favorite-user-box, #comment-user-box, #comment-favorite-user-box, #follower-user-box, #following-user-box {
-  color: #fff;
+#favorite-user-box, #comment-user-box, #comment-favorite-user-box, #follower-user-box, #following-user-box, #tag-box {
+  color: #000000;
   padding: 50px;
   position: fixed;
   top: 0;
@@ -361,17 +361,14 @@ input, textarea {
   background: rgba(141, 177, 199, 0.9);
   z-index: 10000;
   display: none;
+  overflow:auto;
 }
 
 .favorite-user, .comment-user, .comment-favorite-user, .follower-user, .following-user {
   width: 700px;
   padding: 20px;
   margin: 20px auto;
-  border-bottom: solid 1px #fff;
-}
-
-.favorite-link-color, .comment-link-color, .follow-link-color {
-  color: #fff;
+  border-bottom: solid 1px #000000;
 }
 
 .post-next-icon, .event-post-next-icon {

@@ -1,18 +1,14 @@
 <%= render 'user/users/profile' %>
 <div class="row">
-	<% @tags.each do |tag| %>
-		<%= tag.name %>
-		<%= tag.posts.count %>
-	<% end %>
-
-
 	<h2>コメント</h2>
 	<div class="show-post-name-box row">
 		<%= link_to user_user_path(@post.user), class: 'link-style link-color col-xs-3' do %>
 			<%= attachment_image_tag @post.user, :profile_image, size:'30x30', fallback: 'Share.png', class: "profile-image" %>
 			<%= @post.user.nickname %>
 		<% end %>
-		<span id="count-<%= @post.id %>" class="col-xs-offset-1"><%= render 'user/post_comments/count', post: @post %></span>
+		<span id="count-<%= @post.id %>" class="col-xs-offset-1">
+			<%= render 'user/post_comments/count', post: @post %>
+		</span>
 		<span class="col-xs-offset-1 favorite-count-<%= @post.id %>">
 			<%= render 'user/favorites/count', post: @post %>
 		</span>
@@ -29,6 +25,7 @@
 			<%= render 'user/favorites/favorite', post: @post, event: @event %>
 		</span>
 		<span class="cursor col-xs-offset-1" id="comment"><i class="far fa-comment"></i>コメントする</span>
+		<span class="cursor col-xs-offset-1" id="tag-box-btn"><i class="fas fa-tags"></i>タグを見る</span>
 	</div>
 
 	<div class="show-post-text-box">
@@ -52,6 +49,18 @@
 			<% end %>
 		</div>
 	</div>
+
+	<div id="tag-box">
+		<i class="fas fa-times-circle cursor" id="tag-box-close-btn" style="font-size: 25px;"></i>
+		<h2 class="col-xs-offset-2">タグ<span class="col-xs-offset-1" style="font-size: 5px;">タグクリックでタグ付けされた投稿の一覧を表示します</span></h2>
+		<% @tags.each do |tag| %>
+			<div class="tag-text-box text-center">
+				<%= tag.name %>
+				<span style="font-size: 15px;">（<%= tag.posts.count %>）</span>
+			</div>
+		<% end %>
+	</div>
+
 	<%= render 'user/favorites/index', post: @post %>
 	<%= render 'user/post_comments/index', post: @post %>
 	<%= render 'user/comment_favorites/index', post: @post %>

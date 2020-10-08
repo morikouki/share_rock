@@ -152,7 +152,6 @@ $(function() {
   	  	$('#post-form-close-btn').on('click', function(){
   	  		$('#post-form-box').slideUp();
   	  	});
-
   	  });
 
   	  $(function() {
@@ -343,6 +342,15 @@ $(function() {
 	 		$('#following-user-box').slideUp();
 	 	});
 	 });
+
+	 $(function(){
+  	  	$('#tag-box-btn').on('click', function(){
+  	  		$('#tag-box').slideToggle();
+  	  	});
+  	  	$('#tag-box-close-btn').on('click', function(){
+  	  		$('#tag-box').slideUp();
+  	  	});
+  	  });
 
 	 $(function(){
 
