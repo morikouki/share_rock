@@ -43,6 +43,7 @@ h2 {
 }
 
 .navbar-logo {
+  width: 40%;
 	font-size: 40px;
 	color: #000000;
 }
@@ -57,10 +58,23 @@ h2 {
 	margin: 0 50px;
 }
 
+#humbureger-btn, #humburger-menu-box {
+  display: none;
+}
+
+.humburger-item {
+  list-style: none;
+  padding: 20px;
+}
+
+#humbureger-close-btn {
+  font-size: 20px;
+}
+
 // mainページ
 
 main {
-  margin: 50px auto;
+  margin: 100px auto;
 }
 
 
@@ -170,7 +184,7 @@ main {
 }
 
 .contents-box, .user-post-contents, .search-event-contents, .post-index-box {
-  width: 1070px;
+  width: 100%;
   padding-top: 50px;
   margin: 0 auto;
   display: flex;
@@ -398,3 +412,98 @@ footer {
   background-image: url(shibahu.jpg);
   background-position: center;
 }
+
+
+@media screen and (max-width:768px) {
+
+  .top-text {
+    font-size: 20px;
+  }
+
+  .top-box {
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .top-image-box {
+    height: 250px;
+  }
+
+  h2 {
+    font-size: 22px;
+    padding-left: 20px;
+  }
+
+  .nav-item, .share-rock-logo {
+    display: none;
+  }
+
+  #humbureger-btn {
+    font-size: 50px;
+    padding: 0 30px;
+    display: block;
+  }
+
+  #humburger-menu-box {
+    padding: 30px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 50%;
+    background: rgba(141, 177, 199, 0.9);
+    z-index: 10000;
+    display: none;
+  }
+
+  .contents-event-box {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  .user-table-th-text {
+    font-size: 5px;
+  }
+
+  .user-event-text-box {
+    font-size: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

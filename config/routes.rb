@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       patch '/withdraw' => 'users#withdraw'
       resources :artists, only: [:create, :edit, :update, :destroy]
       resource :relationships, only: [:create, :destroy]
+      resources :contacts, only: [:create]
     end
     get 'index' => 'search#index'
     get 'search' => 'search#search'
@@ -36,10 +37,10 @@ Rails.application.routes.draw do
     get 'kinki' => 'search#kinki'
     get 'chugoku_shikoku' => 'search#chugoku_shikoku'
     get 'kyusyu_okinawa' => 'search#kyusyu_okinawa'
-    resources :contacts, only: [:create]
   end
 
   resources :events, only: [:index, :edit, :create, :update, :destroy]
   resources :users, only: [:index]
+  resources :contacts, only: [:index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

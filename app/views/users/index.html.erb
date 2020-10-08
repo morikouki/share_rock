@@ -2,12 +2,13 @@
 	<h2>会員一覧</h2>
 	<div class="user-contents-box">
 		<table class="table">
-			<thead>
+			<thead class="user-table-th-text">
 				<tr>
 					<th>会員名</th>
 					<th>メールアドレス</th>
 					<th>住所</th>
 					<th>性別</th>
+					<th>お問い合わせ</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -15,12 +16,12 @@
 				<% @users.each do |user| %>
 					<tr>
 						<td>
-							<%= attachment_image_tag user, :profile_image, size: '50x50', fallback: 'Share.png' %>
 							<%= user.nickname %>
 						</td>
 						<td><%= user.email %></td>
 						<td><%= user.post_code %><%= user.prefecture_code %><%= user.address_city %></td>
 						<td><%= user.sex %></td>
+						<td><%= user.contacts.count %>件</td>
 						<td><%= user.is_deleted ? '退会済' : '会員' %></td>
 					</tr>
 				<% end %>

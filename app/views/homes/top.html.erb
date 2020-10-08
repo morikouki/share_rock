@@ -1,10 +1,10 @@
 <%= flash[:notice] %>
 <div class="row top-box">
 	<div class="contents-top-box row">
-		<div class="col-xs-4 top-left-box"><p class="top-text">感動を</p></div>
-		<div class="left-box col-xs-4"></div>
-		<div class="col-xs-4 top-right-box">
-			<div class="text-box">
+		<div class="col-xs-4 top-left-box top-image-box"><p class="top-text">感動を</p></div>
+		<div class="top-center-box col-xs-4 top-image-box"></div>
+		<div class="col-xs-4 top-right-box top-image-box">
+			<div class="text-box text-center">
 				<p><strong style="font-size: 30px;">Share_Rock</strong>をはじめる</p>
 				<%= link_to new_user_registration_path, class: 'link-color link-style' do %>
 					<p>会員登録はこちら</p>
@@ -15,9 +15,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="contents-bottom-box row">
-		<div class="center-box col-xs-4"></div>
-		<div class="col-xs-4 bottom-center-box"><p class="top-text">共有しよう</p></div>
-		<div class="right-box col-xs-4"></div>
+	<div class="contents-bottom-box row top-image-box">
+		<div class="center-box col-xs-4 top-image-box"></div>
+		<div class="col-xs-4 bottom-center-box top-image-box"><p class="top-text">共有しよう</p></div>
+		<div class="right-box col-xs-4 top-image-box"></div>
 	</div>
 </div>

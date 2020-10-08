@@ -1,12 +1,12 @@
 <div class="row">
-	<div class="confirm-message">
+	<div class="confirm-box">
 		<h2>本当に退会しますか？</h2>
-		<div class="confirm-text">
+		<div class="confirm-text-box">
 			<p>退会すると、会員登録情報や<br>
-			これまでの購入履歴が閲覧できなくなります。<br>
+			これまでの投稿が閲覧できなくなります。<br>
 			退会する場合は、「退会する」をクリックしてください。</p>
 		</div>
-		<%= link_to "退会しない", user_user_path(current_user) %>
-		<%= link_to "退会する", user_user_withdraw_path(current_user), method: :patch %>
+		<%= link_to "退会しない", user_user_path(current_user), class: 'not-delete-btn link-style' %>
+		<%= link_to "退会する", user_user_withdraw_path(current_user), class: 'delete-btn link-style col-xs-offset-2', method: :patch %>
 	</div>
 </div>

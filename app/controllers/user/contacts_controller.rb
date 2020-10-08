@@ -4,6 +4,7 @@ class User::ContactsController < ApplicationController
 		contact = Contact.new(contact_params)
 		contact.user_id = current_user.id
 		contact.save
+		ContactMailer.send_contact(current_user, contact).deliver_now
 		redirect_to user_user_path(current_user)
 	end
 

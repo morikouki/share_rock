@@ -128,3 +128,30 @@
   padding: 45px 0;
   border-bottom: solid 1px rgba(53, 74, 92, 0.5);
 }
+
+.delete-btn {
+  font-size: 15px;
+  color: red;
+  border: solid 1px red;
+  padding: 5px;
+}
+
+.delete-btn:hover {
+  color: #f2937e;
+}
+
+.confirm-text-box {
+  font-size: 20px;
+  padding: 50px;
+}
+
+.not-delete-btn {
+  font-size: 15px;
+  color: blue;
+  border: solid 1px blue;
+  padding: 5px;
+}
+
+.not-delete-btn:hover {
+  color: #6e86e6;
+}

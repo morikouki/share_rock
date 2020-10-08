@@ -24,6 +24,17 @@
 //= require_tree .
 $(function() {
   $(document).on('turbolinks:load', function() {
+
+  	  $(function(){
+  	  	$('#humbureger-btn').on('click', function(){
+  	  		$('#humburger-menu-box').slideToggle();
+  	  	});
+  	  	$('#humbureger-close-btn').on('click', function(){
+  	  		$('#humburger-menu-box').slideUp();
+  	  	});
+  	  });
+
+
 	  $(function(){
 	  	$('#event-image').on('change', function (e) {
 		// ここから既存の画像のurlの取得

@@ -3,6 +3,9 @@
 		<h2>マイページ</h2>
 	<% else %>
 		<h2><%= @user.nickname %>さんのプロフィール</h2>
+		<% if @user.is_deleted == true %>
+			<span style="color: red;">＊退会したユーザーです</span>
+		<% end %>
 	<% end %>
 	<div class="show-background-image-box col-xs-12">
 		<%= attachment_image_tag @user, :background, fallback: 'Share.png', class: 'back-image' %>
@@ -22,8 +25,10 @@
 				<% end %>
 			<% end %>
 		<% end %>
-		<%= link_to edit_user_user_path(@user), class: 'link-color link-group col-xs-offset-2' do %>
-			<p class="btn-vertical-border">プロフィール編集</p>
+		<% if @user == current_user %>
+			<%= link_to edit_user_user_path(@user), class: 'link-color link-group col-xs-offset-2' do %>
+				<p class="btn-vertical-border">プロフィール編集</p>
+			<% end %>
 		<% end %>
 	</div>
 
@@ -76,16 +81,10 @@
 		<%= render 'user/posts/index', posts: @posts %>
 		<%= paginate @posts, params: { anchor: 'index-link' } %>
 	</div>
-
-	<% @contacts.each do |contact| %>
-		<%= contact.title %>
-		<%= contact.contents %>
-	<% end %>
-
 	<div id="contact-form-box">
     	<i class="fas fa-times-circle cursor" id="contact-form-close-btn" style="font-size: 25px;"></i>
     	<div class="contact-form text-center">
-	    	<%= form_with model: [@user, @contact], url: user_contacts_path do |f| %>
+	    	<%= form_with model: [@user, @contact], url: user_user_contacts_path(@user) do |f| %>
 		    	<div class="form-group row">
 			    	<%= f.label :title, '件名', class: 'col-xs-3' %>
 			    	<%= f.text_field :title, class: 'col-xs-7' %>

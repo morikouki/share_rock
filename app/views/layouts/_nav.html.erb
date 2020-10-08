@@ -3,12 +3,12 @@
     <div class="navbar-logo">
       <% if user_signed_in? %>
         <img src="/assets/Share.png", width="70px", height="70px" style="border-radius: 50%;">
-        <span>Share_Rock</span>
+        <span class="share-rock-logo">Share_Rock</span>
       <% else %>
         <%= link_to root_path do %>
           <img src="/assets/Share.png", width="70px", height="70px" style="border-radius: 50%;">
         <% end %>
-          <span>Share_Rock</span>
+          <span class="share-rock-logo">Share_Rock</span>
       <% end %>
     </div>
     <ul class="nav-list">
@@ -39,6 +39,16 @@
         </li>
       <% elsif admin_signed_in? %>
         <li class="nav-item">
+          <%= link_to events_path, class: 'link-color link-style' do %>
+              イベント
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to contacts_path, class: 'link-color link-style' do %>
+              お問い合わせ
+          <% end %>
+        </li>
+        <li class="nav-item">
           <%= link_to users_path, class: 'link-color link-style' do %>
               会員一覧
           <% end %>
@@ -65,6 +75,75 @@
           <% end %>
         </li>
       <% end %>
+      <i class="fas fa-bars cursor" id="humbureger-btn"></i>
+      <div id="humburger-menu-box">
+        <i class="fas fa-times-circle cursor" id="humbureger-close-btn"></i>
+        <ul id="humburger-item-list">
+          <% if user_signed_in? %>
+            <li class="humburger-item">
+              <% if current_page?(user_user_path(current_user)) %>
+                <span id="contact-btn" class="cursor" style="color: #000000;">お問い合わせ</span>
+              <% else %>
+                <%= link_to  user_user_path(current_user), class: 'link-color link-style',data: {"turbolinks"=>false} do %>
+                  マイページへ
+                <% end %>
+              <% end %>
+            </li>
+            <li class="humburger-item">
+              <%= link_to new_user_registration_path, class: 'link-color link-style',data: {"turbolinks"=>false} do %>
+                  フェス一覧
+              <% end %>
+            </li>
+            <li class="humburger-item">
+              <%= link_to user_search_path, class: 'link-color link-style',data: {"turbolinks"=>false} do %>
+                   検索
+              <% end %>
+            </li>
+            <li class="humburger-item">
+              <%= link_to destroy_user_session_path, method: :delete, class: 'link-color link-style' do %>
+                   Sign_out
+              <% end %>
+            </li>
+          <% elsif admin_signed_in? %>
+            <li class="humburger-item">
+              <%= link_to events_path, class: 'link-color link-style' do %>
+                  イベント
+              <% end %>
+            </li>
+            <li class="humburger-item">
+              <%= link_to contacts_path, class: 'link-color link-style' do %>
+                  お問い合わせ
+              <% end %>
+            </li>
+            <li class="humburger-item">
+              <%= link_to users_path, class: 'link-color link-style' do %>
+                  会員一覧
+              <% end %>
+            </li>
+            <li class="humburger-item">
+              <%= link_to destroy_admin_session_path, method: :delete, class: 'link-color link-style' do %>
+                   Sign_out
+              <% end %>
+            </li>
+          <% else %>
+            <li class="humburger-item">
+              <%= link_to about_path, class: 'link-color link-style' do %>
+                Share_Rockとは
+              <% end %>
+            </li>
+            <li class="humburger-item">
+              <%= link_to new_user_registration_path, class: 'link-color link-style' do %>
+                  新規登録
+              <% end %>
+            </li>
+            <li class="humburger-item">
+              <%= link_to new_user_session_path, class: 'link-color link-style' do %>
+                   ログイン
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </ul>
   </div>
 </nav>

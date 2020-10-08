@@ -1,0 +1,28 @@
+<div class="row">
+	<h2>お問い合わせ一覧</h2>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>会員名</th>
+				<th>メールアドレス</th>
+				<th>お問い合わせ（件名）</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @contacts.each do |contact| %>
+				<tr>
+					<td>
+						<%= attachment_image_tag contact.user, :profile_image, size: '50x50', fallback: 'Share.png' %>
+						<%= contact.user.nickname %>
+					</td>
+					<td><%= contact.user.email %></td>
+					<td>
+						<%= link_to contact_path(contact), class: 'link-style link-color' do %>
+							<%= contact.title %>
+						<% end %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
