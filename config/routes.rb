@@ -22,11 +22,15 @@ Rails.application.routes.draw do
       end
     end
     resources :users, only: [:show, :edit, :update] do
+      collection do
+        get 'confirm' => 'customers#confirm'
+        patch '/withdraw' => 'customers#withdraw'
+      end
       resources :artists, only: [:create, :edit, :update, :destroy]
       resource :relationships, only: [:create, :destroy]
     end
-    get 'search' => 'search#search'
     get 'index' => 'search#index'
+    get 'search' => 'search#search'
     get 'kanto' => 'search#kanto'
     get 'hokkaido' => 'search#hokkaido'
     get 'tohoku' => 'search#tohoku'
