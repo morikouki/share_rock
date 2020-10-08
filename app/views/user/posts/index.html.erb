@@ -9,18 +9,21 @@
 		<% elsif params[:date] == "1" %>
 			<h2>古い順</h2>
 		<% end %>
-		<%= link_to user_event_posts_path(@events, :ranking => 1), class: 'link-style link-color' do %>
-			<span class="cursor col-xs-offset-1 btn-vertical-border" style="font-size: 10px;">いいねの多い投稿を見る</span>
-		<% end %>
-		<%= link_to user_event_posts_path(@events, :ranking => 0), class: 'link-style link-color' do %>
-			<span class="cursor col-xs-offset-1 btn-vertical-border" style="font-size: 10px;">コメントの多い投稿を見る</span>
-		<% end %>
-		<%= link_to user_event_posts_path(@events, :date => 0), class: 'link-style link-color' do %>
-			<span class="cursor col-xs-offset-1 btn-vertical-border" style="font-size: 10px;">新しい投稿順</span>
-		<% end %>
-		<%= link_to user_event_posts_path(@events, :date => 1), class: 'link-style link-color' do %>
-			<span class="cursor col-xs-offset-1 btn-vertical-border" style="font-size: 10px;">古い投稿順</span>
-		<% end %>
+
+		<div class="event-ranking-text-box">
+			<%= link_to user_event_posts_path(@events, :ranking => 1), class: 'link-style link-color' do %>
+				<span class="event-ranking-text cursor btn-vertical-border" style="font-size: 10px;">いいねの多い投稿を見る</span>
+			<% end %>
+			<%= link_to user_event_posts_path(@events, :ranking => 0), class: 'link-style link-color' do %>
+				<span class="event-ranking-text cursor btn-vertical-border" style="font-size: 10px;">コメントの多い投稿を見る</span>
+			<% end %>
+			<%= link_to user_event_posts_path(@events, :date => 0), class: 'link-style link-color' do %>
+				<span class="event-ranking-text cursor btn-vertical-border" style="font-size: 10px;">新しい投稿順</span>
+			<% end %>
+			<%= link_to user_event_posts_path(@events, :date => 1), class: 'link-style link-color' do %>
+				<span class="event-ranking-text cursor btn-vertical-border" style="font-size: 10px;">古い投稿順</span>
+			<% end %>
+		</div>
 	<% else %>
 		<h2>「<%= @tag.name %>」のタグが付いた投稿</h2>
 	<% end %>

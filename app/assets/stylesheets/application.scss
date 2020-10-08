@@ -55,7 +55,7 @@ h2 {
 }
 
 .nav-item {
-	margin: 0 50px;
+	margin: 0 30px;
 }
 
 #humbureger-btn, #humburger-menu-box {
@@ -98,6 +98,10 @@ main {
   text-align: center;
   width: 50px;
   color: rgb(197, 20, 159);
+}
+
+.my-page-text-btn {
+  margin: 0 20px;
 }
 
 .btn-vertical-border {
@@ -467,8 +471,37 @@ footer {
     font-size: 5px;
   }
 
-  .user-event-text-box {
-    font-size: 20px;
+  .calendar-box {
+    width: 100%;
+    overflow:auto;
+  }
+
+  #calendar, .year-search-box {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .event-ranking-text {
+    margin-left: 18px;
+  }
+
+  .my-page-text-btn {
+    font-size: 10px;
+    margin: 0 5px;
+  }
+
+  #artist-box {
+    width: 70%;
+    text-align: center;
+  }
+
+  .profile-birthday, .profile-address {
+    margin: 0 20px;
+  }
+
+  .back-image {
+    margin-top: 300px;
+    height: 200px;
   }
 }
 

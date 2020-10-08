@@ -17,9 +17,11 @@
           <% if current_page?(user_user_path(current_user)) %>
             <span id="contact-btn" class="cursor" style="color: #000000;">お問い合わせ</span>
           <% else %>
-            <%= link_to  user_user_path(current_user), class: 'link-color link-style',data: {"turbolinks"=>false} do %>
-              マイページへ
-            <% end %>
+            <li class="nav-item">
+              <%= link_to  user_user_path(current_user), class: 'link-color link-style',data: {"turbolinks"=>false} do %>
+                マイページへ
+              <% end %>
+            </li>
           <% end %>
         </li>
         <li class="nav-item">
