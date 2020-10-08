@@ -17,6 +17,11 @@ class User < ApplicationRecord
   has_many :follower_user, through: :follower, source: :following
   has_many :following_user, through: :following, source: :follower
 
+  enum sex: {男: 0, 女: 1}
+
+  attachment :profile_image
+  attachment :background
+
   def follow(user_id)
     following.create(follower_id: user_id)
   end
@@ -31,8 +36,7 @@ class User < ApplicationRecord
     following_user.include?(user)
   end
 
-  enum sex: {男: 0, 女: 1}
-
-  attachment :profile_image
-  attachment :background
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
 end

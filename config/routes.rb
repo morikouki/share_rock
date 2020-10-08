@@ -22,10 +22,8 @@ Rails.application.routes.draw do
       end
     end
     resources :users, only: [:show, :edit, :update] do
-      collection do
-        get 'confirm' => 'customers#confirm'
-        patch '/withdraw' => 'customers#withdraw'
-      end
+      get 'confirm' => 'users#confirm'
+      patch '/withdraw' => 'users#withdraw'
       resources :artists, only: [:create, :edit, :update, :destroy]
       resource :relationships, only: [:create, :destroy]
     end

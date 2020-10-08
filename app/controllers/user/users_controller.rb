@@ -22,10 +22,9 @@ class User::UsersController < ApplicationController
 	end
 
 	def withdraw
-		@customer = current_customer
-		if @customer.update(is_deleted: true)
+		if current_user.update(is_deleted: true)
 			reset_session
-			redirect_to public_path, notice: "ありがとうございました。またのご利用をお待ちしております。"
+			redirect_to root_path, notice: "ありがとうございました。またのご利用をお待ちしております。"
 		end
 	end
 
