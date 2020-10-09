@@ -77,7 +77,7 @@ class User::PostsController < ApplicationController
 		@event = Event.find(params[:event_id])
 		@post = Post.find(params[:id])
 		@post.event_id = @event.id
-		@post.post_images.destroy_all
+		@post.post_images.destroy_all #@postに結びついたpost_imageテーブルを全部削除
 		@post.destroy
 		redirect_to user_user_path(current_user)
 	end

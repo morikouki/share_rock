@@ -31,9 +31,9 @@
 
       <div class="form-group row">
         <%= f.label '性別', class: 'col-xs-4 registration-form-text' %>
-        <%= f.radio_button :sex, :男, checked: true %>
+        <%= f.radio_button :sex, :男, checked: true, style: "margin-left: 10px" %>
         <%= f.label :sex, '男' %>
-        <%= f.radio_button :sex, :女 %>
+        <%= f.radio_button :sex, :女, style: "margin-left: 40px" %>
         <%= f.label :sex, '女' %>
       </div>
 
@@ -53,10 +53,8 @@
       </div>
 
       <div class="actions form-group col-xs-offset-6">
-        <%= f.submit "登録" %>
+        <%= f.submit "登録", class: 'btn btn-primary' %>
       </div>
     <% end %>
-
-    <%= render "users/shared/links" %>
   </div>
 </div>

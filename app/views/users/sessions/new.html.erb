@@ -13,18 +13,9 @@
         <%= f.password_field :password, autocomplete: "current-password" %>
       </div>
 
-      <% if devise_mapping.rememberable? %>
-        <div class="field form-group row">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-        </div>
-      <% end %>
-
-      <div class="actions form-group">
-        <%= f.submit "ログイン" %>
+      <div class="actions form-group col-xs-offset-3" style="margin-top: 20px;">
+        <%= f.submit "ログイン", class: 'btn btn-primary' %>
       </div>
     <% end %>
-
-    <%= render "users/shared/links" %>
   </div>
 </div>
