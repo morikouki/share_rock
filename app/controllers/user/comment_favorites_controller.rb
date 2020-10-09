@@ -1,5 +1,8 @@
 class User::CommentFavoritesController < ApplicationController
 
+	#ログイン済ユーザーのみ
+	before_action :authenticate_user!
+
 	def create
 		@post_comment = PostComment.find(params[:post_comment_id])
 		@post = Post.find(params[:post_id])

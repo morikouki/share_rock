@@ -1,5 +1,8 @@
 class User::RelationshipsController < ApplicationController
 
+	#ログイン済ユーザーのみ
+	before_action :authenticate_user!
+
 	def create
 		current_user.follow(params[:user_id])
     	redirect_to request.referer

@@ -373,7 +373,7 @@ $(function() {
   	  });
 
 	 $(function(){
-  	  	$('#contact-btn').on('click', function(){
+  	  	$('.contact-btn').on('click', function(){
   	  		$('#contact-form-box').slideToggle();
   	  	});
   	  	$('#contact-form-close-btn').on('click', function(){

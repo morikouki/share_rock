@@ -29,10 +29,12 @@ class Users::SessionsController < Devise::SessionsController
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  #ユーザーログイン後のページ
   def after_sign_in_path_for(resource)
     user_events_path
   end
 
+  #ユーザーログアウト後のページ
   def after_sign_out_path_for(resource)
     root_path
   end
@@ -43,9 +45,12 @@ class Users::SessionsController < Devise::SessionsController
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email])
   end
 
+  
   def reject_user
+    #入力されたメールアドレスに対応するユーザーが存在する確認
     @user = User.find_by(email: params[:user][:email].downcase)
     if @user
+      #入力されたパスワードが正しいか確認し、is_deletedカラムが会員の場合ログイン画面へ遷移
       if (@user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false))
         flash[:error] = "退会済みです。"
         redirect_to new_user_session_path

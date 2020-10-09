@@ -1,7 +1,10 @@
 class User::UsersController < ApplicationController
 
+	#ログイン済ユーザーのみ
+	before_action :authenticate_user!
+
 	#アクションの前にログインユーザーか確認
-	before_action :ensure_correct_user, only: [:edit, :update, :confirm, :withdraw]
+	before_action :ensure_correct_user, only: [:edit, :update, :withdraw]
 
 	def show
 		@user = User.find(params[:id])
@@ -27,7 +30,8 @@ class User::UsersController < ApplicationController
 
 	#ユーザーの退会処理
 	def withdraw
-		if current_user.update(is_deleted: true)
+		@user = User.find(params[:id])
+		if @user.update(is_deleted: true)
 			reset_session
 			redirect_to root_path, notice: "ありがとうございました。またのご利用をお待ちしております。"
 		end

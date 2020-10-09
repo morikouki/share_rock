@@ -12,6 +12,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+
+    #ユーザー新規会員登録した際にメールを送信
     RegistrationMailer.send_confirm_to_user(current_user).deliver_now
   end
 
@@ -63,13 +65,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  #ユーザーログイン後のページ
   def after_sign_in_path_for(resource)
-     # ログイン後に遷移するpathを設定
      user_events_path
   end
 
+  #ユーザーログアウト後のページ
   def after_sign_out_path_for(resource)
-     # ログアウト後に遷移するpathを設定
      root_path
   end
 

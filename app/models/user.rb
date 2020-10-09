@@ -37,6 +37,7 @@ class User < ApplicationRecord
     following_user.include?(user)
   end
 
+  #is_deletedがfalseならばtrueを返す
   def active_for_authentication?
     super && (self.is_deleted == false)
   end

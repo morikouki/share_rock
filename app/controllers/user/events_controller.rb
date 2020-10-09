@@ -1,6 +1,10 @@
 class User::EventsController < ApplicationController
 
+	#ログイン済ユーザーのみ
+	before_action :authenticate_user!
+
 	def index
+		#イベント開催年での検索
 		case params[:year]
 		when '2020年'
 			@events = Event.where("start_date LIKE?", "%2020%")
@@ -13,8 +17,7 @@ class User::EventsController < ApplicationController
 		else
 		    @events = Event.all
 		end
-
-		 @events = @events.page(params[:page]).per(6).order("id DESC")
+		@events = @events.page(params[:page]).per(6).order("id DESC")
 	end
 
 	def show

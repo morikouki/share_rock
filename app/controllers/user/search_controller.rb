@@ -1,5 +1,8 @@
 class User::SearchController < ApplicationController
 
+	#ログイン済ユーザーのみ
+	before_action :authenticate_user!
+
 	def search
 		@search = Event.ransack(params[:q])
 	end

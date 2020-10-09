@@ -1,5 +1,11 @@
 class User::ArtistsController < ApplicationController
 
+	#ログイン済ユーザーのみ
+	before_action :authenticate_user!
+
+	#アクションの前にログインユーザーか確認
+	before_action :ensure_correct_user, only: [:destroy]
+
 	def create
 		@user = User.find(params[:user_id])
 		artist = @user.artists.new(artist_params)
@@ -23,6 +29,13 @@ class User::ArtistsController < ApplicationController
 
 	def artist_params
 		params.require(:artist).permit(:like_artist)
+	end
+
+	def ensure_correct_user
+	    @user = User.find(params[:user_id])
+	    if @user != current_user
+	      redirect_to user_user_path(current_user)
+	    end
 	end
 
 end

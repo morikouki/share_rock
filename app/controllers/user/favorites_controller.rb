@@ -1,5 +1,8 @@
 class User::FavoritesController < ApplicationController
 
+	#ログイン済ユーザーのみ
+	before_action :authenticate_user!
+
 	def create
 		@post = Post.find(params[:post_id])
 		@event = Event.find(params[:event_id])

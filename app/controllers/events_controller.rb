@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
 
+	#管理者のみ
+	before_action :authenticate_admin!
+
 	def index
 		@event = Event.new
 		@events = Event.all.page(params[:page]).per(6).order("id DESC")

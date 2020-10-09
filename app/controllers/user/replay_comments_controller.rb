@@ -1,5 +1,8 @@
 class User::ReplayCommentsController < ApplicationController
 
+	#ログイン済ユーザーのみ
+	before_action :authenticate_user!
+
 	#アクションの前にログインユーザーか確認
 	before_action :ensure_correct_user, only: [:destroy]
 

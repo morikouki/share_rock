@@ -709,7 +709,7 @@ footer {
     margin: 15px auto;
   }
 
-  #post-form-box, .form-comment-box,  #following-user-box, #follower-user-box {
+  #post-form-box, .form-comment-box,  #following-user-box, #follower-user-box, #contact-form-box {
     padding: 30px 30px;
     position: fixed;
     top: 0;
@@ -809,6 +809,10 @@ footer {
 
    #map-phone-container {
     display: block;
+  }
+
+  .contact-field-text, .contact-field{
+    width: 100%;
   }
 
 }

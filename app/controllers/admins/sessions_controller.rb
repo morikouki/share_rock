@@ -26,10 +26,12 @@ class Admins::SessionsController < Devise::SessionsController
   # end
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  #管理者ログイン後のページ
   def after_sign_in_path_for(resource)
     events_path
   end
 
+  #管理者ログアウト後のページ
   def after_sign_out_path_for(resource)
     root_path
   end

@@ -1,5 +1,11 @@
 class User::PostCommentsController < ApplicationController
 
+	#ログイン済ユーザーのみ
+	before_action :authenticate_user!
+
+	#アクションの前にログインユーザーか確認
+	before_action :ensure_correct_user, only: [:update, :destroy]
+
 	def create
 		@event = Event.find(params[:event_id])
 		@post = Post.find(params[:post_id])
@@ -39,7 +45,7 @@ class User::PostCommentsController < ApplicationController
 
 	#ログインユーザーか確認、ログインユーザーでなかったらイベントページへ
 	def ensure_correct_user
-	    @post = Post.find(params[:id])
+	    @post = Post.find(params[:post_id])
 	    if @post.user != current_user
 	      redirect_to user_events_path
 	    end
