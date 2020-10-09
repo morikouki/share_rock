@@ -12,7 +12,7 @@
 				<%= f.attachment_field :background, id: 'back' %>
 			</div>
 		</div>
-		<div class="col-xs-6 edit-btn-box text-center">
+		<div class="col-xs-6 edit-profile-image-box text-center">
 			<div class="form-group profile-image-box">
 				<%= attachment_image_tag @user, :profile_image, fallback: "Share.png", class: "profile-img-prev"%>
 				<div class="img-btn cursor profile-image-btn" onClick="$('#profile-image').click()" >
@@ -23,36 +23,36 @@
 				<%= f.attachment_field :profile_image, id: 'profile-image' %>
 			</div>
 		</div>
-		<div class="col-xs-6">
+		<div class="col-xs-6 edit-profile-contents-box">
 			<div class="form-group row edit-form-group">
-				<%= f.label 'ニックネーム', class: 'col-xs-3' %>
+				<%= f.label 'ニックネーム', class: 'col-xs-4 edit-profile-form-text' %>
 				<%= f.text_field :nickname, class: 'col-xs-6' %>
 			</div>
 			<div class="form-group row edit-form-group">
-				<%= f.label '自己紹介', class: 'col-xs-3' %>
+				<%= f.label '自己紹介', class: 'col-xs-4 edit-profile-form-text' %>
 				<%= f.text_area :introduction, class: 'col-xs-6', size:'7x6' %>
 			</div>
 			<div class="form-group row edit-form-group">
-				<%= f.label '郵便番号', class: 'col-xs-3' %>
+				<%= f.label '郵便番号', class: 'col-xs-4 edit-profile-form-text' %>
 				<%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", id: "user_postcode", class: 'col-xs-6' %>
 			</div>
 			<div class="form-group row edit-form-group">
-				<%= f.label '都道府県', class: 'col-xs-3' %>
+				<%= f.label '都道府県', class: 'col-xs-4 edit-profile-form-text' %>
 				<%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name,{prompt: ''}, class: 'edit-collection-select', id: "user_prefecture_code" %>
 			</div>
 			<div class="form-group row edit-form-group">
-				<%= f.label '市町区村', class: 'col-xs-3' %>
+				<%= f.label '市町区村', class: 'col-xs-4 edit-profile-form-text' %>
 				<%= f.text_field :address_city, autocomplete: 'address_city', id: "user_address_city", class: 'col-xs-6' %>
 			</div>
 			<div class="form-group row edit-form-group">
-			    <%= f.label '性別', class: 'col-xs-3' %>
+			    <%= f.label '性別', class: 'col-xs-4 edit-profile-form-text' %>
 			    <%= f.radio_button :sex, :男, checked: true %>
 			    <%= f.label :sex, '男', class: 'radio-button' %>
 			    <%= f.radio_button :sex, :女 %>
 			    <%= f.label :sex, '女', class: 'radio-button' %>
 			</div>
 			<div class="form-group row edit-form-group">
-			    <%= f.label '生年月日', class: 'col-xs-3' %>
+			    <%= f.label '生年月日', class: 'col-xs-4 edit-profile-form-text' %>
 			    <%= f.date_select :birthday, use_month_numbers: true,start_year: 1960, end_year: (Time.now.year), default: Date.new(2000, 1, 1) %>
 			</div>
 		</div>

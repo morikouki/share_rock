@@ -6,7 +6,7 @@
 			これまでの投稿が閲覧できなくなります。<br>
 			退会する場合は、「退会する」をクリックしてください。</p>
 		</div>
-		<%= link_to "退会しない", user_user_path(current_user), class: 'not-delete-btn link-style' %>
+		<%= link_to "退会しない", user_user_path(current_user), class: 'not-delete-btn link-style col-xs-offset-1' %>
 		<%= link_to "退会する", user_user_withdraw_path(current_user), class: 'delete-btn link-style col-xs-offset-2', method: :patch %>
 	</div>
 </div>

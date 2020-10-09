@@ -6,7 +6,7 @@
 	<div class="post-image-form">
 		<% post.post_images.each do |image| %>
 			<div class="post-form-box-image1 cursor">
-				<%= attachment_image_tag image, :image, fallback: "Share.png", class: "img-prev1", size: "250x250" %>
+				<%= attachment_image_tag image, :image, fallback: "Share.png", class: "img-prev1" %>
 				<span class="post-form-image-btn1" onClick="$('#image1').click()" style='font-size: 30px;' >
 					<i class="fas fa-camera"></i>
 				</span>
@@ -14,7 +14,7 @@
 				<span id="delete-image-btn1" class="delete-image">削除</span>
 			</div>
 			<div class="post-form-box-image2 cursor">
-				<%= attachment_image_tag image, :image, fallback: "Share.png", class: "img-prev2", size: "250x250" %>
+				<%= attachment_image_tag image, :image, fallback: "Share.png", class: "img-prev2" %>
 				<span class="post-form-image-btn2" onClick="$('#image2').click()" style='font-size: 30px;' >
 					<i class="fas fa-camera"></i>
 				</span>
@@ -22,7 +22,7 @@
 				<span id="delete-image-btn2" class="delete-image">削除</span>
 			</div>
 			<div class="post-form-box-image3 cursor">
-				<%= attachment_image_tag image, :image, fallback: "Share.png", class: "img-prev3", size: "250x250" %>
+				<%= attachment_image_tag image, :image, fallback: "Share.png", class: "img-prev3" %>
 				<span class="post-form-image-btn3" onClick="$('#image3').click()" style='font-size: 30px;' >
 					<i class="fas fa-camera"></i>
 				</span>

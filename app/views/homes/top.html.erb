@@ -5,19 +5,22 @@
 		<div class="top-center-box col-xs-4 top-image-box"></div>
 		<div class="col-xs-4 top-right-box top-image-box">
 			<div class="text-box text-center">
-				<p><strong style="font-size: 30px;">Share_Rock</strong>をはじめる</p>
-				<%= link_to new_user_registration_path, class: 'link-color link-style' do %>
-					<p>会員登録はこちら</p>
-				<% end %>
-				<%= link_to new_user_session_path, class: 'link-color link-style' do %>
-					<p>ログインはこちら</p>
-				<% end %>
+				<span class="top-logo">Share_Rock</span><br>
+				<span>をはじめる</span>
+				<div class="login-text">
+					<%= link_to new_user_registration_path, class: 'link-style' do %>
+						<p>会員登録はこちら</p>
+					<% end %>
+					<%= link_to new_user_session_path, class: 'link-style' do %>
+						<p>ログインはこちら</p>
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div class="contents-bottom-box row top-image-box">
 		<div class="center-box col-xs-4 top-image-box"></div>
-		<div class="col-xs-4 bottom-center-box top-image-box"><p class="top-text">共有しよう</p></div>
+		<div class="col-xs-4 bottom-center-box top-image-box"><span class="top-text">共有しよう</span></div>
 		<div class="right-box col-xs-4 top-image-box"></div>
 	</div>
 </div>

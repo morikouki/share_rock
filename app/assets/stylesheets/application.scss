@@ -67,7 +67,7 @@ h2 {
   padding: 20px;
 }
 
-#humbureger-close-btn {
+#humbureger-close-btn, .contents-btn {
   font-size: 20px;
 }
 
@@ -77,6 +77,13 @@ main {
   margin: 100px auto;
 }
 
+.top-logo {
+  font-size: 60px;
+}
+
+.login-text {
+  margin-top: 20px;
+}
 
 .profile-image {
 	border-radius: 50%;
@@ -334,6 +341,10 @@ input, textarea {
   display: none;
 }
 
+.profile-contents-artist-text {
+  padding-left: 15px;
+}
+
 .delete-image, .edit-image-btn {
   display: none;
   font-weight: bold;
@@ -421,7 +432,7 @@ footer {
 @media screen and (max-width:768px) {
 
   .top-text {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .top-box {
@@ -429,8 +440,66 @@ footer {
     padding: 0 20px;
   }
 
+  .top-logo {
+    font-size: 20px;
+  }
+
+  .login-text {
+    margin-top: 10px;
+  }
+
+  .login-text p {
+    font-size: 10px;
+  }
+
   .top-image-box {
-    height: 250px;
+    height: 150px;
+  }
+
+  .registration-form-text, #calendar-btn, .edit-profile-form-text, .confirm-text-box
+   {
+    font-size: 5px;
+  }
+
+  .contents-btn {
+    font-size: 5px;
+    margin: 20px;
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 5px 11px 5px 15px;
+    text-decoration: none;
+    color: #fff;
+    transition: .4s;
+  }
+
+  .contents-btn:before {
+    position: absolute;
+    display: inline-block;
+    content: '';
+    width: 4px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
+    background: #fff;
+  }
+
+  .contents-btn:after {
+    position: absolute;
+    display: inline-block;
+    content: '';
+    width: 4px;
+    height: 100%;
+    top:0;
+    left: 100%;
+    border-radius: 3px;
+    background: #fff;
+  }
+
+  .contents-btn:hover:before, .contents-btn:hover:after {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
   }
 
   h2 {
@@ -448,7 +517,7 @@ footer {
     display: block;
   }
 
-  #humburger-menu-box {
+  #humburger-menu-box, #active-event-ranking-text-box {
     padding: 30px 30px;
     position: fixed;
     top: 0;
@@ -456,7 +525,8 @@ footer {
     right: 0;
     bottom: 0;
     margin: auto;
-    width: 50%;
+    width: 70%;
+    height: 330px;
     background: rgba(141, 177, 199, 0.9);
     z-index: 10000;
     display: none;
@@ -467,7 +537,7 @@ footer {
     margin-bottom: 20px;
   }
 
-  .user-table-th-text {
+  .user-table-th-text, .follower-user-btn, .following-user-btn, .post-text {
     font-size: 5px;
   }
 
@@ -485,23 +555,157 @@ footer {
     margin-left: 18px;
   }
 
+  .event-ranking-text-box {
+    display: none;
+  }
+
+  #event-ranking-btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #f7f7f7;
+    border-left: solid 6px #ff7c5c;/*左線*/
+    color: #ff7c5c;/*文字色*/
+    font-weight: bold;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  }
+
   .my-page-text-btn {
-    font-size: 10px;
-    margin: 0 5px;
+    font-size: 2px;
+    padding: 5px;
+  }
+
+  .my-page-text-close-text {
+    display: none;
+  }
+
+  .icon {
+    margin-right: 3px;
   }
 
   #artist-box {
     width: 70%;
     text-align: center;
+    overflow: auto;
+  }
+
+  .artist-field {
+    margin: 10px;
+  }
+
+  .profile-contents-artist-text {
+    width: 50%;
+  }
+
+  .profile-name {
+    font-size: 20px;
   }
 
   .profile-birthday, .profile-address {
-    margin: 0 20px;
+    font-size: 3px;
+    margin: 0 5px;
   }
 
-  .back-image {
-    margin-top: 300px;
+  .show-background-image-box, .back-image {
     height: 200px;
+  }
+
+  .show-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .back-image-box {
+    width: 100%;
+  }
+
+  .back-image-btn, .profile-image-btn {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+  }
+
+  .profile-img-prev {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+  }
+
+  .edit-profile-image-box, .edit-profile-contents-box {
+    width: 100%;
+  }
+
+  #map-box {
+    padding: 5px 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 90%;
+    height: 330px;
+    background: rgba(141, 177, 199, 0.9);
+    z-index: 10000;
+    display: none;
+  }
+
+  #map {
+    height: 250px;
+    margin: 0 auto;
+  }
+
+  .event-show-image-box {
+    width: 330px;
+    height: 330px;
+    margin: 0 auto;
+  }
+
+  .event-show-image {
+    width: 310px;
+    height: 310px;
+    margin: 10px;
+  }
+
+  .event-show-box {
+    margin: 0 auto;
+  }
+
+  #post-form-box {
+    padding: 30px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 660px;
+    background: rgba(141, 177, 199, 0.9);
+    z-index: 10000;
+    display: none;
+    overflow: auto;
+  }
+
+  .post-image-form, .post-form-box-image1, .post-form-box-image2, .post-form-box-image3 {
+    width: 100%;
+  }
+
+  .post-image-form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .edit-image-btn {
+    border-radius: 15px 0 0 15px;
+    position: absolute;
+    top: 0;
+    right: 30px;
+}
+
+  .post-comment-form {
+    width: 100%;
   }
 }
 

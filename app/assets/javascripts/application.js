@@ -34,6 +34,15 @@ $(function() {
   	  	});
   	  });
 
+  	  $(function(){
+  	  	$('#event-ranking-btn').on('click', function(){
+  	  		$('#active-event-ranking-text-box').slideToggle();
+  	  	});
+  	  	$('#event-ranking-close-btn').on('click', function(){
+  	  		$('#active-event-ranking-text-box').slideUp();
+  	  	});
+  	  });
+
 
 	  $(function(){
 	  	$('#event-image').on('change', function (e) {

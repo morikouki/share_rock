@@ -7,13 +7,18 @@
 			<span style="color: red;">＊退会したユーザーです</span>
 		<% end %>
 	<% end %>
-	<div class="show-background-image-box col-xs-12">
+	<div class="show-background-image-box">
 		<%= attachment_image_tag @user, :background, fallback: 'Share.png', class: 'back-image' %>
 	</div>
 	<div class="show-image-box">
 		<%= attachment_image_tag @user, :profile_image, fallback: 'Share.png', class: 'show-image' %>
 		<% if @user == current_user %>
-			<p id="artist-btn" class="my-page-text-btn btn-vertical-border cursor"><i class="fas fa-microphone-alt icon"></i>好きなアーティストを登録する</p>
+			<span id="artist-btn" class="my-page-text-btn btn-vertical-border cursor">
+				<i class="fas fa-microphone-alt icon"></i><span class="my-page-text-close-text">好きな</span>アーティストを登録<span class="my-page-text-">する</span>
+			</span>
+			<%= link_to edit_user_user_path(@user), class: 'link-color link-group' do %>
+				<span class="btn-vertical-border my-page-text-btn"><span class="my-page-text-close-text">プロフィール</span>編集</span>
+			<% end %>
 		<% else %>
 			<% if current_user.following?(@user) %>
 				<%= link_to user_user_relationships_path(@user), method: :delete, class: 'link-color link-group col-xs-offset-2' do %>
@@ -23,11 +28,6 @@
 				<%= link_to user_user_relationships_path(@user), method: :post, class: 'link-color link-group col-xs-offset-2' do %>
 					<p>フォローする</p>
 				<% end %>
-			<% end %>
-		<% end %>
-		<% if @user == current_user %>
-			<%= link_to edit_user_user_path(@user), class: 'link-color link-group' do %>
-				<p class="btn-vertical-border my-page-text-btn">プロフィール編集</p>
 			<% end %>
 		<% end %>
 	</div>
@@ -42,12 +42,12 @@
 		</div>
 	</div>
 
-	<div class="profile-contents-box col-xs-offset-1">
+	<div class="profile-contents-box">
 		<div class="profile-date-box">
 			<p class="profile-contents-text">
 				<span class="profile-name"><%= @user.nickname %></span>
-				<i class="fas fa-map-marker-alt icon profile-address"></i><%= @user.prefecture_code %><%= @user.address_city %>
-				<i class="fas fa-birthday-cake icon profile-birthday"></i><%= @user.birthday.strftime("%Y年%m月%d日") %>
+				<span class="profile-address"><i class="fas fa-map-marker-alt icon"></i><%= @user.prefecture_code %><%= @user.address_city %></span>
+				<span class="profile-birthday"><i class="fas fa-birthday-cake icon"></i><%= @user.birthday.strftime("%Y年%m月%d日") %></span>
 			</p>
 			<p class="profile-contents-text"><%= @user.introduction %></p>
 		</div>

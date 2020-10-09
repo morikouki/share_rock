@@ -12,17 +12,35 @@
 
 		<div class="event-ranking-text-box">
 			<%= link_to user_event_posts_path(@events, :ranking => 1), class: 'link-style link-color' do %>
-				<span class="event-ranking-text cursor btn-vertical-border" style="font-size: 10px;">いいねの多い投稿を見る</span>
+				<span class="event-ranking-text cursor btn-vertical-border contents-btn">いいねの多い投稿を見る</span>
 			<% end %>
 			<%= link_to user_event_posts_path(@events, :ranking => 0), class: 'link-style link-color' do %>
-				<span class="event-ranking-text cursor btn-vertical-border" style="font-size: 10px;">コメントの多い投稿を見る</span>
+				<span class="event-ranking-text cursor btn-vertical-border contents-btn">コメントの多い投稿を見る</span>
 			<% end %>
 			<%= link_to user_event_posts_path(@events, :date => 0), class: 'link-style link-color' do %>
-				<span class="event-ranking-text cursor btn-vertical-border" style="font-size: 10px;">新しい投稿順</span>
+				<span class="event-ranking-text cursor btn-vertical-border contents-btn">新しい投稿順</span>
 			<% end %>
 			<%= link_to user_event_posts_path(@events, :date => 1), class: 'link-style link-color' do %>
-				<span class="event-ranking-text cursor btn-vertical-border" style="font-size: 10px;">古い投稿順</span>
+				<span class="event-ranking-text cursor btn-vertical-border contents-btn">古い投稿順</span>
 			<% end %>
+		</div>
+		<span id="event-ranking-btn" class="col-xs-offset-1">表示を切り替える</span>
+		<div id="active-event-ranking-text-box">
+			<i class="fas fa-times-circle cursor" id="event-ranking-close-btn"></i>
+			<div class="text-center">
+				<%= link_to user_event_posts_path(@events, :ranking => 1), class: 'link-style link-color' do %>
+					<span class="event-ranking-text cursor btn-vertical-border contents-btn">いいねの多い投稿を見る</span>
+				<% end %>
+				<%= link_to user_event_posts_path(@events, :ranking => 0), class: 'link-style link-color' do %>
+					<span class="event-ranking-text cursor btn-vertical-border contents-btn">コメントの多い投稿を見る</span>
+				<% end %>
+				<%= link_to user_event_posts_path(@events, :date => 0), class: 'link-style link-color' do %>
+					<span class="event-ranking-text cursor btn-vertical-border contents-btn">新しい投稿順</span>
+				<% end %>
+				<%= link_to user_event_posts_path(@events, :date => 1), class: 'link-style link-color' do %>
+					<span class="event-ranking-text cursor btn-vertical-border contents-btn">古い投稿順</span>
+				<% end %>
+			</div>
 		</div>
 	<% else %>
 		<h2>「<%= @tag.name %>」のタグが付いた投稿</h2>
