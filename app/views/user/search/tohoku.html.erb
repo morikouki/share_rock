@@ -2,7 +2,7 @@
 <div class="row">
 	<h2>東北地方の検索結果</h2>
 	<% if @events.count == 0 %>
-		<p>該当する結果がありませんでした。</p>
+		<p class="col-xs-offset-2">該当する結果がありませんでした。</p>
 	<% else %>
 		<div class="search-event-contents">
 			<%= render 'user/events/index', events: @events %>

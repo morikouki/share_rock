@@ -1,5 +1,8 @@
 class User::UsersController < ApplicationController
 
+	#アクションの前にログインユーザーか確認
+	before_action :ensure_correct_user, only: [:edit, :update, :confirm, :withdraw]
+
 	def show
 		@user = User.find(params[:id])
 		@artist_new = Artist.new
@@ -10,7 +13,6 @@ class User::UsersController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
-
 	end
 
 	def update
@@ -19,9 +21,11 @@ class User::UsersController < ApplicationController
 		redirect_to user_user_path(@user)
 	end
 
+	#退会確認画面
 	def confirm
 	end
 
+	#ユーザーの退会処理
 	def withdraw
 		if current_user.update(is_deleted: true)
 			reset_session
@@ -33,6 +37,14 @@ class User::UsersController < ApplicationController
 
 	def user_params
 		params.require(:user).permit(:profile_image, :introduction, :background)
+	end
+
+	#ログインユーザーか確認、ログインユーザーでなかったらマイページへ
+	def ensure_correct_user
+	    @user = User.find(params[:id])
+	    if @user != current_user
+	      redirect_to user_user_path(current_user)
+	    end
 	end
 
 end

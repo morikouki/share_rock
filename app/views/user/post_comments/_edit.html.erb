@@ -3,10 +3,12 @@
 	<%= form_with model:[event, post, post_comment], url:user_event_post_post_comment_path(event, post, post_comment), remote: true do |f| %>
 		<%= f.label :comment, 'コメント' %>
 		<%= f.submit '編集する' %><br>
-		<%= f.text_area :comment, size:'70x6' %>
+		<%= f.text_area :comment, class: 'comment-form-field', size:'70x6' %>
 	<% end %>
 </div>
-<%= link_to '削除', user_event_post_post_comment_path(event, post, post_comment), method: :delete, remote: true, class: 'link-color link-style' %>
+<%= link_to user_event_post_post_comment_path(event, post, post_comment), method: :delete, remote: true, class: 'link-style' do %>
+	<span style="color: red;"><i class="fas fa-trash-alt"></i>削除</span>
+<% end %>
 
 		
 <script>

@@ -17,10 +17,6 @@
     <%= render 'layouts/nav' %>
     <main>
       <div class="container">
-        <% if user_signed_in? %>
-          <%= render 'user/relationships/follower' %>
-          <%= render 'user/relationships/following' %>
-        <% end %>
         <%= yield %>
       </div>
     </main>

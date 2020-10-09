@@ -1,3 +1,5 @@
+<%= render 'user/relationships/follower', user: @user %>
+<%= render 'user/relationships/following', user: @user %>
 <div class="row">
 	<% if @user == current_user %>
 		<h2>マイページ</h2>
@@ -21,11 +23,11 @@
 			<% end %>
 		<% else %>
 			<% if current_user.following?(@user) %>
-				<%= link_to user_user_relationships_path(@user), method: :delete, class: 'link-color link-group col-xs-offset-2' do %>
+				<%= link_to user_user_relationships_path(@user), method: :delete, class: 'link-style link-color link-group col-xs-offset-2 follow-btn' do %>
 					<p>フォローを外す</p>
 				<% end %>
 			<% else %>
-				<%= link_to user_user_relationships_path(@user), method: :post, class: 'link-color link-group col-xs-offset-2' do %>
+				<%= link_to user_user_relationships_path(@user), method: :post, class: 'link-style link-color link-group col-xs-offset-2 follow-btn' do %>
 					<p>フォローする</p>
 				<% end %>
 			<% end %>

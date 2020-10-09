@@ -1,6 +1,6 @@
 <i class="fas fa-times-circle cursor" id="post-form-close-btn"></i>
-<span class="col-xs-offset-1">画像は３枚まで投稿できます。
-	<span style="color: red; font-size: 5px;">※1度投稿したら画像の変更はできません。</span>
+<span class="col-xs-offset-1">画像は３枚まで投稿できます。<br>
+	<span class="post-comment-caution col-xs-offset-1">※1度投稿したら画像の変更はできません。</span>
 </span>
 <%= form_with model:[event, post], url:user_event_posts_path(event) do |f| %>
 	<div class="post-image-form">
@@ -44,17 +44,17 @@
 	</div>
 	<div class="post-comment-form">
 		<div class="form-group row">
-			<%= f.label :post_title, 'タイトル', class: 'col-xs-2' %>
-			<%= f.text_field :post_title, class: 'col-xs-5' %>
+			<%= f.label :post_title, 'タイトル', class: 'col-xs-2 post-comment-form-text' %>
+			<%= f.text_field :post_title, class: 'col-xs-5 post-comment-form-field' %>
 		</div>
 		<div class="form-group row">
-			<%= f.label :post_text, 'コメント', class: 'col-xs-2' %>
-			<%= f.text_area :post_text, class: 'col-xs-9', size: "20x8" %>
+			<%= f.label :post_text, 'コメント', class: 'col-xs-2 post-comment-form-text' %>
+			<%= f.text_area :post_text, class: 'col-xs-9 post-comment-form-field', size: "20x8" %>
 		</div>
 		<div class="form-group row">
-			<%= f.label :name, 'タグ', class: 'col-xs-2' %>
-			<%= f.text_field :name, class: 'col-xs-6' %>
+			<%= f.label :name, 'タグ', class: 'col-xs-2 post-comment-form-text' %>
+			<%= f.text_field :name, class: 'col-xs-6 post-comment-form-field' %>
 		</div>
-		<%= f.submit '投稿する', class: 'col-xs-offset-6 post-create-btn' %>
+		<%= f.submit '投稿する', class: 'col-xs-offset-4 post-create-btn' %>
 	</div>
 <% end %>

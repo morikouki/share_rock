@@ -2,22 +2,22 @@
 	<div class="row">
 		<i class="fas fa-times-circle cursor" id="follower-user-close-btn" style="font-size: 25px;"></i>
 		<h2>フォロワー</h2>
-		<% if current_user.follower.count == 0 %>
+		<% if user.follower.count == 0 %>
 			<p>フォロワーがいません</p>
 		<% else %>
-			<% current_user.follower_user.each do |follower| %>
+			<% user.follower_user.each do |follower| %>
 				<div class="follower-user row">
-					<%= link_to user_user_path(follower), class: 'link-style link-color col-xs-5' do %>
-						<%= attachment_image_tag follower, :profile_image, fallback: 'Share.png', class: 'profile-image' %>
+					<%= link_to user_user_path(follower), class: 'link-style link-color col-xs-3' do %>
+						<%= attachment_image_tag follower, :profile_image, size: '50x50', fallback: 'Share.png', class: 'profile-image' %>
 						<span class="col-xs-offset-1"><%= follower.nickname %></span>
 					<% end %>
 					<% if current_user.following?(follower) %>
-						<%= link_to user_user_relationships_path(follower), method: :delete, class: 'follow-link-color link-style col-xs-5' do %>
-							<p>フォローを外す</p>
+						<%= link_to user_user_relationships_path(follower), method: :delete, class: 'link-color link-style col-xs-5' do %>
+							<i class="fas fa-user-slash"></i>フォローを外す
 						<% end %>
 					<% else %>
-						<%= link_to user_user_relationships_path(follower), method: :post, class: 'follow-link-color link-style col-xs-5' do %>
-							<p>フォローする</p>
+						<%= link_to user_user_relationships_path(follower), method: :post, class: 'link-color link-style col-xs-5' do %>
+							<i class="fas fa-user"></i>フォローする
 						<% end %>
 					<% end %>
 				</div>

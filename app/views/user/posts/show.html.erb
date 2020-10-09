@@ -1,10 +1,10 @@
 <%= render 'user/users/profile' %>
-<div class="row">
+<div class="row show-post-contents-box">
 	<h2>コメント</h2>
-	<div class="show-post-name-box row">
+	<div class="show-post-name-box">
 		<%= link_to user_user_path(@post.user), class: 'link-style link-color col-xs-3' do %>
 			<%= attachment_image_tag @post.user, :profile_image, size:'30x30', fallback: 'Share.png', class: "profile-image" %>
-			<%= @post.user.nickname %>
+			<span class="show-post-name"><%= @post.user.nickname %></span>
 		<% end %>
 		<span id="count-<%= @post.id %>" class="col-xs-offset-1">
 			<%= render 'user/post_comments/count', post: @post %>
@@ -16,7 +16,7 @@
 
 	<div class="show-post-image-box show-post-bxslider">
 		<% @post.post_images.each do |image| %>
-			<%= attachment_image_tag image, :image, size: "500x500", class: 'show-post-image' %>
+			<%= attachment_image_tag image, :image, class: 'show-post-image' %>
 		<% end %>
 	</div>
 
@@ -45,14 +45,14 @@
 			<%= form_with model:[@event, @post, @comment], url:user_event_post_post_comments_path(@event, @post), remote: true, class:'form-comment' do |f| %>
 				<%= f.label :comment, 'コメント' %>
 				<%= f.submit '送信' %><br>
-				<%= f.text_area :comment, size:'70x6' %>
+				<%= f.text_area :comment, class: 'comment-form-field', size:'70x6' %>
 			<% end %>
 		</div>
 	</div>
 
 	<div id="tag-box">
 		<i class="fas fa-times-circle cursor" id="tag-box-close-btn" style="font-size: 25px;"></i>
-		<h2 class="col-xs-offset-2">タグ<span class="col-xs-offset-1" style="font-size: 5px;">タグクリックでタグ付けされた投稿の一覧を表示します</span></h2>
+		<h2 class="col-xs-offset-2">タグ</h2>
 		<% @tags.each do |tag| %>
 			<div class="tag-text-box text-center">
 				<%= link_to user_event_posts_path(tag_id: tag.id) do  %>

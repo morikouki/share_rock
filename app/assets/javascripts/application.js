@@ -402,7 +402,24 @@ $(function() {
             {code : 7, name: "九州・沖縄",   color: "#de6474", hoverColor: "#f29da9", prefectures: [40,41,42,43,44,45,46,47]},
         ];
         $("#map-container").japanMap({
-    		width:600,
+    		width: 600,
+            areas  : areas,
+            selection : "area",
+            borderLineWidth: 0.25,
+            drawsBoxLine : false,
+            movesIslands : true,
+            showsAreaName : true,
+            font : "MS Mincho",
+            fontSize : 13,
+            fontColor :"#777",
+            fontShadowColor : "white",
+            onSelect : function(data){
+	          location.href = areaLinks[data.area.code];
+            }
+        });
+
+        $("#map-phone-container").japanMap({
+    		width: 370,
             areas  : areas,
             selection : "area",
             borderLineWidth: 0.25,

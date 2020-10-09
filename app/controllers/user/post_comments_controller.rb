@@ -36,4 +36,12 @@ class User::PostCommentsController < ApplicationController
 	def post_comment_params
 		params.require(:post_comment).permit(:comment)
 	end
+
+	#ログインユーザーか確認、ログインユーザーでなかったらイベントページへ
+	def ensure_correct_user
+	    @post = Post.find(params[:id])
+	    if @post.user != current_user
+	      redirect_to user_events_path
+	    end
+	end
 end

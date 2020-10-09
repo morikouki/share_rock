@@ -1,3 +1,4 @@
+<%= render 'user/users/profile' %>
 <div class="row">
 	<% if @tag == nil %>
 		<% if params[:ranking] == "1" %>
@@ -8,6 +9,8 @@
 			<h2>新しい順</h2>
 		<% elsif params[:date] == "1" %>
 			<h2>古い順</h2>
+		<% elsif params[:following_post] == "0" %>
+			<h2>フォロー中ユーザーの投稿</h2>
 		<% end %>
 
 		<div class="event-ranking-text-box">
@@ -49,6 +52,8 @@
 		<%= render 'user/posts/index', posts: @posts %>
 	</div>
 	<% if @tag != nil %>
+		<%= paginate @posts %>
+	<% elsif params[:following_post] == "0" %>
 		<%= paginate @posts %>
 	<% end %>
 </div>

@@ -1,3 +1,5 @@
+<%= render 'user/relationships/follower', user: current_user %>
+<%= render 'user/relationships/following', user: current_user %>
 <div class="profile-box">
 	<%= link_to  user_user_path(current_user), class: 'link-color link-style' do %>
 		<%= attachment_image_tag current_user, :profile_image, fallback: 'Share.png', size:'40x40', class: "profile-image" %>
@@ -5,4 +7,7 @@
 	<% end %>
 	<span class="cursor follower-user-btn">フォロワー：<%= current_user.follower.count %></span>
 	<span class="cursor following-user-btn">フォロー中：<%= current_user.following.count %></span>
+	<%= link_to user_event_posts_path(Event.all, :following_post => 0), class: 'link-style link-color' do %>
+		<span class="cursor follow-post-btn"><i class="fas fa-users"></i></span>
+	<% end %>
 </div>

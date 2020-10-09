@@ -2,9 +2,9 @@
 	<% post_comment.replay_comments.each do |replay_comment| %>
 		<div class="replay-comment">
 			<%= link_to user_user_path(replay_comment.user), class: 'link-style link-color' do %>
-				<span class="col-xs-2">
-					<%= attachment_image_tag replay_comment.user, :profile_image, size:'15x15', fallback: 'Share.png', class: "profile-image" %>
-					<%= replay_comment.user.nickname %>
+				<span class="replay-comment-profile-name">
+					<%= attachment_image_tag replay_comment.user, :profile_image, fallback: 'Share.png', class: "replay-comment-profile-image" %>
+					<span style="font-size: 10px;"><%= replay_comment.user.nickname %></span>
 				</span>
 			<% end %>
 			：<%= replay_comment.comment %>
@@ -21,7 +21,7 @@
 		<%= form_with model:[event, post, post_comment, replay_comment], url:user_event_post_post_comment_replay_comments_path(event, post, post_comment) do |f| %>
 			<%= f.label :comment, 'コメント' %>
 			<%= f.submit '送信' %><br>
-			<%= f.text_area :comment, size:'70x6' %>
+			<%= f.text_area :comment, class: 'comment-form-field', size:'70x6' %>
 		<% end %>
 	</div>
 </div>
