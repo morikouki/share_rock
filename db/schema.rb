@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_08_050940) do
+ActiveRecord::Schema.define(version: 2020_10_10_030800) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 2020_10_08_050940) do
   create_table "artists", force: :cascade do |t|
     t.integer "user_id"
     t.string "like_artist"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -110,6 +118,11 @@ ActiveRecord::Schema.define(version: 2020_10_08_050940) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tag_middles", force: :cascade do |t|
     t.integer "post_id"
     t.integer "tag_id"
@@ -119,6 +132,13 @@ ActiveRecord::Schema.define(version: 2020_10_08_050940) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_rooms", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
