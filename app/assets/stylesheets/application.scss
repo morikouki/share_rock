@@ -26,7 +26,7 @@ h2 {
 
 .share-rock-nav {
 	height: 150px;
-	background-image: url(sky.jpg);
+	background-image: image-url("sky.jpg");
 	background-position: center;
 	background-size: cover;
 	display: flex;
@@ -171,7 +171,7 @@ main {
   font-size: 25px;
   display: inline-block;
   text-decoration: none;
-  background-image: url('Share.png');
+  background-image: image-url("Share.png");
   background-position: center;
   background-size: cover;
   color: #3a464a;
@@ -475,7 +475,7 @@ input, textarea {
 
 footer {
   height: 150px;
-  background-image: url(shibahu.jpg);
+  background-image: image-url(shibahu.jpg);
   background-position: center;
 }
 
