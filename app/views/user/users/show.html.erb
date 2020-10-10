@@ -23,14 +23,19 @@
 			<% end %>
 		<% else %>
 			<% if current_user.following?(@user) %>
-				<%= link_to user_user_relationships_path(@user), method: :delete, class: 'link-style link-color link-group col-xs-offset-2 follow-btn' do %>
-					<p>フォローを外す</p>
+				<%= link_to user_user_relationships_path(@user), method: :delete, class: 'link-style link-color link-group follow-delete-btn' do %>
+					フォロー外す
 				<% end %>
 			<% else %>
-				<%= link_to user_user_relationships_path(@user), method: :post, class: 'link-style link-color link-group col-xs-offset-2 follow-btn' do %>
-					<p>フォローする</p>
+				<%= link_to user_user_relationships_path(@user), method: :post, class: 'link-style link-color link-group follow-btn' do %>
+					フォローする
 				<% end %>
 			<% end %>
+			<span class="user-show-chat-text">
+	  			<%= link_to user_user_chat_path(@user), class: 'link-style chat-btn' do %>
+	  				<i class="far fa-comments"></i>チャット
+	  			<% end %>
+	  		</span>
 		<% end %>
 	</div>
 

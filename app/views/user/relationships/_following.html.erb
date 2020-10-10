@@ -7,19 +7,22 @@
 		<% else %>
 			<% user.following_user.each do |following| %>
 				<div class="following-user row">
-					<%= link_to user_user_path(following), class: 'link-style link-color col-xs-3' do %>
-						<%= attachment_image_tag following, :profile_image, size: '50x50', fallback: 'Share.png', class: 'profile-image' %>
-						<span class="col-xs-offset-1"><%= following.nickname %></span>
+					<%= link_to user_user_path(following), class: 'link-style link-color' do %>
+						<%= attachment_image_tag following, :profile_image, fallback: 'Share.png', class: 'following-profile-image' %>
+						<span class="following-name"><%= following.nickname %></span>
 					<% end %>
 					<% if current_user.following?(following) %>
-						<%= link_to user_user_relationships_path(following), method: :delete, class: 'link-color link-style col-xs-3' do %>
+						<%= link_to user_user_relationships_path(following), method: :delete, class: 'link-color link-style follow-link' do %>
 							<i class="fas fa-user-slash"></i>フォローを外す
 						<% end %>
 					<% else %>
-						<%= link_to user_user_relationships_path(following), method: :post, class: 'link-color link-style col-xs-3' do %>
+						<%= link_to user_user_relationships_path(following), method: :post, class: 'link-color link-style follow-link' do %>
 							<i class="fas fa-user"></i>フォローする
 						<% end %>
 					<% end %>
+					<%= link_to user_user_chat_path(current_user, following), class: 'link-color link-style follow-link' do %>
+  						<i class="far fa-comments"></i>チャット
+  					<% end %>
 				</div>
 			<% end %>
 		<% end %>

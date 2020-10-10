@@ -1,0 +1,30 @@
+<div class="row">
+    <h2>「<%= @user.nickname %>」さんとのチャットルーム</h2>
+    <div class="chat-form-box">
+        <%= form_with model: @chat, url: user_user_chats_path(@user) do |f| %>
+            <%= f.text_field :message, class: 'chat-form-field' %>
+            <%= f.hidden_field :room_id %>
+            <%= f.submit '送信', class: 'btn btn-primary' %>
+        <% end %>
+    </div>
+
+    <div class="chat-message-box">
+        <% @chats.each do |chat| %>
+            <div class="chat-message">
+                <% if chat.user == current_user %>
+                    <p style="text-align: right;">
+                        <span style="margin-right: 40px;"><%= chat.message %> :</span>
+                        <%= attachment_image_tag chat.user, :profile_image, size: '40x40', fallback: 'Share.png', class: 'profile-image' %>
+                        <%= chat.user.nickname %>
+                    </p>
+                <% else %>
+                    <p style="text-align: left;">
+                        <%= attachment_image_tag chat.user, :profile_image, size: '40x40', fallback: 'Share.png', class: 'profile-image' %>
+                        <%= chat.user.nickname %>
+                        <span style="margin-left: 40px;">: <%= chat.message %></span>
+                    </p>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+</div>

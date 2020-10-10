@@ -1,0 +1,16 @@
+// Place all the styles related to the user::Chats controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.chat-form-box, .chat-message-box {
+	margin: 50px;
+}
+
+.chat-message {
+	padding-top: 10px;
+	border-bottom: solid 1px rgba(88, 134, 209, 0.3);
+}
+
+.chat-form-field {
+	width: 500px;
+}

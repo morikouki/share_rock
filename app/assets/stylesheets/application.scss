@@ -240,6 +240,10 @@ main {
   margin-right: 20px;
 }
 
+.follow-link {
+  padding: 0 50px;
+}
+
 .post-text, follow-text {
   font-size: 15px;
 }
@@ -433,6 +437,18 @@ input, textarea {
 }
 
 .follow-btn {
+  padding: 3px;
+  color: #5886d1;
+  border: solid 1px #5886d1;
+}
+
+.follow-delete-btn {
+  padding: 3px;
+  color: #e08380;
+  border: solid 1px #e08380;
+}
+
+.chat-btn {
   position: relative;
   display: inline-block;
   padding: 0.25em 0.5em;
@@ -445,11 +461,11 @@ input, textarea {
   font-weight: bold;
 }
 
-.follow-btn:hover {
+.chat-btn:hover {
   color: #FFF;
 }
 
-.follow-btn:active {
+.chat-btn:active {
   border-bottom: solid 2px #fd9535;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
@@ -491,8 +507,7 @@ footer {
     height: 150px;
   }
 
-  .registration-form-text, #calendar-btn, .edit-profile-form-text, .confirm-text-box
-   {
+  .registration-form-text, #calendar-btn, .edit-profile-form-text, .confirm-text-box, .following-name, .follower-name {
     font-size: 5px;
   }
 
@@ -581,7 +596,7 @@ footer {
     overflow:auto;
   }
 
-  #calendar, .year-search-box {
+  #calendar, .year-search-box, .follower-user, .following-user {
     width: 100%;
     margin: 0 auto;
   }
@@ -725,6 +740,17 @@ footer {
     overflow: auto;
   }
 
+  .follow-link {
+    padding: 0 20px;
+    font-size: 5px;
+  }
+
+  .following-profile-image, .follower-profile-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
   .post-image-form {
     width: 100%;
   }
@@ -813,6 +839,19 @@ footer {
 
   .contact-field-text, .contact-field{
     width: 100%;
+  }
+
+  .chat-form-box, .chat-message-box {
+    font-size: 15px;
+    margin: 20px;
+  }
+
+  .chat-form-field {
+    width: 150px;
+  }
+
+  .follow-btn, .follow-delete-btn, .chat-btn {
+    font-size: 1px;
   }
 
 }

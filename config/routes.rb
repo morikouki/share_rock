@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       resources :artists, only: [:create, :edit, :update, :destroy]
       resource :relationships, only: [:create, :destroy]
       resources :contacts, only: [:create]
+      resources :chats, only: [:show, :create]
     end
     get 'index' => 'search#index'
     get 'search' => 'search#search'
