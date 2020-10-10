@@ -8,7 +8,7 @@
 			<% user.following_user.each do |following| %>
 				<div class="following-user row">
 					<%= link_to user_user_path(following), class: 'link-style link-color' do %>
-						<%= attachment_image_tag following, :profile_image, fallback: 'Share.png', class: 'following-profile-image' %>
+						<%= attachment_image_tag following, :profile_image, fallback: 'Share.jpg', class: 'following-profile-image' %>
 						<span class="following-name"><%= following.nickname %></span>
 					<% end %>
 					<% if current_user.following?(following) %>

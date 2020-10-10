@@ -3,7 +3,7 @@
 		<div class="replay-comment">
 			<%= link_to user_user_path(replay_comment.user), class: 'link-style link-color' do %>
 				<span class="replay-comment-profile-name">
-					<%= attachment_image_tag replay_comment.user, :profile_image, fallback: 'Share.png', class: "replay-comment-profile-image" %>
+					<%= attachment_image_tag replay_comment.user, :profile_image, fallback: 'Share.jpg', class: "replay-comment-profile-image" %>
 					<span style="font-size: 10px;"><%= replay_comment.user.nickname %></span>
 				</span>
 			<% end %>

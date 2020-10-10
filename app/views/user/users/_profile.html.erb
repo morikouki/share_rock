@@ -2,7 +2,7 @@
 <%= render 'user/relationships/following', user: current_user %>
 <div class="profile-box">
 	<%= link_to  user_user_path(current_user), class: 'link-color link-style' do %>
-		<%= attachment_image_tag current_user, :profile_image, fallback: 'Share.png', size:'40x40', class: "profile-image" %>
+		<%= attachment_image_tag current_user, :profile_image, fallback: 'Share.jpg', size:'40x40', class: "profile-image" %>
 		<%= current_user.nickname %>
 	<% end %>
 	<span class="cursor follower-user-btn">フォロワー：<%= current_user.follower.count %></span>

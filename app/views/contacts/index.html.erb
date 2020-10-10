@@ -12,7 +12,7 @@
 			<% @contacts.each do |contact| %>
 				<tr>
 					<td>
-						<%= attachment_image_tag contact.user, :profile_image, size: '50x50', fallback: 'Share.png' %>
+						<%= attachment_image_tag contact.user, :profile_image, size: '50x50', fallback: 'Share.jpg' %>
 						<%= contact.user.nickname %>
 					</td>
 					<td><%= contact.user.email %></td>

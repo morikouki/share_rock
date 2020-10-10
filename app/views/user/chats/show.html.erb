@@ -14,12 +14,12 @@
                 <% if chat.user == current_user %>
                     <p style="text-align: right;">
                         <span style="margin-right: 40px;"><%= chat.message %> :</span>
-                        <%= attachment_image_tag chat.user, :profile_image, size: '40x40', fallback: 'Share.png', class: 'profile-image' %>
+                        <%= attachment_image_tag chat.user, :profile_image, size: '40x40', fallback: 'Share.jpg', class: 'profile-image' %>
                         <%= chat.user.nickname %>
                     </p>
                 <% else %>
                     <p style="text-align: left;">
-                        <%= attachment_image_tag chat.user, :profile_image, size: '40x40', fallback: 'Share.png', class: 'profile-image' %>
+                        <%= attachment_image_tag chat.user, :profile_image, size: '40x40', fallback: 'Share.jpg', class: 'profile-image' %>
                         <%= chat.user.nickname %>
                         <span style="margin-left: 40px;">: <%= chat.message %></span>
                     </p>

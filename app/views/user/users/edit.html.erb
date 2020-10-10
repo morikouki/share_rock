@@ -3,7 +3,7 @@
 	<%= form_with model:@user, url:user_user_path(@user) do |f| %>
 		<div class="col-xs-12 user-edit-top-box text-center">
 			<div class="form-group back-image-box">
-				<%= attachment_image_tag @user, :background, fallback: "Share.png", class: "back-image" %>
+				<%= attachment_image_tag @user, :background, fallback: "Share.jpg", class: "back-image" %>
 				<p class="img-btn cursor back-image-btn" onClick="$('#back').click()" >
 					<i class="fas fa-camera"></i>
 				</p>
@@ -14,7 +14,7 @@
 		</div>
 		<div class="col-xs-6 edit-profile-image-box text-center">
 			<div class="form-group profile-image-box">
-				<%= attachment_image_tag @user, :profile_image, fallback: "Share.png", class: "profile-img-prev"%>
+				<%= attachment_image_tag @user, :profile_image, fallback: "Share.jpg", class: "profile-img-prev"%>
 				<div class="img-btn cursor profile-image-btn" onClick="$('#profile-image').click()" >
 					<i class="fas fa-camera"></i>
 				</div>

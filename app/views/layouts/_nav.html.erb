@@ -2,11 +2,11 @@
   <div class="container nav-box">
     <div class="navbar-logo">
       <% if user_signed_in? %>
-        <img src="Share.png", width="70px", height="70px" style="border-radius: 50%;">
+        <%= image_tag asset_path("Share.jpg"), class: 'logo-image' %>
         <span class="share-rock-logo">Share_Rock</span>
       <% else %>
         <%= link_to root_path do %>
-          <img src="/assets/Share.png", width="70px", height="70px" style="border-radius: 50%;">
+          <%= image_tag asset_path("Share.jpg"), class: 'logo-image' %>
         <% end %>
           <span class="share-rock-logo">Share_Rock</span>
       <% end %>

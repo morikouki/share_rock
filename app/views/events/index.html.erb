@@ -3,7 +3,7 @@
 	<div class="admin-event-form-box">
 		<%= form_with model: @event, url: events_path, method: :post do |f| %>
 			<div class="form-group admin-event-image">
-				<%= attachment_image_tag @event, :image, fallback: "Share.png", class: "event-img-prev", size: "500x500" %>
+				<%= attachment_image_tag @event, :image, fallback: "Share.jpg", class: "event-img-prev", size: "500x500" %>
 				<span class="img-btn cursor admin-event-image-btn" onClick="$('#event-image').click()">
 					<i class="fas fa-camera"></i>
 				</span>

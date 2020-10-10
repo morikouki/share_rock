@@ -10,10 +10,10 @@
 		<% end %>
 	<% end %>
 	<div class="show-background-image-box">
-		<%= attachment_image_tag @user, :background, fallback: 'Share.png', class: 'back-image' %>
+		<%= attachment_image_tag @user, :background, fallback: 'Share.jpg', class: 'back-image' %>
 	</div>
 	<div class="show-image-box">
-		<%= attachment_image_tag @user, :profile_image, fallback: 'Share.png', class: 'show-image' %>
+		<%= attachment_image_tag @user, :profile_image, fallback: 'Share.jpg', class: 'show-image' %>
 		<% if @user == current_user %>
 			<span id="artist-btn" class="my-page-text-btn btn-vertical-border cursor">
 				<i class="fas fa-microphone-alt icon"></i><span class="my-page-text-close-text">好きな</span>アーティストを登録<span class="my-page-text-">する</span>
