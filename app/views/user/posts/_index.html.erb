@@ -1,6 +1,8 @@
 <% if posts.count == 0 %>
 	<p style="margin-left: 20px;">投稿がありません</p>
 <% else %>
+
+	<!-- 投稿一覧 -->
 	<% posts.each do |post| %>
 		<div class='contents-post-box'>
 			<div class="post-top-box">
@@ -8,23 +10,32 @@
 					<%= attachment_image_tag post.user, :profile_image, fallback: 'Share.jpg', class: 'image-size' %>
 					<%= post.user.nickname %>
 				<% end %>
+
+				<!-- eventsコントローラー以外からのアクセスの時いいねボタン表示 -->
 				<% if controller.controller_name != 'events' %>
 					<span class="col-xs-offset-1">いいね：</span> <%= post.favorites.count %>
 				<% else %>
+
+					<!-- いいね -->
 					<span class="user-post-favorite-box favorite-<%= post.id %> col-xs-offset-1">
 						<%= render 'user/favorites/favorite', post: post, event: event %>
 					</span>
 				<% end %>
 				<i class="far fa-comment col-xs-offset-1"></i> <%= post.post_comments.count %>
+
+				<!-- usersコントローラーからのアクセスは編集リンク表示 -->
 				<% if controller.controller_name == 'users' %>
 					<i class="col-xs-offset-1 fas fa-edit cursor post-edit-btn-<%= post.id %>"></i>
 				<% end %>
 			</div>
+
+			<!-- 投稿画像表示 -->
 			<div class="image-box bxslider">
 				<% post.post_images.each do |image| %>
 					<%= attachment_image_tag image, :image, size:'280x280' %>
 				<% end %>
 			</div>
+
 			<div class="post-text-box">
 				<p class="post-title"><%= post.post_title %></p>
 				<p>　<%= post.post_text %></p>
@@ -34,12 +45,16 @@
 				<% end %>
 			</div>
 		</div>
+
+		<!-- 投稿編集フォーム -->
 		<div class="edit-post-box-<%= post.id %> edit-post-box">
 			<i class="fas fa-times-circle cursor post-edit-form-close-btn-<%= post.id %>" style="font-size: 20px;"></i>
 			<%= link_to user_event_post_path(post.event, post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'link-color col-xs-offset-1' do %>
-						<i class="fas fa-trash-alt" style="color: red;">投稿を削除</i>
-					<% end %>
+				<i class="fas fa-trash-alt" style="color: red;">投稿を削除</i>
+			<% end %>
 			<%= form_with model:[post.event, post], url:user_event_post_path(post.event, post) do |f| %>
+
+				<!-- 投稿画像表示 -->
 				<div class="post-image-form">
 					<% post.post_images.each do |image| %>
 						<div class="post-form-box-image1 cursor">
@@ -60,8 +75,11 @@
 				</div>
 			<% end %>
 		</div>
+
 		<script>
 			$(function(){
+
+				//投稿idでどの投稿の編集か判別
 			  	$('.post-edit-btn-<%= post.id %>').on('click', function(){
 			  		$('.edit-post-box-<%= post.id %>').slideToggle();
 			  	});
@@ -70,5 +88,6 @@
 			 	});
 			  });
 		</script>
+		
 	<% end %>
 <% end %>

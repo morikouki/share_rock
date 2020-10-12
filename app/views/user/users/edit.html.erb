@@ -4,18 +4,26 @@
 	<%= form_with model:@user, url:user_user_path(@user) do |f| %>
 		<div class="col-xs-12 user-edit-top-box text-center">
 			<div class="form-group back-image-box">
+
+				<!-- 背景画像プレビュー -->
 				<%= attachment_image_tag @user, :background, fallback: "Share.jpg", class: "back-image" %>
-				<p class="img-btn cursor back-image-btn" onClick="$('#back').click()" >
+
+				<!-- 背景画像登録フィールド表示 -->
+				<span class="img-btn cursor back-image-btn" onClick="$('#back').click()" >
 					<i class="fas fa-camera"></i>
-				</p>
+				</span>
 			</div>
 			<div class="form-group image-field">
 				<%= f.attachment_field :background, id: 'back' %>
 			</div>
 		</div>
+
 		<div class="col-xs-6 edit-profile-image-box text-center">
 			<div class="form-group profile-image-box">
+				<!-- プロフィール画像プレビュー -->
 				<%= attachment_image_tag @user, :profile_image, fallback: "Share.jpg", class: "profile-img-prev"%>
+
+				<!-- プロフィール画像登録フィールド表示 -->
 				<div class="img-btn cursor profile-image-btn" onClick="$('#profile-image').click()" >
 					<i class="fas fa-camera"></i>
 				</div>
@@ -24,6 +32,7 @@
 				<%= f.attachment_field :profile_image, id: 'profile-image' %>
 			</div>
 		</div>
+
 		<div class="col-xs-6 edit-profile-contents-box">
 			<div class="form-group row edit-form-group">
 				<%= f.label 'ニックネーム', class: 'col-xs-4 edit-profile-form-text' %>

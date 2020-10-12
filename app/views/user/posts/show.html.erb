@@ -16,17 +16,29 @@
 	</div>
 
 	<div class="show-post-image-box show-post-bxslider">
+
+		<!-- 投稿画像表示 -->
 		<% @post.post_images.each do |image| %>
 			<%= attachment_image_tag image, :image, class: 'show-post-image' %>
 		<% end %>
 	</div>
 
 	<div class="favorite-box">
+
+		<!-- いいね -->
 		<span class="col-xs-offset-1 favorite-<%= @post.id %>">
 			<%= render 'user/favorites/favorite', post: @post, event: @event %>
 		</span>
-		<span class="cursor col-xs-offset-1" id="comment"><i class="far fa-comment"></i>コメントする</span>
-		<span class="cursor col-xs-offset-1" id="tag-box-btn"><i class="fas fa-tags"></i>タグを見る</span>
+
+		<!-- コメント登録ボタン -->
+		<span class="cursor col-xs-offset-1" id="comment">
+			<i class="far fa-comment"></i>コメントする
+		</span>
+
+		<!-- タグ表示ボタン -->
+		<span class="cursor col-xs-offset-1" id="tag-box-btn">
+			<i class="fas fa-tags"></i>タグを見る
+		</span>
 	</div>
 
 	<div class="show-post-text-box">
@@ -36,10 +48,12 @@
 		<span class="col-xs-offset-1"><%= @post.post_text %></span>
 	</div>
 
+	<!-- コメント一覧 -->
 	<div id="comment<%= @post.id %>" class="comment-box">
 		<%= render 'user/post_comments/comment', comments: @post.post_comments, post: @post, event: @event, replay_comment: @replay_comment %>
 	</div>
 
+	<!-- コメントフォーム -->
 	<div id="comment-form-box" class="form-comment-box">
 		<i class="fas fa-times-circle cursor" id="comment-form-close-btn" style="font-size: 25px;"></i>
 		<div class="comment-form text-center">
@@ -51,6 +65,7 @@
 		</div>
 	</div>
 
+	<!-- タグ表示 -->
 	<div id="tag-box">
 		<i class="fas fa-times-circle cursor" id="tag-box-close-btn" style="font-size: 25px;"></i>
 		<h2 class="col-xs-offset-2">タグ</h2>
@@ -64,7 +79,12 @@
 		<% end %>
 	</div>
 
+	<!-- いいねしたユーザー一覧 -->
 	<%= render 'user/favorites/index', post: @post %>
+
+	<!-- コメントしたユーザー一覧 -->
 	<%= render 'user/post_comments/index', post: @post %>
+
+	<!-- コメントにいいねしたユーザー一覧 -->
 	<%= render 'user/comment_favorites/index', post: @post %>
 </div>

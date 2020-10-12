@@ -1,20 +1,29 @@
+<!-- フォロワー・フォロー中ユーザー　一覧 -->
 <%= render 'user/relationships/follower', user: @user %>
 <%= render 'user/relationships/following', user: @user %>
+
 <div class="row">
 	<span class="error-message"><%= flash[:error] %></span>
+
+	<!-- ログインユーザーじゃない時ユーザー名表示 -->
 	<% if @user == current_user %>
 		<h2>マイページ</h2>
 	<% else %>
 		<h2><%= @user.nickname %>さんのプロフィール</h2>
+
+		<!-- 退会しているユーザーか表示 -->
 		<% if @user.is_deleted == true %>
 			<span style="color: red;">＊退会したユーザーです</span>
 		<% end %>
 	<% end %>
+
 	<div class="show-background-image-box">
 		<%= attachment_image_tag @user, :background, fallback: 'Share.jpg', class: 'back-image' %>
 	</div>
 	<div class="show-image-box">
 		<%= attachment_image_tag @user, :profile_image, fallback: 'Share.jpg', class: 'show-image' %>
+
+		<!-- ログインユーザーじゃない時フォローボタン・チャットボタン表示 -->
 		<% if @user == current_user %>
 			<span id="artist-btn" class="my-page-text-btn btn-vertical-border cursor">
 				<i class="fas fa-microphone-alt icon"></i><span class="my-page-text-close-text">好きな</span>アーティストを登録<span class="my-page-text-">する</span>
@@ -40,6 +49,7 @@
 		<% end %>
 	</div>
 
+	<!-- アーティスト登録フォーム -->
 	<div id="artist-box">
 		<i class="fas fa-times-circle cursor" id="artist-box-close-btn" style="color: #7d8e99;"></i>
 		<div class="artist-form row artist-form-<%= @user.id %>">
@@ -49,6 +59,7 @@
 			<%= render 'user/artists/index', artists: @user.artists, user: @user %>
 		</div>
 	</div>
+
 
 	<div class="profile-contents-box">
 		<div class="profile-date-box">
@@ -84,11 +95,14 @@
 			</div>
 		</div>
 	</div>
+
 	<h2 id="index-link">投稿一覧</h2>
 	<div class="contents-box">
 		<%= render 'user/posts/index', posts: @posts %>
 		<%= paginate @posts, params: { anchor: 'index-link' } %>
 	</div>
+
+	<!-- お問い合わせフォーム -->
 	<div id="contact-form-box">
     	<i class="fas fa-times-circle cursor" id="contact-form-close-btn" style="font-size: 25px;"></i>
     	<div class="contact-form text-center">

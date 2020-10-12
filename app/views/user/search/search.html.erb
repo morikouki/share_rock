@@ -1,13 +1,18 @@
 <%= render 'user/users/profile' %>
 <div class="row">
     <div class="search-top-box">
+
+        <!-- 日本地図 -->
         <div id="map-container">
             <h4 class="col-xs-offset-3 search-text">地方で検索</h4>
         </div>
+
+         <!-- 日本地図（スマホ時） -->
         <div id="map-phone-container">
             <h4 class="col-xs-offset-3 search-text">地方で検索</h4>
         </div>
     </div>
+
     <div class="search-bottom-box">
         <div class="col-xs-offset-8 col-xs-4 row">
             <%= search_form_for Event.ransack(params[:q]), url: user_index_path do |f| %>

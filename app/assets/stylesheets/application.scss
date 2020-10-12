@@ -18,6 +18,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+h2 {
+  margin-bottom: 25px;
+}
+
+// エラーメッセージ関係
+
 .devise-error-message {
   color: red;
   list-style: none;
@@ -27,11 +34,7 @@
   color: red;
 }
 
-h2 {
-  margin-bottom: 25px;
-}
-
-// navテンプレート
+// nav
 
 .logo-image {
   weight: 70px;
@@ -108,7 +111,8 @@ main {
 	width: 155px;
 }
 
-// kaminari_paginate
+// kaminariページネーション
+
 .pagination{
   margin: auto;
   width: 50%;

@@ -1,3 +1,4 @@
+ <!-- コメントに対するコメント -->
 <div class="replay-comment-box-<%= post_comment.id %> col-xs-offset-3" style="display: none;">
 	<% post_comment.replay_comments.each do |replay_comment| %>
 		<div class="replay-comment">
@@ -15,6 +16,7 @@
 	<% end %>
 </div>
 
+<!-- コメントに対するコメントフォーム -->
 <div class="form-comment-box replay-comment-form-box-<%= post_comment.id %>">
 	<i class="fas fa-times-circle cursor replay-comment-form-close-btn-<%= post_comment.id %>" style="font-size: 25px;"></i>
 	<div class="form-comment">
@@ -26,15 +28,19 @@
 	</div>
 </div>
 
-
 <script>
 	$(function(){
+
+		//コメントidでどのコメントに対するコメントか判別
+		//コメントフォーム表示
 		$('.replay-comment-btn-<%= post_comment.id %>').on('click', function(){
 			$('.replay-comment-form-box-<%= post_comment.id %>').slideToggle();
 		});
 		$('.replay-comment-form-close-btn-<%= post_comment.id %>').on('click', function(){
 			$('.replay-comment-form-box-<%= post_comment.id %>').slideUp();
 		});
+
+		//コメント表示
 		$('.replay-comment-box-btn-<%= post_comment.id %>').on('click', function(){
 			$('.replay-comment-box-<%= post_comment.id %>').slideToggle();
 		});
