@@ -708,7 +708,7 @@ footer {
     height: 200px;
   }
 
-  .edit-profile-image-box, .edit-profile-contents-box {
+  .edit-profile-image-box, .edit-profile-contents-box, .comment-favorite-user {
     width: 100%;
   }
 
@@ -751,7 +751,7 @@ footer {
     margin: 15px auto;
   }
 
-  #post-form-box, .form-comment-box,  #following-user-box, #follower-user-box, #contact-form-box {
+  #post-form-box, .form-comment-box,  #following-user-box, #follower-user-box, #contact-form-box, #comment-favorite-user-box {
     padding: 30px 30px;
     position: fixed;
     top: 0;
