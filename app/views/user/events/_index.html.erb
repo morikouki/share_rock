@@ -12,11 +12,11 @@
 		</div>
 		<p class="event-post-count">投稿数：<%= event.posts.count %></p>
 		<% if admin_signed_in? %>
-			<%= link_to edit_event_path(event),data: {"turbolinks"=>false} do %>
+			<%= link_to edit_event_path(event) do %>
 				<i class="fas fa-edit event-post-next-icon"></i>
 			<% end %>
 		<% else %>
-			<%= link_to user_event_path(event) do %>
+			<%= link_to user_event_path(event),data: {"turbolinks"=>false} do %>
 				<i class="fas fa-arrow-circle-right event-post-next-icon"></i>
 			<% end %>
 		<% end %>
