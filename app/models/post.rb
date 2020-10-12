@@ -33,4 +33,7 @@ class Post < ApplicationRecord
 	      self.tags << post_tag
 	    end
 	end
+
+	validates :comment, presence: true
+
 end

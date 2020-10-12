@@ -18,6 +18,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.devise-error-message {
+  color: red;
+  list-style: none;
+}
+
 h2 {
   margin-bottom: 25px;
 }

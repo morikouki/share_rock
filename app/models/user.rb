@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  attachment :profile_image
+  attachment :background
+
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
@@ -11,6 +14,10 @@ class User < ApplicationRecord
   has_many :artists, dependent: :destroy
   has_many :replay_comments, dependent: :destroy
   has_many :contacts, dependent: :destroy
+
+  enum sex: {男: 0, 女: 1}
+
+  #チャット機能
   has_many :user_rooms
   has_many :chats
 
@@ -19,11 +26,6 @@ class User < ApplicationRecord
   has_many :following, class_name: 'Relationship', foreign_key: 'following_id', dependent: :destroy
   has_many :follower_user, through: :follower, source: :following
   has_many :following_user, through: :following, source: :follower
-
-  enum sex: {男: 0, 女: 1}
-
-  attachment :profile_image
-  attachment :background
 
   def follow(user_id)
     following.create(follower_id: user_id)
@@ -43,4 +45,10 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
+
+  validates :nickname, presence: true
+  validates :post_code, presence: true
+  validates :prefecture_code, presence: true
+  validates :address_city, presence: true
+  validates :birthday, presence: true
 end

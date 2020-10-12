@@ -9,4 +9,7 @@ class PostComment < ApplicationRecord
 	def comment_favorited_by?(user)
     	comment_favorites.where(user_id: user.id).exists?
   	end
+
+  	validates :post_title, presence: true
+	validates :post_text, presence: true
 end
