@@ -4,5 +4,4 @@ class PostImage < ApplicationRecord
 
 	attachment :image
 
-	validates :image_id, presence: true
 end

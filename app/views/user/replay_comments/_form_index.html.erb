@@ -21,7 +21,7 @@
 		<%= form_with model:[event, post, post_comment, replay_comment], url:user_event_post_post_comment_replay_comments_path(event, post, post_comment) do |f| %>
 			<%= f.label :comment, 'コメント' %>
 			<%= f.submit '送信' %><br>
-			<%= f.text_area :comment, class: 'comment-form-field', size:'70x6' %>
+			<%= f.text_area :comment, class: 'comment-form-field', size:'70x6', :placeholder => "＊必須" %>
 		<% end %>
 	</div>
 </div>

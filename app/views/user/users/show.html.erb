@@ -1,6 +1,7 @@
 <%= render 'user/relationships/follower', user: @user %>
 <%= render 'user/relationships/following', user: @user %>
 <div class="row">
+	<span class="error-message"><%= flash[:error] %></span>
 	<% if @user == current_user %>
 		<h2>マイページ</h2>
 	<% else %>

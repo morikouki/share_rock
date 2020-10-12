@@ -10,8 +10,12 @@ class EventsController < ApplicationController
 
 	def create
 		@event = Event.new(event_params)
-		@event.save
-		redirect_to events_path
+		if @event.save
+			redirect_to events_path
+		else
+			flash[:error] = 'イベントを登録できませんでした。全ての項目を入力してください。'
+			redirect_to events_path
+		end
 	end
 
 	def edit
@@ -20,8 +24,12 @@ class EventsController < ApplicationController
 
 	def update
 		@event = Event.find(params[:id])
-		@event.update(event_params)
-		redirect_to events_path
+		if @event.update(event_params)
+			redirect_to events_path
+		else
+			flash[:error] = 'イベントを登録できませんでした。全ての項目を入力してください。'
+			redirect_to events_path
+		end
 	end
 
 	def destroy

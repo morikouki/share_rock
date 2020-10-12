@@ -15,8 +15,12 @@ class User::ReplayCommentsController < ApplicationController
 		replay_comment.event_id = @event.id
 		replay_comment.post_id = @post.id
 		replay_comment.post_comment_id = @post_comment.id
-		replay_comment.save
-		redirect_back(fallback_location: root_path)
+		if replay_comment.save
+		   redirect_back(fallback_location: root_path)
+		else
+			flash[:error] = "コメントに失敗しました。コメントを入力し直してください。"
+			redirect_to user_event_post_path(@event, @post)
+		end
 	end
 
 	def destroy

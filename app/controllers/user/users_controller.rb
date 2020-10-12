@@ -20,8 +20,12 @@ class User::UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		@user.update(user_params)
-		redirect_to user_user_path(@user)
+		if @user.update(user_params)
+			redirect_to user_user_path(@user)
+		else
+			flash[:error] = "編集できませんでした。必須項目を記入してください。"
+			redirect_to edit_user_user_path(@user)
+		end
 	end
 
 	#退会確認画面
@@ -40,7 +44,7 @@ class User::UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:profile_image, :introduction, :background)
+		params.require(:user).permit(:nickname, :birthday, :prefecture_code, :address_city, :sex, :profile_image, :introduction, :background)
 	end
 
 	#ログインユーザーか確認、ログインユーザーでなかったらマイページへ

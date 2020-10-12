@@ -34,6 +34,7 @@ class Post < ApplicationRecord
 	    end
 	end
 
-	validates :comment, presence: true
+	validates :post_title, presence: true
+	validates :post_text, presence: true
 
 end

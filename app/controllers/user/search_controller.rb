@@ -7,7 +7,7 @@ class User::SearchController < ApplicationController
 		@search = Event.ransack(params[:q])
 	end
 
-	def index #キーワード検索のイベント取得
+	def index #キーワード検索でイベント取得
 		@search = Event.ransack(params[:q])
 		@events = @search.result(distinct: true).page(params[:page]).per(6).order("id DESC")
 	end

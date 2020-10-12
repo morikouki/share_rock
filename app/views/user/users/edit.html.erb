@@ -1,4 +1,5 @@
 <div class="row">
+	<span class="error-message"><%= flash[:error] %></span>
 	<h2>プロフィール編集</h2>
 	<%= form_with model:@user, url:user_user_path(@user) do |f| %>
 		<div class="col-xs-12 user-edit-top-box text-center">
@@ -26,7 +27,7 @@
 		<div class="col-xs-6 edit-profile-contents-box">
 			<div class="form-group row edit-form-group">
 				<%= f.label 'ニックネーム', class: 'col-xs-4 edit-profile-form-text' %>
-				<%= f.text_field :nickname, class: 'col-xs-6' %>
+				<%= f.text_field :nickname, class: 'col-xs-6', :placeholder => "＊必須" %>
 			</div>
 			<div class="form-group row edit-form-group">
 				<%= f.label '自己紹介', class: 'col-xs-4 edit-profile-form-text' %>
@@ -34,7 +35,7 @@
 			</div>
 			<div class="form-group row edit-form-group">
 				<%= f.label '郵便番号', class: 'col-xs-4 edit-profile-form-text' %>
-				<%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", id: "user_postcode", class: 'col-xs-6' %>
+				<%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", id: "user_postcode", class: 'col-xs-6', :placeholder => "＊必須" %>
 			</div>
 			<div class="form-group row edit-form-group">
 				<%= f.label '都道府県', class: 'col-xs-4 edit-profile-form-text' %>
@@ -42,7 +43,7 @@
 			</div>
 			<div class="form-group row edit-form-group">
 				<%= f.label '市町区村', class: 'col-xs-4 edit-profile-form-text' %>
-				<%= f.text_field :address_city, autocomplete: 'address_city', id: "user_address_city", class: 'col-xs-6' %>
+				<%= f.text_field :address_city, autocomplete: 'address_city', id: "user_address_city", class: 'col-xs-6', :placeholder => "＊必須" %>
 			</div>
 			<div class="form-group row edit-form-group">
 			    <%= f.label '性別', class: 'col-xs-4 edit-profile-form-text' %>

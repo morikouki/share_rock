@@ -1,5 +1,6 @@
 <%= render 'user/users/profile' %>
 <div class="row show-post-contents-box">
+	<span class="error-message"><%= flash[:error] %></span>
 	<h2>コメント</h2>
 	<div class="show-post-name-box">
 		<%= link_to user_user_path(@post.user), class: 'link-style link-color col-xs-3' do %>
@@ -45,7 +46,7 @@
 			<%= form_with model:[@event, @post, @comment], url:user_event_post_post_comments_path(@event, @post), remote: true, class:'form-comment' do |f| %>
 				<%= f.label :comment, 'コメント' %>
 				<%= f.submit '送信' %><br>
-				<%= f.text_area :comment, class: 'comment-form-field', size:'70x6' %>
+				<%= f.text_area :comment, class: 'comment-form-field', size:'70x6', :placeholder => "＊必須" %>
 			<% end %>
 		</div>
 	</div>
@@ -55,7 +56,7 @@
 		<h2 class="col-xs-offset-2">タグ</h2>
 		<% @tags.each do |tag| %>
 			<div class="tag-text-box text-center">
-				<%= link_to user_event_posts_path(tag_id: tag.id) do  %>
+				<%= link_to user_event_posts_path(tag_id: tag.id), class: 'link-style link-color' do  %>
 					<%= tag.name %>
 					<span style="font-size: 15px;">（<%= tag.posts.count %>）</span>
 				<% end %>

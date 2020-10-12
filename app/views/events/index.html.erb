@@ -1,9 +1,10 @@
 <div class="row">
+	<span class="error-message"><%= flash[:error] %></span>
 	<h2>イベント登録</h2>
 	<div class="admin-event-form-box">
 		<%= form_with model: @event, url: events_path, method: :post do |f| %>
 			<div class="form-group admin-event-image">
-				<%= attachment_image_tag @event, :image, fallback: "Share.jpg", class: "event-img-prev", size: "500x500" %>
+				<%= attachment_image_tag @event, :image, fallback: "Share.jpg", class: "event-img-prev" %>
 				<span class="img-btn cursor admin-event-image-btn" onClick="$('#event-image').click()">
 					<i class="fas fa-camera"></i>
 				</span>
@@ -13,31 +14,31 @@
 			</div>
 			<div class="event-form-group row">
 				<%= f.label :title, 'タイトル', class: 'col-xs-4' %>
-				<%= f.text_field :title, class: 'col-xs-7' %>
+				<%= f.text_field :title %>
 			</div>
 			<div class="event-form-group row">
 				<%= f.label :explanation, '説明', class: 'col-xs-4' %>
-				<%= f.text_area :explanation, size:'7x6', class: 'col-xs-7' %>
+				<%= f.text_area :explanation, class: 'event-text-area' %>
 			</div>
 			<div class="event-form-group row">
 				<%= f.label :prefecture_code, '開催住所（都道府県）', class: 'col-xs-4' %>
-				<%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, class: 'col-xs-7' %>
+				<%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
 			</div>
 			<div class="event-form-group row">
 				<%= f.label :city, '開催住所', class: 'col-xs-4' %>
-				<%= f.text_field :city, class: 'col-xs-7' %>
+				<%= f.text_field :city %>
 			</div>
 			<div class="event-form-group row">
 				<%= f.label :start_date, '開催開始日', class: 'col-xs-4' %>
-				<%= f.date_select :start_date, use_month_numbers: true, start_year: 2000, end_year: (Time.now.year), default: Date.new(2010, 1, 1), class: 'col-xs-7' %>
+				<%= f.date_select :start_date, use_month_numbers: true, start_year: 2000, end_year: (Time.now.year), default: Date.new(2017, 1, 1) %>
 			</div>
 			<div class="event-form-group row">
 				<%= f.label :end_date, '開催終了日', class: 'col-xs-4' %>
-				<%= f.date_select :end_date, use_month_numbers: true, start_year: 2000, end_year: (Time.now.year), default: Date.new(2010, 1, 1), class: 'col-xs-7' %>
+				<%= f.date_select :end_date, use_month_numbers: true, start_year: 2000, end_year: (Time.now.year), default: Date.new(2017, 1, 1) %>
 			</div>
 			<div class="event-form-group row">
 				<%= f.label :official_link, '公式サイト', class: 'col-xs-4' %>
-				<%= f.text_field :official_link, class: 'col-xs-7' %>
+				<%= f.text_field :official_link %>
 			</div>
 			<div class="event-form-group">
 				<%= f.submit '登録', class: 'col-xs-offset-5 col-xs-3 event-create-btn' %>

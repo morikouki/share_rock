@@ -10,7 +10,11 @@ class User::ArtistsController < ApplicationController
 		@user = User.find(params[:user_id])
 		artist = @user.artists.new(artist_params)
 		@artist_new = Artist.new
-		artist.save
+		if artist.save
+		else
+			flash[:error] = "アーティストを登録できませんでした。登録し直してください。"
+			redirect_to user_user_path(current_user)
+		end
 	end
 
 	def edit

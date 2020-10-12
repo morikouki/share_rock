@@ -45,15 +45,15 @@
 	<div class="post-comment-form">
 		<div class="form-group row">
 			<%= f.label :post_title, 'タイトル', class: 'col-xs-2 post-comment-form-text' %>
-			<%= f.text_field :post_title, class: 'col-xs-5 post-comment-form-field' %>
+			<%= f.text_field :post_title, class: 'col-xs-5 post-comment-form-field', :placeholder => "＊必須" %>
 		</div>
 		<div class="form-group row">
 			<%= f.label :post_text, 'コメント', class: 'col-xs-2 post-comment-form-text' %>
-			<%= f.text_area :post_text, class: 'col-xs-9 post-comment-form-field', size: "20x8" %>
+			<%= f.text_area :post_text, class: 'col-xs-9 post-comment-form-field', size: "20x8", :placeholder => "＊必須" %>
 		</div>
 		<div class="form-group row">
 			<%= f.label :name, 'タグ', class: 'col-xs-2 post-comment-form-text' %>
-			<%= f.text_field :name, class: 'col-xs-6 post-comment-form-field' %>
+			<%= f.text_field :name, class: 'col-xs-6 post-comment-form-field', :placeholder => "半角スペースで複数登録可 (例：ご飯 音楽 フェス)" %>
 		</div>
 		<%= f.submit '投稿する', class: 'col-xs-offset-4 post-create-btn' %>
 	</div>

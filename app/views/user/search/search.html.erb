@@ -13,7 +13,7 @@
             <%= search_form_for Event.ransack(params[:q]), url: user_index_path do |f| %>
                 <h4 class="search-text">キーワードで検索</h4>
                 <div class="input-group">
-                    <%= f.search_field :title_or_prefecture_code_cont, class: 'search-field col-xs-9' %>
+                    <%= f.search_field :title_or_prefecture_code_or_city_cont, class: 'search-field col-xs-9', required: true %>
                     <%= button_tag "", class: "search-button col-xs-3" do %>
                       <i class="fas fa-search text-center"></i>
                     <% end %>

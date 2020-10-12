@@ -1,6 +1,6 @@
 <div class="row">
   <h2>ログイン</h2>
-  <%= flash[:error] %>
+  <span class="error-message"><%= flash[:error] %></span>
   <div class="col-xs-offset-2">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field form-group row">
