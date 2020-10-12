@@ -1,9 +1,12 @@
 <%= render 'user/users/profile' %>
+<!-- キーワード検索結果表示ページ -->
 <div class="row">
 	<h2>『<%= (params[:q][:title_or_prefecture_code_cont]) %>』の検索結果</h2>
 	<% if @events.count == 0 %>
 		<p class="col-xs-offset-2">該当する結果がありませんでした。</p>
 	<% else %>
+
+		<!-- イベント表示 -->
 		<div class="search-event-contents">
 			<%= render 'user/events/index', events: @events %>
 		</div>

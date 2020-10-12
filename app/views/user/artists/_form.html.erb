@@ -1,3 +1,4 @@
+<!-- アーティスト登録フォーム -->
 <%= form_with model: [user, artist], url: user_user_artists_path(user), remote: true do |f| %>
 	<i class="fas fa-microphone-alt like-atrits-text"> <%= f.label :like_artist, '好きなアーティストを登録' %></i>
 	<%= f.text_field :like_artist, class: 'artist-field' %>

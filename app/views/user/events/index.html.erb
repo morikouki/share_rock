@@ -3,19 +3,32 @@
 	<div class="user-event-index-box">
 		<h2><%= params[:year] %>フェス一覧</h2>
 		<div class="row text-center">
+
+			<!-- カレンダー表示ボタン -->
 			<span class="cursor btn-vertical-border" id="calendar-btn">
 				<i class="fas fa-calendar-alt icon"></i>カレンダーで見る
 			</span>
+
+			<!-- いいねランキングリンク -->
 			<%= link_to user_event_posts_path(@events, :ranking => 1), class: 'link-style' do %>
 				<span class="cursor col-xs-offset-1 btn-vertical-border contents-btn">いいねの多い投稿を見る</span>
 			<% end %>
 		</div>
+
+		<!-- イベント一覧 -->
 		<div class="contents-box col-xs-12">
 			<%= render 'user/events/index', events: @events %>
 		</div>
+
 		<div class="calendar-box">
+
+			<!-- 閉じるボタン -->
 			<i class="fas fa-times-circle cursor" id="calendar-box-close-btn"></i>
+
+			<!-- カレンダー -->
 			<div id="calendar" class="col-xs-5 col-xs-offset-1 year-search-box"></div>
+
+			<!-- 開催年でイベントを取得 -->
 			<div class="year-search-box col-xs-5 col-xs-offset-1 text-center">
 				<h4>ーー 開催年で見る ーー</h4>
 				<p class="year-text"><%= link_to '>> 2020年開催 <<', user_events_path(year: '2020年'), class: 'year-link link-style' %></p>

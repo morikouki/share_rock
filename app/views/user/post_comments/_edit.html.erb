@@ -1,4 +1,7 @@
+<!-- 閉じるボタン -->
 <i class="fas fa-times-circle cursor edit-comment-form-close-btn<%= post_comment.id %>" style="font-size: 25px;"></i>
+
+<!-- 投稿へのコメント編集フォーム -->
 <div class="text-center">
 	<%= form_with model:[event, post, post_comment], url:user_event_post_post_comment_path(event, post, post_comment), remote: true do |f| %>
 		<%= f.label :comment, 'コメント' %>
@@ -11,7 +14,10 @@
 <% end %>
 
 
+<!-- 投稿へのコメント編集　コメントidを渡してどのコメントか判別 -->
 <script>
+
+	//投稿コメント編集フォーム表示
 	$(function(){
 	  	$('.comment-edit-btn<%= post_comment.id %>').on('click', function(){
 	  		$('.edit-comment-form-box<%= post_comment.id %>').slideToggle();

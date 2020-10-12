@@ -41,6 +41,8 @@
 		<!-- スマホ時に表示 -->
 		<span id="event-ranking-btn" class="col-xs-offset-1">表示を切り替える</span>
 		<div id="active-event-ranking-text-box">
+
+			<!-- 閉じるボタン -->
 			<i class="fas fa-times-circle cursor" id="event-ranking-close-btn"></i>
 			<div class="text-center">
 				<%= link_to user_event_posts_path(@events, :ranking => 1), class: 'link-style link-color' do %>

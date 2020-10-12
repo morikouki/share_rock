@@ -18,6 +18,8 @@
 
 <!-- コメントに対するコメントフォーム -->
 <div class="form-comment-box replay-comment-form-box-<%= post_comment.id %>">
+
+	<!-- 閉じるボタン -->
 	<i class="fas fa-times-circle cursor replay-comment-form-close-btn-<%= post_comment.id %>" style="font-size: 25px;"></i>
 	<div class="form-comment">
 		<%= form_with model:[event, post, post_comment, replay_comment], url:user_event_post_post_comment_replay_comments_path(event, post, post_comment) do |f| %>

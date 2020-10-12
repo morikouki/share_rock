@@ -1,5 +1,7 @@
 <div class="row">
+
 	<span class="error-message"><%= flash[:error] %></span>
+	
 	<h2>プロフィール編集</h2>
 	<%= form_with model:@user, url:user_user_path(@user) do |f| %>
 		<div class="col-xs-12 user-edit-top-box text-center">

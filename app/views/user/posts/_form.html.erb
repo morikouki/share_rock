@@ -11,30 +11,56 @@
 	<div class="post-image-form">
 		<% post.post_images.each do |image| %>
 			<div class="post-form-box-image1 cursor">
+
+				<!-- 投稿画像プレビュー１ -->
 				<%= attachment_image_tag image, :image, fallback: "Share.jpg", class: "img-prev1" %>
+
+				<!-- 投稿画像登録フィールド表示1 -->
 				<span class="post-form-image-btn1" onClick="$('#image1').click()" style='font-size: 30px;' >
 					<i class="fas fa-camera"></i>
 				</span>
+
+				<!-- 投稿画像編集ボタン1 -->
 				<span class="edit-image-btn1 edit-image-btn" onClick="$('#image1').click()">編集</span>
+
+				<!-- 投稿画像削除ボタン1 -->
 				<span id="delete-image-btn1" class="delete-image">削除</span>
 			</div>
 			<div class="post-form-box-image2 cursor">
+
+				<!-- 投稿画像プレビュー2 -->
 				<%= attachment_image_tag image, :image, fallback: "Share.jpg", class: "img-prev2" %>
+
+				<!-- 投稿画像登録フィールド表示2 -->
 				<span class="post-form-image-btn2" onClick="$('#image2').click()" style='font-size: 30px;' >
 					<i class="fas fa-camera"></i>
 				</span>
+
+				<!-- 投稿画像編集ボタン2 -->
 				<span class="edit-image-btn2 edit-image-btn" onClick="$('#image2').click()">編集</span>
+
+				<!-- 投稿画像削除ボタン2 -->
 				<span id="delete-image-btn2" class="delete-image">削除</span>
 			</div>
 			<div class="post-form-box-image3 cursor">
+
+				<!-- 投稿画像プレビュー3 -->
 				<%= attachment_image_tag image, :image, fallback: "Share.jpg", class: "img-prev3" %>
+
+				<!-- 投稿画像登録フィールド表示3 -->
 				<span class="post-form-image-btn3" onClick="$('#image3').click()" style='font-size: 30px;' >
 					<i class="fas fa-camera"></i>
 				</span>
+
+				<!-- 投稿画像編集ボタン3 -->
 				<span class="edit-image-btn3 edit-image-btn" onClick="$('#image3').click()">編集</span>
+
+				<!-- 投稿画像削除ボタン3 -->
 				<span id="delete-image-btn3" class="delete-image">削除</span>
 			</div>
 		<% end %>
+
+		<!-- 投稿画像フィールド -->
 		<%= f.fields_for :post_images do |i| %>
 			<div class="image-field">
 				<%= i.attachment_field :image, multiple: true, name: "post_images[image][]", id: 'image1' %>
@@ -47,6 +73,8 @@
 			</div>
 		<% end %>
 	</div>
+
+	
 	<div class="post-comment-form">
 		<div class="form-group row">
 			<%= f.label :post_title, 'タイトル', class: 'col-xs-2 post-comment-form-text' %>

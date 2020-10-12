@@ -48,6 +48,8 @@
 
 		<!-- 投稿編集フォーム -->
 		<div class="edit-post-box-<%= post.id %> edit-post-box">
+			
+			<!-- 閉じるボタン -->
 			<i class="fas fa-times-circle cursor post-edit-form-close-btn-<%= post.id %>" style="font-size: 20px;"></i>
 			<%= link_to user_event_post_path(post.event, post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'link-color col-xs-offset-1' do %>
 				<i class="fas fa-trash-alt" style="color: red;">投稿を削除</i>
@@ -88,6 +90,6 @@
 			 	});
 			  });
 		</script>
-		
+
 	<% end %>
 <% end %>

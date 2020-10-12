@@ -1,8 +1,15 @@
+<!-- コメントに対するいいねボタン -->
+
+<!-- 既にいいねしているか確認 -->
 <% if comment.comment_favorited_by?(current_user) %>
+
+	<!-- いいねしていたら -->
 	<%= link_to user_event_post_post_comment_comment_favorites_path(event, post, comment), method: :delete, remote: true, class: 'link-style link-color' do %>
 		<i class="fas fa-heart", style='color:#d95f5d; font-size:20px;'></i>
 	<% end %>
 <% else %>
+
+	<!-- いいねしていなかったら -->
 	<%= link_to user_event_post_post_comment_comment_favorites_path(event, post, comment), method: :post, remote: true, class: 'link-style link-color' do %>
 		<i class="far fa-heart", style='font-size:20px;'></i>
 	<% end %>

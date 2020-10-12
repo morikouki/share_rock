@@ -1,3 +1,4 @@
+<!-- イベント一覧 -->
 <% events.each do |event| %>
 	<div class="contents-event-box">
 		<div class="event-top-box">
@@ -11,15 +12,20 @@
 		    <p>　<%= event.explanation %></p>
 		</div>
 		<p class="event-post-count">投稿数：<%= event.posts.count %></p>
+
+		<!-- 管理者は編集リンク表示 -->
 		<% if admin_signed_in? %>
 			<%= link_to edit_event_path(event) do %>
 				<i class="fas fa-edit event-post-next-icon"></i>
 			<% end %>
 		<% else %>
+		<!-- 管理者以外は詳細リンク表示 -->
 			<%= link_to user_event_path(event),data: {"turbolinks"=>false} do %>
 				<i class="fas fa-arrow-circle-right event-post-next-icon"></i>
 			<% end %>
 		<% end %>
 	</div>
 <% end %>
+
+<!-- ページネーションアンカーリンク付き -->
 <%= paginate events, params: { anchor: 'index-link' } %>

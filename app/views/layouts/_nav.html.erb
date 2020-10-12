@@ -1,6 +1,8 @@
 <nav class="share-rock-nav">
   <div class="container nav-box">
     <div class="navbar-logo">
+
+      <!-- ログインしていなかったらトップページへのパス有り -->
       <% if user_signed_in? %>
         <%= image_tag asset_path("Share.jpg"), class: 'logo-image' %>
         <span class="share-rock-logo">Share_Rock</span>
@@ -11,7 +13,10 @@
           <span class="share-rock-logo">Share_Rock</span>
       <% end %>
     </div>
+
     <ul class="nav-list">
+
+      <!-- ログインした時の表示 -->
       <% if user_signed_in? %>
         <li class="nav-item">
           <% if current_page?(user_user_path(current_user)) %>
@@ -39,6 +44,8 @@
                Sign_out
           <% end %>
         </li>
+
+      <!-- 管理者がログインしている時の表示 -->
       <% elsif admin_signed_in? %>
         <li class="nav-item">
           <%= link_to events_path, class: 'link-color link-style' do %>
@@ -60,6 +67,8 @@
                Sign_out
           <% end %>
         </li>
+
+      <!-- ログインしてない時 -->
       <% else %>
         <li class="nav-item">
           <%= link_to about_path, class: 'link-color link-style' do %>
@@ -77,10 +86,18 @@
           <% end %>
         </li>
       <% end %>
+
+      <!-- スマホ時のハンバーガメニューボタン -->
       <i class="fas fa-bars cursor" id="humbureger-btn"></i>
+
+      <!-- スマホ時のはンバーガーメニュー -->
       <div id="humburger-menu-box">
+
+        <!-- 閉じるボタン -->
         <i class="fas fa-times-circle cursor" id="humbureger-close-btn"></i>
         <ul id="humburger-item-list">
+
+          <!-- ログイン時 -->
           <% if user_signed_in? %>
             <li class="humburger-item">
               <% if current_page?(user_user_path(current_user)) %>
@@ -106,6 +123,8 @@
                    Sign_out
               <% end %>
             </li>
+
+          <!-- 管理者ログイン時 -->
           <% elsif admin_signed_in? %>
             <li class="humburger-item">
               <%= link_to events_path, class: 'link-color link-style' do %>
@@ -127,6 +146,8 @@
                    Sign_out
               <% end %>
             </li>
+
+          <!-- ログアウト時 -->
           <% else %>
             <li class="humburger-item">
               <%= link_to about_path, class: 'link-color link-style' do %>

@@ -1,23 +1,45 @@
+<!-- コメント一覧 -->
 <% comments.each do |post_comment| %>
 	<div class="comment-contents-box col-xs-12">
+
+		<!-- 投稿したユーザーのページリンク -->
 		<%= link_to user_user_path(post_comment.user), class: 'link-style link-color' do %>
 			<%= attachment_image_tag post_comment.user, :profile_image, size:'40x40', fallback: 'Share.jpg', class: "profile-image" %>
 			<%= post_comment.user.nickname %>
 		<% end %>
+
+		<!-- コメント文 -->
 		<div class="comment-contents-text">
 			<p class="col-xs-5"><i class="far fa-comment comment-icon"></i>  <%= post_comment.comment %></p>
 		</div>
+
+		<!-- コメントへのいいね -->
 		<span class="comment-favorite-<%= post_comment.id %> col-xs-offset-1">
 			<%= render 'user/comment_favorites/favorite', comment: post_comment, post: post, event: event %>
 		</span>
+
+		<!-- コメントへのいいね数といいねしたユーザー表示-->
 		<span class="cursor col-xs-offset-1 comment-favorite-count-<%= post_comment.id %>">
 			<%= render 'user/comment_favorites/count', comment: post_comment %>
 		</span>
+
+		<!-- コメントへのコメントフォームボタン -->
 		<span class="cursor replay-comment-btn replay-comment-btn-<%= post_comment.id %> replay-comment-responsive-btn">コメントする</span>
-		<span class="cursor replay-comment-btn replay-comment-box-btn-<%= post_comment.id %> replay-comment-responsive-btn2"><span class="replay-comment-responsive-close">コメントを</span>見る<%= post_comment.replay_comments.count %>件</span>
+
+		<!-- コメントへのコメント表示ボタン -->
+		<span class="cursor replay-comment-btn replay-comment-box-btn-<%= post_comment.id %> replay-comment-responsive-btn2">
+			<!-- スマホ時非表示 -->
+			<span class="replay-comment-responsive-close">コメントを</span>見る<%= post_comment.replay_comments.count %>件
+		</span>
+
+		<!-- 投稿へのコメント編集ボタン -->
 		<i class="fas fa-edit col-xs-offset-1 cursor comment-edit-btn<%= post_comment.id %>"></i>
 	</div>
+
+	<!-- コメントへのコメント一覧 -->
 	<%= render 'user/replay_comments/form_index', event: event, post: post, post_comment: post_comment, replay_comment: replay_comment %>
+
+	<!-- 投稿へのコメント編集フォーム -->
 	<div class="form-comment-box edit-comment-form-box<%= post_comment.id %>">
 		<%= render 'user/post_comments/edit', event: event, post: post, post_comment: post_comment %>
 	</div>

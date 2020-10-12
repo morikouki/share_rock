@@ -1,5 +1,8 @@
+<!-- チャットルーム -->
 <div class="row">
     <h2>「<%= @user.nickname %>」さんとのチャットルーム</h2>
+
+    <!-- チャットフォーム -->
     <div class="chat-form-box">
         <%= form_with model: @chat, url: user_user_chats_path(@user) do |f| %>
             <%= f.text_field :message, class: 'chat-form-field' %>
@@ -8,16 +11,23 @@
         <% end %>
     </div>
 
+    <!-- チャット内容 -->
     <div class="chat-message-box">
         <% @chats.each do |chat| %>
             <div class="chat-message">
+
+                <!-- ログインユーザー確認 -->
                 <% if chat.user == current_user %>
+
+                    <!-- ログインユーザー情報は画面右 -->
                     <p style="text-align: right;">
                         <span style="margin-right: 40px;"><%= chat.message %> :</span>
                         <%= attachment_image_tag chat.user, :profile_image, size: '40x40', fallback: 'Share.jpg', class: 'profile-image' %>
                         <%= chat.user.nickname %>
                     </p>
                 <% else %>
+
+                    <!-- ログインユーザー以外は画面左 -->
                     <p style="text-align: left;">
                         <%= attachment_image_tag chat.user, :profile_image, size: '40x40', fallback: 'Share.jpg', class: 'profile-image' %>
                         <%= chat.user.nickname %>
