@@ -33,7 +33,9 @@
 		</span>
 
 		<!-- 投稿へのコメント編集ボタン -->
-		<i class="fas fa-edit col-xs-offset-1 cursor comment-edit-btn<%= post_comment.id %>"></i>
+		<% if post_comment.user == current_user %>
+			<i class="fas fa-edit col-xs-offset-1 cursor comment-edit-btn<%= post_comment.id %>"></i>
+		<% end %>
 	</div>
 
 	<!-- コメントへのコメント一覧 -->
