@@ -15,6 +15,7 @@
 						<span class="follower-name"><%= follower.nickname %></span>
 					<% end %>
 
+					<!-- ログインユーザー以外の時表示 -->
 					<% if follower != current_user %>
 						<% if current_user.following?(follower) %>
 							<%= link_to user_user_relationships_path(follower), method: :delete, class: 'link-color link-style follow-link' do %>
