@@ -14,18 +14,21 @@
 						<%= attachment_image_tag follower, :profile_image, fallback: 'Share.jpg', class: 'follower-profile-image' %>
 						<span class="follower-name"><%= follower.nickname %></span>
 					<% end %>
-					<% if current_user.following?(follower) %>
-						<%= link_to user_user_relationships_path(follower), method: :delete, class: 'link-color link-style follow-link' do %>
-							<i class="fas fa-user-slash"></i>フォローを外す
+
+					<% if follower != current_user %>
+						<% if current_user.following?(follower) %>
+							<%= link_to user_user_relationships_path(follower), method: :delete, class: 'link-color link-style follow-link' do %>
+								<i class="fas fa-user-slash"></i>フォローを外す
+							<% end %>
+						<% else %>
+							<%= link_to user_user_relationships_path(follower), method: :post, class: 'link-color link-style follow-link' do %>
+								<i class="fas fa-user"></i>フォローする
+							<% end %>
 						<% end %>
-					<% else %>
-						<%= link_to user_user_relationships_path(follower), method: :post, class: 'link-color link-style follow-link' do %>
-							<i class="fas fa-user"></i>フォローする
-						<% end %>
-					<% end %>
-  					<%= link_to user_user_chat_path(current_user, follower), class: 'link-color link-style follow-link' do %>
-  						<i class="far fa-comments"></i>チャット
-  					<% end %>
+	  					<%= link_to user_user_chat_path(current_user, follower), class: 'link-color link-style follow-link' do %>
+	  						<i class="far fa-comments"></i>チャット
+	  					<% end %>
+	  				<% end %>
 				</div>
 			<% end %>
 		<% end %>
