@@ -7,7 +7,45 @@
 
 .about-box {
   width: 100%;
-  padding: 200px;
+  position: relative;
+}
+
+.about-text-box {
+  padding: 40px;
+}
+
+.about-image-box {
+  width: 300px;
+  height: 300px;
+}
+
+.about-image1 {
+  margin: 0 auto;
+  background-image: image-url("chat.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.about-image2 {
+  background-image: image-url("post.png");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.about-image3 {
+  background-image: image-url("search.png");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.about-box h1, .about-box h4, .about-box p {
+  margin: 50px 0;
 }
 
 

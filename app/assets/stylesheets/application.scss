@@ -501,6 +501,38 @@ footer {
 
 @media screen and (max-width:768px) {
 
+  .about-image-box {
+    width: 100px;
+    height: 100px;
+  }
+
+  .about-text-box, .about-box h1, .about-box h4, .about-box p {
+    margin: 10px 0;
+  }
+
+  .about-text-box p, .about-text-box h5 {
+    font-size: 15px;
+  }
+
+  .about-image2 {
+    background-image: image-url("post.png");
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    bottom: -70px;
+    right: 0;
+  }
+
+  .about-image3 {
+    background-image: image-url("search.png");
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    bottom: -70px;
+    left: 0;
+  }
+
+
   .admin-event-form-box, .event-img-prev, .edit-event-img-prev {
     width: 100%;
   }
