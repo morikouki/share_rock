@@ -9,8 +9,10 @@
 				</span>
 			<% end %>
 			：<%= replay_comment.comment %>
-			<%= link_to user_event_post_post_comment_replay_comment_path(event, post, post_comment, replay_comment), class: 'link-color link-style', method: :delete, data: { confirm: '本当に削除しますか？' } do %>
-				<i class="fas fa-trash-alt col-xs-offset-1"></i>
+			<% if replay_comment.user == current_user %>
+				<%= link_to user_event_post_post_comment_replay_comment_path(event, post, post_comment, replay_comment), class: 'link-color link-style', method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+					<i class="fas fa-trash-alt col-xs-offset-1"></i>
+				<% end %>
 			<% end %>
 		</div>
 	<% end %>
