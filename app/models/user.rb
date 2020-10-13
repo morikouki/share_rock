@@ -27,6 +27,7 @@ class User < ApplicationRecord
   has_many :follower_user, through: :follower, source: :following
   has_many :following_user, through: :following, source: :follower
 
+  #フォローする
   def follow(user_id)
     following.create(follower_id: user_id)
   end

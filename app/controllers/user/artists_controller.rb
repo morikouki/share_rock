@@ -17,12 +17,6 @@ class User::ArtistsController < ApplicationController
 		end
 	end
 
-	def edit
-	end
-
-	def update
-	end
-
 	def destroy
 		@user = User.find(params[:user_id])
 		artist = Artist.find(params[:id])

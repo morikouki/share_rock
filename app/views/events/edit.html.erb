@@ -1,21 +1,20 @@
 <div class="row">
+
 	<span class="error-message"><%= flash[:error] %></span>
-	<% if @event.errors.any? %>
-        <h3><%= @event.errors.count %>error prohibited this obj from being saved:</h3>
-        <ul>
-          <% @event.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
-    <% end %>
+
 	<div class="admin-event-form-box">
 		<%= form_with model: @event, url: event_path(@event) do |f| %>
 			<div class="form-group admin-event-image">
+
+				<!-- イベント画像編集プレビュー -->
 				<%= attachment_image_tag @event, :image, fallback: "Share.jpg", class: "edit-event-img-prev" %>
+
+				<!-- イベント画像編集フィールド表示 -->
 				<span class="img-btn cursor admin-event-image-btn" onClick="$('#edit-event-image').click()">
 					<i class="fas fa-camera"></i>
 				</span>
 			</div>
+			
 			<div class="event-form-group" style="display: none">
 			 	<%= f.attachment_field :image, id: 'edit-event-image' %>
 			</div>

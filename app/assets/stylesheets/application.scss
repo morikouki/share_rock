@@ -23,7 +23,7 @@ h2 {
   margin-bottom: 25px;
 }
 
-// エラーメッセージ関係
+//ーーーエラーメッセージーーー
 
 .devise-error-message {
   color: red;
@@ -34,7 +34,7 @@ h2 {
   color: red;
 }
 
-// nav
+//ーーーナビゲーションバーーーー
 
 .logo-image {
   weight: 70px;
@@ -89,7 +89,123 @@ h2 {
   font-size: 20px;
 }
 
-// mainページ
+//ーーー各フォームフィールドーーー
+select {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding-right: 10px;
+}
+
+input, textarea {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.image-field {
+    display: none;
+}
+
+//ーーー画像関係ーーー
+.image-size {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.profile-image {
+  border-radius: 50%;
+}
+
+.following-image, .follower-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+//ーーー画像フォーム関係ーーー
+.img-btn {
+  font-size: 25px;
+  display: inline-block;
+  text-decoration: none;
+  background-image: image-url("Share.jpg");
+  background-position: center;
+  background-size: cover;
+  color: #3a464a;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  overflow: hidden;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #2c4952;
+  transition: .4s;
+}
+
+.img-btn:active {
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  border-bottom: none;
+}
+
+.img-prev2, .img-prev3, #image2, #image3 {
+  display: none;
+}
+
+.back-image-box, .profile-image-box, .post-form-box-image1, .post-form-box-image2, .post-form-box-image3, .admin-event-image {
+  position: relative;
+}
+
+.post-form-box-image1, .post-form-box-image2, .post-form-box-image3 {
+  margin: 5px;
+}
+
+.profile-image-btn, .post-form-image-btn1, .post-form-image-btn2, .post-form-image-btn3, .admin-event-image-btn {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+}
+
+.post-form-image-btn2, .post-form-image-btn3 {
+  display: none;
+}
+
+.delete-image, .edit-image-btn {
+  display: none;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #00BCD4;
+  background: #ECECEC;
+  transition: .4s;
+}
+
+.delete-image {
+  border-radius: 0 15px 15px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.delete-image:hover, #edit-image-btn:hover {
+  background: #636363;
+}
+
+.edit-image-btn {
+  border-radius: 15px 0 0 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+
+
+//ーーーmainページーーー
 
 main {
   margin: 100px auto;
@@ -103,27 +219,8 @@ main {
   margin-top: 20px;
 }
 
-.profile-image {
-	border-radius: 50%;
-}
-
 #user_prefecture_code {
 	width: 155px;
-}
-
-// kaminariページネーション
-
-.pagination{
-  margin: auto;
-  width: 50%;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.pagination span{
-  text-align: center;
-  width: 50px;
-  color: rgb(197, 20, 159);
 }
 
 .my-page-text-btn {
@@ -182,37 +279,6 @@ main {
   text-decoration: none;
 }
 
-.image-field {
-    display: none;
-}
-
-.img-btn {
-  font-size: 25px;
-  display: inline-block;
-  text-decoration: none;
-  background-image: image-url("Share.jpg");
-  background-position: center;
-  background-size: cover;
-  color: #3a464a;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 50%;
-  text-align: center;
-  font-weight: bold;
-  overflow: hidden;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
-  border-bottom: solid 3px #2c4952;
-  transition: .4s;
-}
-
-.img-btn:active {
-  -webkit-transform: translateY(2px);
-  transform: translateY(2px);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
-  border-bottom: none;
-}
-
 .contents-box, .user-post-contents, .search-event-contents, .post-index-box {
   width: 100%;
   padding-top: 50px;
@@ -232,12 +298,6 @@ main {
 
 .post-top-box, .event-top-box, .post-user {
   padding: 5px;
-}
-
-.image-size {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
 }
 
 .post-title {
@@ -297,12 +357,6 @@ main {
   display: none;
 }
 
-.following-image, .follower-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-
 .post-contants {
   width: 100%;
   margin: 0 auto;
@@ -321,24 +375,6 @@ main {
   font-size: 20px;
 }
 
-.img-prev2, .img-prev3, #image2, #image3 {
-  display: none;
-}
-
-.back-image-box, .profile-image-box, .post-form-box-image1, .post-form-box-image2, .post-form-box-image3, .admin-event-image {
-  position: relative;
-}
-
-.post-form-box-image1, .post-form-box-image2, .post-form-box-image3 {
-  margin: 5px;
-}
-
-.profile-image-btn, .post-form-image-btn1, .post-form-image-btn2, .post-form-image-btn3, .admin-event-image-btn {
-  position: absolute;
-  top: 45%;
-  left: 45%;
-}
-
 .update-btn, .event-create-btn {
   padding: 5px;
   font-weight: bold;
@@ -347,53 +383,8 @@ main {
   border: solid 1px #67c5ff;
 }
 
-select {
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  padding-right: 10px;
-}
-
-input, textarea {
-  border-top: none;
-  border-left: none;
-  border-right: none;
-}
-
-.post-form-image-btn2, .post-form-image-btn3 {
-  display: none;
-}
-
 .profile-contents-artist-text {
   padding-left: 15px;
-}
-
-.delete-image, .edit-image-btn {
-  display: none;
-  font-weight: bold;
-  padding: 0.25em 0.5em;
-  text-decoration: none;
-  color: #00BCD4;
-  background: #ECECEC;
-  transition: .4s;
-}
-
-.delete-image {
-  border-radius: 0 15px 15px 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.delete-image:hover, #edit-image-btn:hover {
-  background: #636363;
-}
-
-.edit-image-btn {
-  border-radius: 15px 0 0 15px;
-  position: absolute;
-  top: 0;
-  right: 0;
 }
 
 .bx-viewport {
@@ -427,14 +418,6 @@ input, textarea {
   border-bottom: solid 1px #000000;
 }
 
-.follower-user, .following-user {
-  width: 700px;
-  height: 80px;
-  line-height: 80px;
-  margin: 20px auto;
-  border-bottom: solid 1px #000000;
-}
-
 #event-ranking-btn, #active-event-ranking-text-box {
   display: none;
 }
@@ -455,6 +438,16 @@ input, textarea {
   position: relative;
 }
 
+//ーーーフォロー系ーーー
+
+.follower-user, .following-user {
+  width: 700px;
+  height: 80px;
+  line-height: 80px;
+  margin: 20px auto;
+  border-bottom: solid 1px #000000;
+}
+
 .follow-btn {
   padding: 3px;
   color: #5886d1;
@@ -466,6 +459,8 @@ input, textarea {
   color: #e08380;
   border: solid 1px #e08380;
 }
+
+//ーーーチャットーーー
 
 .chat-btn {
   position: relative;
@@ -489,8 +484,22 @@ input, textarea {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
 
+//ーーーkaminariページネーションーーー
 
-// footerページ
+.pagination{
+  margin: auto;
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.pagination span{
+  text-align: center;
+  width: 50px;
+  color: rgb(197, 20, 159);
+}
+
+//ーーーfooterページーーー
 
 footer {
   height: 150px;
@@ -498,9 +507,71 @@ footer {
   background-position: center;
 }
 
-
+//ーーーレスポンシブーーー
 @media screen and (max-width:768px) {
 
+  h2 {
+    font-size: 22px;
+    padding-left: 20px;
+  }
+
+  .post-comment-form-text, .post-comment-form-field, .post-image-form, .post-comment-form, .search-top-box, .search-bottom-box, .contact-field-text, .contact-field, .edit-profile-image-box, .edit-profile-contents-box, .comment-favorite-user, .back-image-box {
+    width: 100%;
+  }
+
+  //ーーーナビゲーションバーーーー
+  .nav-item, .share-rock-logo, #map-container {
+    display: none;
+  }
+
+  #humbureger-btn {
+    font-size: 50px;
+    padding: 0 30px;
+    display: block;
+  }
+
+  #humburger-menu-box, #active-event-ranking-text-box {
+    padding: 30px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 70%;
+    height: 330px;
+    background: rgba(141, 177, 199, 0.9);
+    z-index: 10000;
+    display: none;
+  }
+
+  //ーーーtopページーーー
+  .top-text {
+    font-size: 15px;
+  }
+
+  .top-box {
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .top-logo {
+    font-size: 20px;
+  }
+
+  .login-text {
+    margin-top: 10px;
+  }
+
+  .login-text p, .search-text {
+    font-size: 10px;
+  }
+
+  .top-image-box {
+    height: 150px;
+  }
+
+  //ーーーaboutページーーー
   .about-image-box {
     width: 100px;
     height: 100px;
@@ -532,38 +603,13 @@ footer {
     left: 0;
   }
 
-
+  //ーーーイベント関係ーーー
   .admin-event-form-box, .event-img-prev, .edit-event-img-prev {
     width: 100%;
   }
 
   .event-form-group {
     margin-left: 20px;
-  }
-
-  .top-text {
-    font-size: 15px;
-  }
-
-  .top-box {
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  .top-logo {
-    font-size: 20px;
-  }
-
-  .login-text {
-    margin-top: 10px;
-  }
-
-  .login-text p, .search-text {
-    font-size: 10px;
-  }
-
-  .top-image-box {
-    height: 150px;
   }
 
   .registration-form-text, #calendar-btn, .edit-profile-form-text, .confirm-text-box, .following-name, .follower-name {
@@ -611,36 +657,6 @@ footer {
     transform: rotate(10deg);
   }
 
-  h2 {
-    font-size: 22px;
-    padding-left: 20px;
-  }
-
-  .nav-item, .share-rock-logo, #map-container {
-    display: none;
-  }
-
-  #humbureger-btn {
-    font-size: 50px;
-    padding: 0 30px;
-    display: block;
-  }
-
-  #humburger-menu-box, #active-event-ranking-text-box {
-    padding: 30px 30px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    width: 70%;
-    height: 330px;
-    background: rgba(141, 177, 199, 0.9);
-    z-index: 10000;
-    display: none;
-  }
-
   .contents-event-box {
     margin: 0 auto;
     margin-bottom: 20px;
@@ -650,6 +666,7 @@ footer {
     font-size: 5px;
   }
 
+  //ーーーカレンダー関係ーーー
   .calendar-box {
     width: 100%;
     overflow:auto;
@@ -684,7 +701,7 @@ footer {
     padding: 5px;
   }
 
-  .my-page-text-close-text {
+  .my-page-text-close-text, .replay-comment-responsive-close {
     display: none;
   }
 
@@ -724,10 +741,6 @@ footer {
     height: 100px;
   }
 
-  .back-image-box {
-    width: 100%;
-  }
-
   .back-image-btn, .profile-image-btn {
     position: absolute;
     top: 40%;
@@ -738,10 +751,6 @@ footer {
     border-radius: 50%;
     width: 200px;
     height: 200px;
-  }
-
-  .edit-profile-image-box, .edit-profile-contents-box, .comment-favorite-user {
-    width: 100%;
   }
 
   #map-box {
@@ -810,10 +819,6 @@ footer {
     border-radius: 50%;
   }
 
-  .post-image-form {
-    width: 100%;
-  }
-
   .post-form-box-image1, .post-form-box-image2, .post-form-box-image3 {
     margin-left: 7px;
   }
@@ -821,14 +826,6 @@ footer {
   .post-image-form {
     display: flex;
     flex-direction: column;
-  }
-
-  .post-comment-form-text, .post-comment-form-field {
-    width: 100%;
-  }
-
-  .post-comment-form {
-    width: 100%;
   }
 
   .show-post-name {
@@ -875,14 +872,6 @@ footer {
     margin: 0 2px;
   }
 
-  .replay-comment-responsive-close {
-    display: none;
-  }
-
-  .search-top-box, .search-bottom-box {
-    width: 100%;
-  }
-
   .search-field {
     width: 100px;
     margin-left: -60px;
@@ -894,10 +883,6 @@ footer {
 
    #map-phone-container {
     display: block;
-  }
-
-  .contact-field-text, .contact-field{
-    width: 100%;
   }
 
   .chat-form-box, .chat-message-box {

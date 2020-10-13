@@ -40,6 +40,8 @@ class User::PostsController < ApplicationController
 
 	def create
 		event = Event.find(params[:event_id])
+
+		#タグ半角スペースで複数保存可
 		tag_list = params[:post][:name].split(nil)
 		post = current_user.posts.new(post_params)
 		post.event_id = event.id
@@ -95,7 +97,9 @@ class User::PostsController < ApplicationController
 		@event = Event.find(params[:event_id])
 		@post = Post.find(params[:id])
 		@post.event_id = @event.id
-		@post.post_images.destroy_all #@postに結びついたpost_imageテーブルを全部削除
+
+		#@postに結びついたpost_imageテーブルを全部削除
+		@post.post_images.destroy_all
 		@post.destroy
 		redirect_to user_user_path(current_user)
 	end

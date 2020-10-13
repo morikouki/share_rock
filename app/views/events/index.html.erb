@@ -1,14 +1,21 @@
 <div class="row">
+
 	<span class="error-message"><%= flash[:error] %></span>
+
 	<h2>イベント登録</h2>
 	<div class="admin-event-form-box">
 		<%= form_with model: @event, url: events_path, method: :post do |f| %>
 			<div class="form-group admin-event-image">
+
+				<!-- イベント画像プレビュー -->
 				<%= attachment_image_tag @event, :image, fallback: "Share.jpg", class: "event-img-prev" %>
+
+				<!-- イベント画像フィールド表示 -->
 				<span class="img-btn cursor admin-event-image-btn" onClick="$('#event-image').click()">
 					<i class="fas fa-camera"></i>
 				</span>
 			</div>
+
 			<div class="event-form-group" style="display: none">
 			 	<%= f.attachment_field :image, id: 'event-image' %>
 			</div>

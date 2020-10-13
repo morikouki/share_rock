@@ -2,11 +2,16 @@ class User::ChatsController < ApplicationController
 
 	def show
 	    @user = User.find(params[:id])
+
+	    #room_idを探してくる
 	    rooms = current_user.user_rooms.pluck(:room_id)
 	    user_rooms = UserRoom.find_by(user_id: @user.id, room_id: rooms)
 
+	    #roomが既にあるか確認
 	    unless user_rooms.nil?
 	      @room = user_rooms.room
+
+	    #roomがなかったら新しく作る
 	    else
 	      @room = Room.new
 	      @room.save

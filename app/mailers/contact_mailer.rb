@@ -1,5 +1,6 @@
 class ContactMailer < ApplicationMailer
 
+	#お問い合わせメール
 	def send_contact(user, contact)
 	    @user = user
 	    @contact = contact

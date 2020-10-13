@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+  #会員側devise
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: "users/sessions",
   }
+
+  #管理者側devise
   devise_for :admins, controllers: {
     sessions: "admins/sessions",
   }
@@ -11,6 +14,7 @@ Rails.application.routes.draw do
   get root 'homes#top'
   get 'about' => 'homes#about'
 
+  #会員側
   namespace :user do
   	resources :events, only: [:index, :show] do
   	  resources :posts, only: [:index, :show, :create, :update, :destroy] do
@@ -24,7 +28,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update] do
       get 'confirm' => 'users#confirm'
       patch '/withdraw' => 'users#withdraw'
-      resources :artists, only: [:create, :edit, :update, :destroy]
+      resources :artists, only: [:create, :destroy]
       resource :relationships, only: [:create, :destroy]
       resources :contacts, only: [:create]
       resources :chats, only: [:show, :create]
@@ -40,6 +44,7 @@ Rails.application.routes.draw do
     get 'kyusyu_okinawa' => 'search#kyusyu_okinawa'
   end
 
+  #管理者側
   resources :events, only: [:index, :edit, :create, :update, :destroy]
   resources :users, only: [:index]
   resources :contacts, only: [:index, :show]

@@ -12,5 +12,5 @@ module ApplicationHelper
 	      EOF
 	    end
 	    html.html_safe
-	  end
+	end
 end

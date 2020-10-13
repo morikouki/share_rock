@@ -1,5 +1,6 @@
 class RegistrationMailer < ApplicationMailer
 
+	#新規登録メール
 	def send_confirm_to_user(user)
 	    @user = user
 	    mail to: user.email,
