@@ -71,6 +71,11 @@
       <!-- ログインしてない時 -->
       <% else %>
         <li class="nav-item">
+          <%= link_to new_admin_session_path, class: 'link-color link-style' do %>
+               管理者
+          <% end %>
+        </li>
+        <li class="nav-item">
           <%= link_to about_path, class: 'link-color link-style' do %>
             Share_Rockとは
           <% end %>
