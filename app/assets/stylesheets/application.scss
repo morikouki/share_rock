@@ -515,7 +515,7 @@ footer {
     padding-left: 20px;
   }
 
-  .post-comment-form-text, .post-comment-form-field, .post-image-form, .post-comment-form, .search-top-box, .search-bottom-box, .contact-field-text, .contact-field, .edit-profile-image-box, .edit-profile-contents-box, .comment-favorite-user, .back-image-box {
+  .post-comment-form-text, .post-comment-form-field, .post-image-form, .post-comment-form, .search-top-box, .search-bottom-box, .contact-field-text, .contact-field, .edit-profile-image-box, .edit-profile-contents-box, .comment-favorite-user, .back-image-box, .favorite-user, .comment-user {
     width: 100%;
   }
 
@@ -792,7 +792,7 @@ footer {
     margin: 15px auto;
   }
 
-  #post-form-box, .form-comment-box,  #following-user-box, #follower-user-box, #contact-form-box, #comment-favorite-user-box {
+  #post-form-box, .form-comment-box,  #following-user-box, #follower-user-box, #contact-form-box, #comment-favorite-user-box, #comment-user-box, #favorite-user-box {
     padding: 30px 30px;
     position: fixed;
     top: 0;
