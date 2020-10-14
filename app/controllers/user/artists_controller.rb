@@ -6,6 +6,11 @@ class User::ArtistsController < ApplicationController
 	#アクションの前にログインユーザーか確認
 	before_action :ensure_correct_user, only: [:destroy]
 
+	def index
+		@artist = Artist.find(params[:artist_id])
+		@artists = Artist.where("like_artist LIKE?", "%#{@artist.like_artist}%")
+	end
+
 	def create
 		@user = User.find(params[:user_id])
 		artist = @user.artists.new(artist_params)

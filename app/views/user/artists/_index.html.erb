@@ -1,7 +1,11 @@
 <!-- アーティスト一覧 -->
 <% artists.each do |artist| %>
 	<span class="profile-contents-artist-text">
-		・<%= artist.like_artist %>
+
+		<!-- 好きなアーティストが同じユーザーへ -->
+		<%= link_to user_user_artists_path(User.all, artist_id: artist.id), class: 'link-style link-color' do %>
+			・<%= artist.like_artist %>
+		<% end %>
 
 		<% if artist.user == current_user %>
 			<%= link_to user_user_artist_path(user, artist), method: :delete, remote: true do %>

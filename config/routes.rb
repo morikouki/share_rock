@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update] do
       get 'confirm' => 'users#confirm'
       patch '/withdraw' => 'users#withdraw'
-      resources :artists, only: [:create, :destroy]
+      resources :artists, only: [:index, :create, :destroy]
       resource :relationships, only: [:create, :destroy]
       resources :contacts, only: [:create]
       resources :chats, only: [:show, :create]

@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.artist-index-box, .artist-index-user {
+  width: 100%;
+  margin: 0 auto;
+}
+
 #artist-box {
   padding: 30px 30px;
   position: fixed;
