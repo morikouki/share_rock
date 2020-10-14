@@ -1,0 +1,10 @@
+<!-- 投稿に対するコメントフォーム -->
+<!-- 閉じるボタン -->
+<i class="fas fa-times-circle cursor" id="comment-form-close-btn" style="font-size: 25px;"></i>
+<div class="comment-form text-center">
+	<%= form_with model:[event, post, comment], url:user_event_post_post_comments_path(event, post), remote: true, class:'form-comment' do |f| %>
+		<%= f.label :comment, 'コメント' %>
+		<%= f.submit '送信' %><br>
+		<%= f.text_area :comment, class: 'comment-form-field', size:'70x6', :placeholder => "＊必須" %>
+	<% end %>
+</div>
