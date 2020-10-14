@@ -4,10 +4,13 @@
 		<h2>「<%= @artist.like_artist %>」を好きなユーザー</h2>
 		<% @artists.each do |artist| %>
 			<div class="artist-index-user">
+
 				<% if artist.user == current_user %>
-					<div style="border: solid 1px #6d89c2;">
-						<%= attachment_image_tag artist.user, :profile_image, fallback: 'Share.jpg', size: '50x50', class: 'profile-image' %>
-						<span class="follower-name">自分</span>
+					<div style="display: none;">
+						<%= link_to user_user_path(artist.user), class: 'link-style link-color' do %>
+							<%= attachment_image_tag artist.user, :profile_image, fallback: 'Share.jpg', size: '50x50', class: 'profile-image' %>
+							<span class="follower-name"><%= artist.user.nickname %></span>
+						<% end %>
 					</div>
 				<% else %>
 					<%= link_to user_user_path(artist.user), class: 'link-style link-color' do %>
