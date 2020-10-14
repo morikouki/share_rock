@@ -91,7 +91,9 @@
 			<h4 class="profile-contents-text">
 				<i class="fas fa-microphone-alt like-atrits-text">　好きなアーティスト</i>
 			</h4>
-			<div class="artist-<%= @user.id %>">
+
+			<!--アーティスト一覧-->
+			<div class="artist-<%= @user.id %> artist-index-box">
 				<%= render 'user/artists/index', artists: @user.artists, user: @user %>
 			</div>
 		</div>
