@@ -3,7 +3,7 @@
 	<div class="artist-index-box">
 		<h2>「<%= @artist.like_artist %>」を好きなユーザー</h2>
 
-		<% if @artist.count == 0 %>
+		<% if @artists.count == 0 %>
 			<span style="margin-left: 30px;">ユーザーがいませんでした。</span>
 		<% else %>
 			<% @artists.each do |artist| %>
