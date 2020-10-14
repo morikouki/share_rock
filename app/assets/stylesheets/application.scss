@@ -85,7 +85,7 @@ h2 {
   padding: 20px;
 }
 
-#humbureger-close-btn, .contents-btn {
+#humbureger-close-btn, .contents-btn, .ranking-btn {
   font-size: 20px;
 }
 
@@ -507,6 +507,7 @@ footer {
   background-position: center;
 }
 
+
 //ーーーレスポンシブーーー
 @media screen and (max-width:768px) {
 
@@ -614,6 +615,10 @@ footer {
 
   .registration-form-text, #calendar-btn, .edit-profile-form-text, .confirm-text-box, .following-name, .follower-name {
     font-size: 5px;
+  }
+
+  .ranking-btn {
+    font-size: 10px;
   }
 
   .contents-btn {
