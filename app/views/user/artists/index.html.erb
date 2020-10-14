@@ -5,6 +5,7 @@
 		<% @artists.each do |artist| %>
 			<div class="artist-index-user">
 
+				<!-- ログインユーザー非表示 -->
 				<% if artist.user == current_user %>
 					<div style="display: none;">
 						<%= link_to user_user_path(artist.user), class: 'link-style link-color' do %>
