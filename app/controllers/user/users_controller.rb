@@ -35,6 +35,8 @@ class User::UsersController < ApplicationController
 	#ユーザーの退会処理
 	def withdraw
 		@user = current_user
+
+		#is_deletedカラムをtrueに更新（デフォルトはfalseで会員）
 		if @user.update(is_deleted: true)
 			reset_session
 			redirect_to root_path, notice: "ありがとうございました。またのご利用をお待ちしております。"
