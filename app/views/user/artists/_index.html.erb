@@ -2,15 +2,16 @@
 <% artists.each do |artist| %>
 	<span class="profile-contents-artist-text">
 
-		<!-- 好きなアーティストが同じユーザーへ -->
-		<%= link_to user_user_artists_path(User.all, artist_id: artist.id), class: 'link-style link-color' do %>
-			・<%= artist.like_artist %>
-		<% end %>
-
+		<!-- 好きなアーティストが同じユーザー一覧へ -->
 		<% if artist.user == current_user %>
+			<%= link_to user_user_artists_path(User.all, artist_id: artist.id), class: 'link-style link-color' do %>
+				・<%= artist.like_artist %>
+			<% end %>
 			<%= link_to user_user_artist_path(user, artist), method: :delete, remote: true do %>
 				<i class="fas fa-times-circle"></i>
 			<% end %>
+		<% else %>
+			・<%= artist.like_artist %>
 		<% end %>
 	</span>
 <% end %>
