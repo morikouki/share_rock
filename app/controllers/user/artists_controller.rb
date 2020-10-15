@@ -8,7 +8,12 @@ class User::ArtistsController < ApplicationController
 
 	def index
 		@artist = Artist.find(params[:artist_id])
-		@artists = Artist.where("like_artist LIKE?", "%#{@artist.like_artist}%")
+
+		#ログインユーザー以外を取得
+		artists = Artist.all.where.not(user_id: current_user)
+
+		#好きなアーティストが同じユーザーを探す
+		@artists = artists.where("like_artist LIKE?", "%#{@artist.like_artist}%")
 	end
 
 	def create
