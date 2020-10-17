@@ -45,6 +45,7 @@ class User::PostsController < ApplicationController
 		tag_list = params[:post][:name].split(nil)
 		post = current_user.posts.new(post_params)
 		post.event_id = event.id
+		post.score = Language.get_data(post_params[:post_text])
 
 		#画像が投稿されている時の処理
 		if params[:post_images] != nil
