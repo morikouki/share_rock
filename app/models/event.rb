@@ -5,6 +5,7 @@ class Event < ApplicationRecord
 	has_many :posts, dependent: :destroy
 	has_many :post_comments, dependent: :destroy
 	has_many :replay_comments, dependent: :destroy
+	has_many :vision_tags, dependent: :destroy
 
 	validates :prefecture_code, presence: true
 	validates :city, presence: true

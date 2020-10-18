@@ -11,6 +11,10 @@ class EventsController < ApplicationController
 	def create
 		@event = Event.new(event_params)
 		if @event.save
+			tags = Vision.get_image_data(list.image)    
+    		tags.each do |tag|
+      			list.tags.create(name: tag)
+    		end
 			redirect_to events_path
 		else
 			flash[:error] = 'イベントを登録できませんでした。全ての項目を入力してください。'

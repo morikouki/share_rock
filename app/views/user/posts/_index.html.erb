@@ -39,7 +39,7 @@
 			<div class="post-text-box">
 				<p class="post-title"><%= post.post_title %></p>
 				<p>　<%= post.post_text %></p>
-				<span class="sentiment-score">本文の感情分析スコア<%= post.score %></span>
+				<span style="font-size: 5px; color: red;">本文の感情分析スコア[<%= post.score %>]</span>
 				<p class="post-date"><%= post.created_at.strftime("%Y/%m/%d") %></p>
 				<%= link_to user_event_post_path(post.event, post) do %>
 					<i class="fas fa-arrow-circle-right post-next-icon"></i>
