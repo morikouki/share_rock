@@ -7,6 +7,9 @@
 		<div class="event-image-box">
 			<%= attachment_image_tag event, :image, size:'280x280' %>
 		</div>
+		<% event.vision_tags.each do |vision_tag| %>
+        	<span class="label"><%= vision_tag.name %></span>
+      	<% end %>
 		<div class="event-text-box">
 			<p class="event-address"><i class="fas fa-map-marker-alt icon"></i><%= event.prefecture_code %>　<%= event.city %></p>
 		    <p>　<%= event.explanation %></p>

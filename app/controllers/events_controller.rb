@@ -11,9 +11,9 @@ class EventsController < ApplicationController
 	def create
 		@event = Event.new(event_params)
 		if @event.save
-			tags = Vision.get_image_data(list.image)    
-    		tags.each do |tag|
-      			list.tags.create(name: tag)
+			vision_tags = Vision.get_image_data(@event.image)
+    		vision_tags.each do |vision_tag|
+      			@event.vision_tags.create(name: vision_tag)
     		end
 			redirect_to events_path
 		else
