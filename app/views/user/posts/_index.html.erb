@@ -39,7 +39,18 @@
 			<div class="post-text-box">
 				<p class="post-title"><%= post.post_title %></p>
 				<p>　<%= post.post_text %></p>
-				<span style="font-size: 5px; color: red;">本文の感情分析スコア[<%= post.score %>]</span>
+				<span style="font-size: 5px; color: #3e5c48;">本文の感情分析スコア
+					<% num = (post.score.to_f * 10).to_i %>
+					<% if num > 0 %>
+						<i style="color: red;" class="far fa-grin-squint"></i>
+					<% elsif num < 0 %>
+						<% num *= -1 %>
+						<i style="color: blue;" class="far fa-sad-tear"></i>
+					<% elsif num == 0 %>
+						<i class="far fa-meh"></i>
+					<% end %>
+				</span>
+
 				<p class="post-date"><%= post.created_at.strftime("%Y/%m/%d") %></p>
 				<%= link_to user_event_post_path(post.event, post) do %>
 					<i class="fas fa-arrow-circle-right post-next-icon"></i>
@@ -49,7 +60,7 @@
 
 		<!-- 投稿編集フォーム -->
 		<div class="edit-post-box-<%= post.id %> edit-post-box">
-			
+
 			<!-- 閉じるボタン -->
 			<i class="fas fa-times-circle cursor post-edit-form-close-btn-<%= post.id %>" style="font-size: 20px;"></i>
 			<%= link_to user_event_post_path(post.event, post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'link-color col-xs-offset-1' do %>

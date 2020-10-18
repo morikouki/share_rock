@@ -50,7 +50,27 @@
 		<%= link_to user_user_path(@post.user), class: 'link-style link-color' do %>
 			<strong><%= @post.user.nickname %></strong>
 		<% end %>
-		<span class="col-xs-offset-1"><%= @post.post_text %><span style="font-size: 5px; color: red; margin-left: 20px;">本文の感情分析スコア[<%= @post.score %>]</span></span>
+		<span class="col-xs-offset-1">
+			<%= @post.post_text %>
+			<span style="font-size: 5px; margin-left: 20px; color: #3e5c48;">本文の感情分析：
+				<% num = (@post.score.to_f * 10).to_i %>
+
+				<!-- 感情分析結果　プラスかマイナスで表示切り替え -->
+				<% if num > 0 %>
+					<% num.times do |n| %>
+						<i style="color: red;" class="far fa-grin-squint"></i>
+					<% end %>
+				<% elsif num < 0 %>
+					<% num *= -1 %>
+					<% num.times do |n| %>
+						<i style="color: blue;" class="far fa-sad-tear"></i>
+					<% end %>
+				<% elsif num == 0 %>
+					<i class="far fa-meh"></i>
+				<% end %>
+			</span>
+		</span>
+
 	</div>
 
 	<!-- コメント一覧 -->
