@@ -27,6 +27,10 @@
 
 			<!-- イベントの公式サイトへのリンク -->
 			<%= link_to("公式サイト", "#{@event.official_link}", class: 'link-style') %>
+
+			<% @event.vision_tags.each do |vision_tag| %>
+        		<span class="label"><%= vision_tag.name %></span>
+      		<% end %>
 		</div>
 		<div class="event-show-text-box">
 			<div class="event-show-explanation col-xs-offset-3"><%= @event.explanation %><br></div>

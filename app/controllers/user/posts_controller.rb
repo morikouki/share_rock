@@ -56,14 +56,6 @@ class User::PostsController < ApplicationController
 				params[:post_images][:image].each do |image|
 	            	post.post_images.create(image: image, post_id: post.id)
 	        	end
-
-	        	post.post_images.each do |image|
-		        	vision_tags = Vision.get_image_data(image.image)
-	    			vision_tags.each do |vision_tag|
-	      				image.vision_tags.create(name: vision_tag)
-	    			end
-	    		end
-	    		
 				redirect_to user_event_path(event)
 			else
 				#タイトルとコメントがない時の処理

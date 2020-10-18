@@ -167,7 +167,6 @@ ActiveRecord::Schema.define(version: 2020_10_18_065654) do
 
   create_table "vision_tags", force: :cascade do |t|
     t.integer "event_id"
-    t.integer "profile_image_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
