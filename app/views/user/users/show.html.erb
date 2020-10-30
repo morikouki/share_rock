@@ -1,3 +1,6 @@
+<% if @user != current_user %>
+	<%= render 'user/users/profile' %>
+<% end %>
 <!-- フォロワー・フォロー中ユーザー　一覧 -->
 <%= render 'user/relationships/follower', user: @user %>
 <%= render 'user/relationships/following', user: @user %>

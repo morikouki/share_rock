@@ -3,37 +3,37 @@
 
 	<!-- タグからのリンクか確認 -->
 	<% if @tag == nil %>
-		<% if params[:ranking] == "1" %>
+		<% if params[:ranking] == "favorite" %>
 			<h2>いいね数ランキング（上位10）</h2>
-		<% elsif params[:ranking] == "0" %>
+		<% elsif params[:ranking] == "comment" %>
 			<h2>コメント数ランキング（上位10）</h2>
-		<% elsif params[:date] == "0" %>
+		<% elsif params[:date] == "new" %>
 			<h2>新しい順</h2>
-		<% elsif params[:date] == "1" %>
+		<% elsif params[:date] == "old" %>
 			<h2>古い順</h2>
-		<% elsif params[:following_post] == "0" %>
+		<% elsif params[:following_post] == "following" %>
 			<h2>フォロー中ユーザーの投稿</h2>
 		<% end %>
 
 		<div class="event-ranking-text-box">
 
 			<!-- いいねの多い投稿 -->
-			<%= link_to user_event_posts_path(@events, :ranking => 1), class: 'link-style link-color' do %>
+			<%= link_to user_event_posts_path(@events, :ranking => 'favorite'), class: 'link-style link-color' do %>
 				<span class="event-ranking-text cursor btn-vertical-border contents-btn">いいねの多い投稿を見る</span>
 			<% end %>
 
 			<!-- コメントの多い投稿 -->
-			<%= link_to user_event_posts_path(@events, :ranking => 0), class: 'link-style link-color' do %>
+			<%= link_to user_event_posts_path(@events, :ranking => 'comment'), class: 'link-style link-color' do %>
 				<span class="event-ranking-text cursor btn-vertical-border contents-btn">コメントの多い投稿を見る</span>
 			<% end %>
 
 			<!-- 投稿新しい順 -->
-			<%= link_to user_event_posts_path(@events, :date => 0), class: 'link-style link-color' do %>
+			<%= link_to user_event_posts_path(@events, :date => 'new'), class: 'link-style link-color' do %>
 				<span class="event-ranking-text cursor btn-vertical-border contents-btn">新しい投稿順</span>
 			<% end %>
 
 			<!-- 投稿古い順 -->
-			<%= link_to user_event_posts_path(@events, :date => 1), class: 'link-style link-color' do %>
+			<%= link_to user_event_posts_path(@events, :date => 'old'), class: 'link-style link-color' do %>
 				<span class="event-ranking-text cursor btn-vertical-border contents-btn">古い投稿順</span>
 			<% end %>
 		</div>
@@ -45,16 +45,16 @@
 			<!-- 閉じるボタン -->
 			<i class="fas fa-times-circle cursor" id="event-ranking-close-btn"></i>
 			<div class="text-center">
-				<%= link_to user_event_posts_path(@events, :ranking => 1), class: 'link-style link-color' do %>
+				<%= link_to user_event_posts_path(@events, :ranking => 'favorite'), class: 'link-style link-color' do %>
 					<span class="event-ranking-text cursor btn-vertical-border contents-btn">いいねの多い投稿を見る</span>
 				<% end %>
-				<%= link_to user_event_posts_path(@events, :ranking => 0), class: 'link-style link-color' do %>
+				<%= link_to user_event_posts_path(@events, :ranking => 'comment'), class: 'link-style link-color' do %>
 					<span class="event-ranking-text cursor btn-vertical-border contents-btn">コメントの多い投稿を見る</span>
 				<% end %>
-				<%= link_to user_event_posts_path(@events, :date => 0), class: 'link-style link-color' do %>
+				<%= link_to user_event_posts_path(@events, :date => 'new'), class: 'link-style link-color' do %>
 					<span class="event-ranking-text cursor btn-vertical-border contents-btn">新しい投稿順</span>
 				<% end %>
-				<%= link_to user_event_posts_path(@events, :date => 1), class: 'link-style link-color' do %>
+				<%= link_to user_event_posts_path(@events, :date => 'old'), class: 'link-style link-color' do %>
 					<span class="event-ranking-text cursor btn-vertical-border contents-btn">古い投稿順</span>
 				<% end %>
 			</div>
@@ -71,7 +71,7 @@
 	<!-- カミナリ　ページネーション -->
 	<% if @tag != nil %>
 		<%= paginate @posts %>
-	<% elsif params[:following_post] == "0" %>
+	<% elsif params[:following_post] == "following" %>
 		<%= paginate @posts %>
 	<% end %>
 </div>

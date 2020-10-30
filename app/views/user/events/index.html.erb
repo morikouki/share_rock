@@ -10,7 +10,7 @@
 			</span>
 
 			<!-- いいねランキングリンク -->
-			<%= link_to user_event_posts_path(@events, :ranking => 1), class: 'link-style' do %>
+			<%= link_to user_event_posts_path(@events, :ranking => 'favorite'), class: 'link-style' do %>
 				<span class="cursor col-xs-offset-1 btn-vertical-border ranking-btn">いいねの多い投稿を見る</span>
 			<% end %>
 		</div>
