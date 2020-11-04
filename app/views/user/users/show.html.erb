@@ -25,14 +25,14 @@
 		<%= attachment_image_tag @user, :profile_image, fallback: 'Share.jpg', class: 'show-image' %>
 
 		<!-- ログインユーザーじゃない時フォローボタン・チャットボタン表示 -->
-		
+		<% if @user == current_user %>
 			<span id="artist-btn" class="my-page-text-btn btn-vertical-border cursor">
 				<i class="fas fa-microphone-alt icon"></i><span class="my-page-text-close-text">好きな</span>アーティストを登録<span class="my-page-text-">する</span>
 			</span>
 			<%= link_to edit_user_user_path(@user), class: 'link-color link-group' do %>
 				<span class="btn-vertical-border my-page-text-btn"><span class="my-page-text-close-text">プロフィール</span>編集</span>
 			<% end %>
-		
+		<% else %>
 			<% if current_user.following?(@user) %>
 				<%= link_to user_user_relationships_path(@user), method: :delete, class: 'link-style link-color link-group follow-delete-btn' do %>
 					フォロー外す
@@ -47,7 +47,7 @@
 	  				<i class="far fa-comments"></i>チャット
 	  			<% end %>
 	  		</span>
-		
+		<% end %>
 	</div>
 
 	<!-- アーティスト登録フォーム -->
