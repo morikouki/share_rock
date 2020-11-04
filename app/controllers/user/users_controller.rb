@@ -4,8 +4,7 @@ class User::UsersController < ApplicationController
 	before_action :authenticate_user!
 
 	#アクションの前にログインユーザーか確認
-	before_action :ensure_correct_user, only: [:edit, :update]
-
+	
 	def show
 		@user = User.find(params[:id])
 		@artist_new = Artist.new
