@@ -15,23 +15,23 @@ class User::PostsController < ApplicationController
 			@posts = @tag.posts.page(params[:page]).per(6)
 
 		#コメント数の多い投稿を上位10取得
-		elsif params[:ranking] == "comment"
+		elsif params[:sort] == "comment"
 			  @posts = Post.find(PostComment.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
 
 		#いいね数の多い投稿を上位10取得
-		elsif params[:ranking] == 'favorite'
+		elsif params[:sort] == 'favorite'
 			@posts = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
 
 		#投稿を新しい順に並び替え
-		elsif params[:date] == "new"
+		elsif params[:sort] == "new"
 			@posts = Post.all.order(created_at: :desc)
 
 		#投稿を古い順に並び替え
-		elsif params[:date] == "old"
+		elsif params[:sort] == "old"
 			@posts = Post.all.order(created_at: :asc)
 
 		#フォロー中のユーザーの投稿取得
-		elsif params[:following_post] == "following"
+		elsif params[:sort] == "following"
 			@posts = Post.all
 			@user = current_user.following_user
 			@posts = @posts.where(user_id: @user.ids).order(created_at: :desc).page(params[:page]).per(6)
