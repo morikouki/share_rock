@@ -390,13 +390,13 @@ $(function() {
 		$(function(){
 		 	//8地方でリンク作成
 	    	var areaLinks = {
-				1:"/user/hokkaido",
-				2:"/user/tohoku",
-				3:"/user/kanto",
-				4:"/user/chubu",
-				5:"/user/kinki",
-				6:"/user/chugoku_shikoku",
-				7:"/user/kyusyu_okinawa",
+				1:"/user/index?sort=hokkaido",
+				2:"/user/index?sort=tohoku",
+				3:"/user/index?sort=kanto",
+				4:"/user/index?sort=chubu",
+				5:"/user/index?sort=kinki",
+				6:"/user/index?sort=chugoku_shikoku",
+				7:"/user/index?sort=kyusyu_okinawa",
 		    };
 
 		    //8地方エリア指定
