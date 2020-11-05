@@ -36,7 +36,8 @@ class User::SearchController < ApplicationController
 			@events = Event.where(prefecture_code: ["福岡県", "佐賀県", "岡山県", "宮崎県", "熊本県", "長崎県", "鹿児島県", "沖縄"])
 			@events = @events.page(params[:page]).per(6).order("id DESC")
 
-		else　#キーワード検索でイベント取得
+		#キーワード検索でイベント取得
+		else
 			@search = Event.ransack(params[:q])
 			@events = @search.result(distinct: true).page(params[:page]).per(6).order("id DESC")
 		end
