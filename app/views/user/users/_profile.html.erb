@@ -11,7 +11,7 @@
 	<span class="cursor following-user-btn">フォロー中：<%= current_user.following.count %></span>
 
 	<!-- フォロー中ユーザー投稿一覧画面へ -->
-	<%= link_to user_event_posts_path(Event.all, :following_post => 'following'), class: 'link-style link-color' do %>
+	<%= link_to user_posts_path(:following_post => 'following'), class: 'link-style link-color' do %>
 		<span class="cursor follow-post-btn"><i class="fas fa-users"></i></span>
 	<% end %>
 </div>

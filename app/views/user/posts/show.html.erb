@@ -91,7 +91,7 @@
 		<h2 class="col-xs-offset-2">タグ</h2>
 		<% @tags.each do |tag| %>
 			<div class="tag-text-box text-center">
-				<%= link_to user_event_posts_path(tag_id: tag.id), class: 'link-style link-color' do  %>
+				<%= link_to user_posts_path(tag_id: tag.id), class: 'link-style link-color' do  %>
 					<%= tag.name %>
 					<span style="font-size: 15px;">（<%= tag.posts.count %>）</span>
 				<% end %>

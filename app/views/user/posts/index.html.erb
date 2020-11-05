@@ -18,22 +18,22 @@
 		<div class="event-ranking-text-box">
 
 			<!-- いいねの多い投稿 -->
-			<%= link_to user_event_posts_path(@events, :ranking => 'favorite'), class: 'link-style link-color' do %>
+			<%= link_to user_posts_path(:ranking => 'favorite'), class: 'link-style link-color' do %>
 				<span class="event-ranking-text cursor btn-vertical-border contents-btn">いいねの多い投稿を見る</span>
 			<% end %>
 
 			<!-- コメントの多い投稿 -->
-			<%= link_to user_event_posts_path(@events, :ranking => 'comment'), class: 'link-style link-color' do %>
+			<%= link_to user_posts_path(:ranking => 'comment'), class: 'link-style link-color' do %>
 				<span class="event-ranking-text cursor btn-vertical-border contents-btn">コメントの多い投稿を見る</span>
 			<% end %>
 
 			<!-- 投稿新しい順 -->
-			<%= link_to user_event_posts_path(@events, :date => 'new'), class: 'link-style link-color' do %>
+			<%= link_to user_posts_path(:date => 'new'), class: 'link-style link-color' do %>
 				<span class="event-ranking-text cursor btn-vertical-border contents-btn">新しい投稿順</span>
 			<% end %>
 
 			<!-- 投稿古い順 -->
-			<%= link_to user_event_posts_path(@events, :date => 'old'), class: 'link-style link-color' do %>
+			<%= link_to user_posts_path(:date => 'old'), class: 'link-style link-color' do %>
 				<span class="event-ranking-text cursor btn-vertical-border contents-btn">古い投稿順</span>
 			<% end %>
 		</div>
@@ -45,16 +45,16 @@
 			<!-- 閉じるボタン -->
 			<i class="fas fa-times-circle cursor" id="event-ranking-close-btn"></i>
 			<div class="text-center">
-				<%= link_to user_event_posts_path(@events, :ranking => 'favorite'), class: 'link-style link-color' do %>
+				<%= link_to user_posts_path(:ranking => 'favorite'), class: 'link-style link-color' do %>
 					<span class="event-ranking-text cursor btn-vertical-border contents-btn">いいねの多い投稿を見る</span>
 				<% end %>
-				<%= link_to user_event_posts_path(@events, :ranking => 'comment'), class: 'link-style link-color' do %>
+				<%= link_to user_posts_path(:ranking => 'comment'), class: 'link-style link-color' do %>
 					<span class="event-ranking-text cursor btn-vertical-border contents-btn">コメントの多い投稿を見る</span>
 				<% end %>
-				<%= link_to user_event_posts_path(@events, :date => 'new'), class: 'link-style link-color' do %>
+				<%= link_to user_posts_path(:date => 'new'), class: 'link-style link-color' do %>
 					<span class="event-ranking-text cursor btn-vertical-border contents-btn">新しい投稿順</span>
 				<% end %>
-				<%= link_to user_event_posts_path(@events, :date => 'old'), class: 'link-style link-color' do %>
+				<%= link_to user_posts_path(:date => 'old'), class: 'link-style link-color' do %>
 					<span class="event-ranking-text cursor btn-vertical-border contents-btn">古い投稿順</span>
 				<% end %>
 			</div>

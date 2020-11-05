@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   #会員側
   namespace :user do
   	resources :events, only: [:index, :show] do
-  	  resources :posts, only: [:index, :show, :create, :update, :destroy] do
+  	  resources :posts, only: [:show, :create, :update, :destroy] do
         resource :favorites, only: [:create, :destroy]
         resources :post_comments, only: [:create, :update, :destroy] do
           resource :comment_favorites, only: [:create, :destroy]
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
         end
       end
     end
+    resources :posts, only: [:index]
     resources :users, only: [:show, :edit, :update] do
       get 'confirm' => 'users#confirm'
       patch '/withdraw' => 'users#withdraw'
@@ -43,6 +44,7 @@ Rails.application.routes.draw do
     get 'chugoku_shikoku' => 'search#chugoku_shikoku'
     get 'kyusyu_okinawa' => 'search#kyusyu_okinawa'
   end
+
 
   #管理者側
   resources :events, only: [:index, :edit, :create, :update, :destroy]
